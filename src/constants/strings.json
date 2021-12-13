@@ -1,0 +1,14 @@
+{
+  "home": {
+    "head": {
+      "title": "website | Homepage",
+      "description": "baba homepage",
+      "keywords": "shaboeb shabahalla"
+    },
+    "greet": {
+      "heading": "Hello there.",
+      "subHeading": "Are you down for some cool shit?"
+
+    }
+  }
+}
