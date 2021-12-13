@@ -1,5 +1,5 @@
 //react
-import { LegacyRef, useEffect } from "react";
+import { LegacyRef } from "react";
 //utils
 import useElementIntersection from "../../../utils/intersectionObserver";
 //style
@@ -10,22 +10,25 @@ import measurements from "../../../constants/measurements.json";
 type props = {
   children?: never[] | JSX.Element[] | JSX.Element;
   bgColor?: never | string;
-  top?: never | boolean;
+  height?: never | string | number;
 };
 
-function createRootMargin() {
+function createRootMargin(): string {
   // convert rem to pixels
   const remH = measurements.headerBar.height;
   const h = parseInt(remH.slice(remH.length - 4, remH.length - 1)) * 16;
   return `${h}px 0px 0px 0px`;
 }
 
-function createThresholdArr() {
+function createThresholdArr(): number[] {
   // array = [0.00, 0.01, ..., 0.99, 1.00]
   return Array.from(Array(100).keys(), (i) => i / 100);
 }
 
-function addAnimation(children: JSX.Element | JSX.Element[], ratio: any) {
+function addAnimation(
+  children: JSX.Element | JSX.Element[],
+  ratio: any
+): JSX.Element | JSX.Element[] {
   return Array.isArray(children) ? (
     children?.map((child, i) => {
       let direction = i === 0 ? "left" : i === 1 ? "right" : "bottom";
@@ -42,7 +45,7 @@ function addAnimation(children: JSX.Element | JSX.Element[], ratio: any) {
   );
 }
 
-const ContentRow = ({ children, bgColor, top }: props) => {
+const ContentRow = ({ children, bgColor, height }: props): JSX.Element => {
   const intObsvOptions = {
     root: null,
     rootMargin: createRootMargin(),
@@ -53,7 +56,7 @@ const ContentRow = ({ children, bgColor, top }: props) => {
 
   return (
     <div ref={elRef as LegacyRef<HTMLDivElement>}>
-      <StContentRow top={top} bgColor={bgColor}>
+      <StContentRow height={height} bgColor={bgColor}>
         {children ? addAnimation(children, ratio) : null}
       </StContentRow>
     </div>

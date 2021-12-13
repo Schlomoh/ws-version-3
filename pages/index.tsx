@@ -19,13 +19,13 @@ const HomePage: NextPage = () => {
         keywords={headValues.keywords}
       />
       <main>
-      <ContentRow top bgColor="white">
+        <ContentRow height="full" bgColor="white">
           <>
             <h1>{text.greet.heading}</h1>
             <h3>{text.greet.subHeading}</h3>
           </>
         </ContentRow>
-        <ContentRow top bgColor="white">
+        <ContentRow bgColor="white">
           <>
             <h1>{text.greet.heading}</h1>
             <h3>{text.greet.subHeading}</h3>
@@ -35,7 +35,28 @@ const HomePage: NextPage = () => {
             <h3>{text.greet.subHeading}</h3>
           </>
         </ContentRow>
-       
+        <ContentRow bgColor="white">
+          <>
+            <h1>{text.greet.heading}</h1>
+            <h3>{text.greet.subHeading}</h3>
+          </>
+        </ContentRow>
+        <ContentRow bgColor="white">
+          <>
+            <h1>{text.greet.heading}</h1>
+            <h3>{text.greet.subHeading}</h3>
+          </>
+        </ContentRow>
+        <ContentRow bgColor="white">
+          <>
+            <h1>{text.greet.heading}</h1>
+            <h3>{text.greet.subHeading}</h3>
+          </>
+          <>
+            <h1>{text.greet.heading}</h1>
+            <h3>{text.greet.subHeading}</h3>
+          </>
+        </ContentRow>
       </main>
     </>
   );
