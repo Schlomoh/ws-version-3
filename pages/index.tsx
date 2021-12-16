@@ -52,9 +52,8 @@ const HomePage: NextPage = () => {
           </>
         </ContentRow>
         <ContentRow transition bgColor="white">
-       
-            <Picture src={img2} alt="" />
-       
+          <Picture src={img2} alt="" />
+
           <>
             <h3>{text.greet.subHeading}</h3>
             <p>

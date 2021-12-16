@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import measurements from "../../../constants/measurements.json";
+import { centerAlignRow } from "../../../styles/baseStyleComponents";
 
-export const StContentRow: any = styled.div`
+export const StContentRow: any = styled(centerAlignRow)`
   width: 100vw;
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   padding: 30px;
   overflow: hidden;
@@ -30,7 +28,18 @@ export const StContentRow: any = styled.div`
 export const AnchorElement = styled.div`
   height: 100%;
   width: 100%;
-  @media screen and (min-width: 620px) {
+  @media screen and (min-width: 620px) and (max-width: 960px) {
+    text-align: center;
+    max-width: 70vw;
+    padding: 0 30px;
+    img,
+    span {
+      max-height: 60vh !important;
+      min-height: 60vw !important;
+    }
+  }
+  @media screen and (min-width: 960px) {
+    text-align: center;
     max-width: calc(50vw - 60px);
     padding: 0 30px;
   }

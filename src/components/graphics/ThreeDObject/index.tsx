@@ -24,7 +24,7 @@ function Box(props: JSX.IntrinsicElements["mesh"]) {
 
 const TdCanvas = () => {
   return (
-    <Canvas style={{ height: "600px", width: "500px" }}>
+    <Canvas style={{ height: "600px", width: "100%" }}>
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <Box position={[-1.2, 0, 0]} />
