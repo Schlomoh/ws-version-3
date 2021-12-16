@@ -1,15 +1,18 @@
 import { NextPage } from "next";
-import Image from 'next/image'
 import { PageHead } from "../src/components/Head";
 
 // layout
 import ContentRow from "../src/components/layout/ContentRow";
-import { StPicture } from "../src/components/layout/Picture/picStyle";
 
 // values
 import values from "../src/constants/strings.json";
 
-import img from '../src/assets/img.jpg'
+import img1 from "../src/assets/img1.jpg";
+import img2 from "../src/assets/img2.jpg";
+import img3 from "../src/assets/img3.jpg";
+
+import Picture from "../src/components/graphics/Picture";
+import TdCanvas from "../src/components/graphics/ThreeDObject";
 
 const HomePage: NextPage = () => {
   const text = values.home;
@@ -29,35 +32,60 @@ const HomePage: NextPage = () => {
             <h3>{text.greet.subHeading}</h3>
           </>
         </ContentRow>
-        <ContentRow bgColor="white">
+        <ContentRow transition bgColor="white">
+          <TdCanvas />
+        </ContentRow>
+        <ContentRow transition bgColor="white">
           <>
-            <h1>{text.greet.heading}</h1>
             <h3>{text.greet.subHeading}</h3>
+            <p>
+              Schönes Bild mit schöne frau ist schön weil schöne frau schöne
+              ist. schön ist halt schön. schön.{" "}
+            </p>
           </>
           <>
-    <Image src={img} alt="" layout="fill"/>
+            <Picture src={img1} alt="" />
+            <p>
+              woooow, pretty picture of human. Big like. It beatiful like not
+              cold coffee
+            </p>
           </>
         </ContentRow>
-        <ContentRow bgColor="white">
+        <ContentRow transition bgColor="white">
+          <Tilty
+            onTiltChange={({ detail }: any) => {
+              console.log(detail.tiltX);
+              console.log(detail.tiltY);
+            }}
+          >
+            <Picture src={img2} alt="" />
+          </Tilty>
           <>
-            <h1>{text.greet.heading}</h1>
             <h3>{text.greet.subHeading}</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+              nobis culpa magnam non quas illo minus enim, eaque, repellat
+              aspernatur, optio tempore exercitationem maxime in dicta iure at
+              libero totam!
+            </p>
           </>
         </ContentRow>
-        <ContentRow bgColor="white">
+        <ContentRow transition>
           <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
+            <h2>New heading, new luck</h2>
+            <h3>esketit, sir.</h3>
           </>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
+            quis, vel velit sunt ratione soluta eius beatae quo, incidunt
+            perspiciatis debitis nobis, dolore consectetur iste distinctio ad
+            pariatur repudiandae? Porro!
+          </p>
         </ContentRow>
-        <ContentRow bgColor="white">
+        <ContentRow transition>
           <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
+            <h3>Joooo this just a pic</h3>
+            {/* <Picture src={img3}/> */}
           </>
         </ContentRow>
       </main>

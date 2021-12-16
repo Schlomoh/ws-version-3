@@ -1,6 +1,6 @@
 import '../src/styles/globals.css'
 import type { AppProps } from 'next/app'
-import Overlay from '../src/components/overlays'
+import Overlay from '../src/components/layout/overlays'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

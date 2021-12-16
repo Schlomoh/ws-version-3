@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import measurements from "../../constants/measurements.json";
-import { shadow } from "../../styles/baseStyleComponents";
+import measurements from "../../../constants/measurements.json";
+import { Shadow } from "../../../styles/baseStyleComponents";
 
-const StBar = styled(shadow)`
+const StBar = styled(Shadow)`
   top: 0;
   width: 100vw;
   height: ${measurements.headerBar.height};

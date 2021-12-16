@@ -9,6 +9,7 @@ export const StContentRow: any = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   padding: 30px;
+  overflow: hidden;
 
   // dynamic style
   background-color: ${(props: any) => props.bgColor};
@@ -19,19 +20,33 @@ export const StContentRow: any = styled.div`
       : props.height
       ? props.height.toString() + "px"
       : "unset"};
+  p,
+  a {
+    color: ${(props: any) =>
+      props.bgColor === "black" ? "lightgrey" : "grey"};
+  }
+`;
+
+export const AnchorElement = styled.div`
+  height: 100%;
+  width: 100%;
+  @media screen and (min-width: 620px) {
+    max-width: calc(50vw - 60px);
+    padding: 0 30px;
+  }
 `;
 
 export const Animation: any = styled.div.attrs((props: any) => {
-  const base = { opacity: props.ratio };
+  const base = { opacity: props.ratio * 2.5 - 1.5 };
   const movement = (unit: string, amount: number) =>
-    `-${
-      // using logarithmic function with base 2 (instead of e) for animation timing
-      (1 - Math.log(props.ratio * 1.2 + 1) / Math.log(2)) * amount
-      //height or width
-    }${unit}`;
+    // using logarithmic function with base 2 (instead of e) for animation timing
+    `-${(1.5 - props.ratio * 1.5) * amount}${unit}`;
+
   switch (props.from) {
     case "bottom":
-      return { style: { bottom: movement("vh", 25), ...base } };
+      return {
+        style: { bottom: movement("vh", 25), textAlign: "center", ...base },
+      };
     case "left":
       return { style: { left: movement("vw", 50), ...base } };
     case "right":
@@ -41,8 +56,6 @@ export const Animation: any = styled.div.attrs((props: any) => {
   position: relative;
   // max-width: 100vw;
   text-align: left;
-  @media screen and (min-width: 720px) {
-    max-width: calc(50vw - 60px);
-    padding: 0 30px;
-  }
+  overflow: hidden;
+  max-height: 90vh;
 `;
