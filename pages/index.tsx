@@ -52,14 +52,9 @@ const HomePage: NextPage = () => {
           </>
         </ContentRow>
         <ContentRow transition bgColor="white">
-          <Tilty
-            onTiltChange={({ detail }: any) => {
-              console.log(detail.tiltX);
-              console.log(detail.tiltY);
-            }}
-          >
+       
             <Picture src={img2} alt="" />
-          </Tilty>
+       
           <>
             <h3>{text.greet.subHeading}</h3>
             <p>
