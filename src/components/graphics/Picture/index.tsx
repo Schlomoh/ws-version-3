@@ -9,7 +9,7 @@ const Picture = ({
   alt?: undefined | string;
 }): JSX.Element => {
   return (
-    <Image priority layout="responsive" src={src} alt={alt} objectFit="cover" />
+    <Image priority layout="responsive" src={src} alt={alt} objectFit="contain" />
   );
 };
 

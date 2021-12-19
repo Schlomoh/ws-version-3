@@ -20,7 +20,7 @@ function createThresholdArr(): number[] {
 const Observed = ({ child, from }: { child: any; from: string }) => {
   const intObsvOptions = {
     root: null,
-    rootMargin: "50px 0px 120px 0px",
+    rootMargin: "50px 0px 50px 0px",
     threshold: createThresholdArr(),
   };
   const [elRef, isVisible, ratio] = useElementIntersection(intObsvOptions);

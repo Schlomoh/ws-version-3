@@ -9,6 +9,11 @@ export const StContentRow: any = styled(centerAlignRow)`
   padding: 30px;
   overflow: hidden;
 
+  @media screen and (max-height: 600px) {
+    max-height: 100vh;
+    overflow: unset;
+  }
+
   // dynamic style
   background-color: ${(props: any) => props.bgColor};
   color: ${(props: any) => (props.bgColor === "black" ? "white" : "unset")};
@@ -35,13 +40,28 @@ export const AnchorElement = styled.div`
     img,
     span {
       max-height: 60vh !important;
-      min-height: 60vw !important;
+      min-height: 60vh !important;
     }
-  }
-  @media screen and (min-width: 960px) {
+  };
+  @media screen and (min-width: 960px) and (min-height: 600px) {
     text-align: center;
     max-width: calc(50vw - 60px);
     padding: 0 30px;
+    img,
+    span {
+      max-height: 80vh !important;
+      min-height: 80vh !important;
+    }
+  }
+  @media  screen and (max-height: 600px) {
+    max-width: calc(50vw - 60px);
+    max-height: calc(100vh - 100px);
+    padding: 0 30px;
+    
+    img, span{
+      max-height: 100vh !important;
+      min-height: 100vh !important;
+    };
   }
 `;
 
@@ -66,5 +86,7 @@ export const Animation: any = styled.div.attrs((props: any) => {
   // max-width: 100vw;
   text-align: left;
   overflow: hidden;
-  max-height: 90vh;
+  @media screen and (min-height: 600px){
+    max-height: 90vh;
+  }
 `;

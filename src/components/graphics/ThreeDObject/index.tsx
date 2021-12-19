@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 function Box(props: JSX.IntrinsicElements["mesh"]) {
   const ref = useRef<THREE.Mesh>(null!);
@@ -24,8 +25,9 @@ function Box(props: JSX.IntrinsicElements["mesh"]) {
 
 const TdCanvas = () => {
   return (
-    <Canvas style={{ height: "600px", width: "100%" }}>
+    <Canvas style={{ height: "50vh", width: "100%" }}>
       <ambientLight />
+      <OrbitControls enableZoom={false} />
       <pointLight position={[10, 10, 10]} />
       <Box position={[-1.2, 0, 0]} />
       <Box position={[1.2, 0, 0]} />
