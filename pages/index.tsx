@@ -1,68 +1,58 @@
-import { NextPage } from "next";
-import Image from 'next/image'
-import { PageHead } from "../src/components/Head";
+import ContentElement from "../src/components/layout/contentElement";
+import ScrollContainer from "../src/components/layout/scrollContainer";
+import ScrollElement from "../src/components/layout/scrollElement";
+import contentData from "../src/content/content.json";
 
-// layout
-import ContentRow from "../src/components/layout/ContentRow";
-import { StPicture } from "../src/components/layout/Picture/picStyle";
+import img1 from "../src/assets/boy.png";
+import img2 from "../src/assets/pencil.png";
+import img3 from "../src/assets/link.png";
+import img4 from "../src/assets/chat.png";
+import Image from "next/image";
 
-// values
-import values from "../src/constants/strings.json";
+const Home = () => {
+  function ScrollElements() {
+    const content = contentData.content;
+    const varyingBG = ["#111", "#222"];
+    const srcSet = [img1, img2, img3, img4];
 
-import img from '../src/assets/img.jpg'
+    const elements = content.map((section, i) => {
+      const bgIndex = (i + 1) % (content.length / 2);
+      const bg = varyingBG[0];
+      const img = srcSet[i] ? (
+        <Image
+          priority={i===0}
+          objectFit="cover"
+          src={srcSet[i]}
+          width="350px"
+          height="350px"
+          alt=""
+        />
+      ) : (
+        <></>
+      );
 
-const HomePage: NextPage = () => {
-  const text = values.home;
-  const headValues = text.head;
-
+      return (
+        <ScrollElement key={i} bg={bg}>
+          <ContentElement>
+            {img}
+            <h2>{section.title}</h2>
+            <>
+              {section.text.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </>
+          </ContentElement>
+        </ScrollElement>
+      );
+    });
+    return <> {elements} </>;
+  }
   return (
-    <>
-      <PageHead
-        title={headValues.title}
-        description={headValues.description}
-        keywords={headValues.keywords}
-      />
-      <main>
-        <ContentRow height="full" bgColor="white">
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-        </ContentRow>
-        <ContentRow bgColor="white">
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-          <>
-    <Image src={img} alt="" layout="fill"/>
-          </>
-        </ContentRow>
-        <ContentRow bgColor="white">
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-        </ContentRow>
-        <ContentRow bgColor="white">
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-        </ContentRow>
-        <ContentRow bgColor="white">
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-          <>
-            <h1>{text.greet.heading}</h1>
-            <h3>{text.greet.subHeading}</h3>
-          </>
-        </ContentRow>
-      </main>
-    </>
+    <ScrollContainer>
+      {/* <NarratorElement /> */}
+      <ScrollElements />
+    </ScrollContainer>
   );
 };
 
-export default HomePage;
+export default Home;

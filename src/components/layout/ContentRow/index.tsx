@@ -1,65 +1,63 @@
 //react
-import { LegacyRef } from "react";
+import { RefObject } from "react";
 //utils
 import useElementIntersection from "../../../utils/intersectionObserver";
 //style
-import { StContentRow, Animation } from "./crStyle";
-//data
-import measurements from "../../../constants/measurements.json";
+import { StContentRow, Animation, AnchorElement } from "./crStyle";
 
 type props = {
   children?: never[] | JSX.Element[] | JSX.Element;
   bgColor?: never | string;
   height?: never | string | number;
+  transition?: never | boolean;
 };
-
-function createRootMargin(): string {
-  // convert rem to pixels
-  const remH = measurements.headerBar.height;
-  const h = parseInt(remH.slice(remH.length - 4, remH.length - 1)) * 16;
-  return `${h}px 0px 0px 0px`;
-}
 
 function createThresholdArr(): number[] {
   // array = [0.00, 0.01, ..., 0.99, 1.00]
   return Array.from(Array(100).keys(), (i) => i / 100);
 }
 
-function addAnimation(
-  children: JSX.Element | JSX.Element[],
-  ratio: any
-): JSX.Element | JSX.Element[] {
-  return Array.isArray(children) ? (
-    children?.map((child, i) => {
-      let direction = i === 0 ? "left" : i === 1 ? "right" : "bottom";
-      return (
-        <Animation from={direction} key={i} ratio={ratio}>
-          {child}
-        </Animation>
-      );
-    })
-  ) : (
-    <Animation from="bottom" ratio={ratio}>
-      {children}
-    </Animation>
-  );
-}
-
-const ContentRow = ({ children, bgColor, height }: props): JSX.Element => {
+const Observed = ({ child, from }: { child: any; from: string }) => {
   const intObsvOptions = {
     root: null,
-    rootMargin: createRootMargin(),
+    rootMargin: "50px 0px 50px 0px",
     threshold: createThresholdArr(),
   };
-
   const [elRef, isVisible, ratio] = useElementIntersection(intObsvOptions);
+  return (
+    <AnchorElement ref={elRef as RefObject<HTMLDivElement>}>
+      <Animation from={from} ratio={ratio}>
+        {child}
+      </Animation>
+    </AnchorElement>
+  );
+};
+const ContentRow = ({ children, bgColor, height, transition }: props) => {
+  let rowContent;
+  // check for multiple children elements
+  if (Array.isArray(children)) {
+    // if multiple are found map them
+    rowContent = children?.map((child, i) => {
+      let direction = i === 0 ? "left" : i === 1 ? "right" : "bottom";
+      return transition ? (
+        <Observed from={direction} child={child} key={i} />
+      ) : (
+        <AnchorElement>{child}</AnchorElement>
+      );
+    });
+    // executes if only a single child element was found
+  } else {
+    rowContent = transition ? (
+      <Observed from="bottom" child={children} />
+    ) : (
+      <AnchorElement>{children}</AnchorElement>
+    );
+  }
 
   return (
-    <div ref={elRef as LegacyRef<HTMLDivElement>}>
-      <StContentRow height={height} bgColor={bgColor}>
-        {children ? addAnimation(children, ratio) : null}
-      </StContentRow>
-    </div>
+    <StContentRow height={height} bgColor={bgColor}>
+      {rowContent}
+    </StContentRow>
   );
 };
 
