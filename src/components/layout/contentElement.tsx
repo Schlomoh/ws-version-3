@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import useElementIntersection from "../utils/intersectionObserver";
 
-const StContentElement = styled.div`
+const StContentElement: any = styled.div`
   max-width: 500px;
   height: max-content;
   border-radius: 20px;
@@ -21,6 +22,13 @@ const StContentElement = styled.div`
   span {
     transform: translate(0, -100px);
   }
+
+  // animate
+  opacity: ${(props: any) => (props.vis ? 1 : 0)};
+  transform: ${(props: any) =>
+    props.vis ? "scale3d( 1, 1,1 )" : "scale3d(0.75, 0.75, 0.75);"};
+  transition: opacity ease-in-out 0.6s,
+    transform cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s;
 `;
 
 const ContentElement = ({
@@ -28,7 +36,24 @@ const ContentElement = ({
 }: {
   children: React.ReactChild | React.ReactChild[];
 }) => {
-  return <StContentElement>{children}</StContentElement>;
+  function createThresholdArr(): number[] {
+    // array = [0.00, 0.01, ..., 0.99, 1.00]
+    return Array.from(Array(100).keys(), (i) => i / 100);
+  }
+
+  const options = {
+    root: null,
+    rootMargin: "-200px",
+    threshold: createThresholdArr(),
+  };
+
+  const [ref, visible, ratio] = useElementIntersection(options);
+
+  return (
+    <StContentElement vis={visible} ref={ref}>
+      {children}
+    </StContentElement>
+  );
 };
 
 export default ContentElement;
