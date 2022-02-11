@@ -20,7 +20,7 @@ const Home = () => {
       const bg = varyingBG[0];
       const img = srcSet[i] ? (
         <Image
-          priority
+          priority={i===0}
           objectFit="cover"
           src={srcSet[i]}
           width="350px"
