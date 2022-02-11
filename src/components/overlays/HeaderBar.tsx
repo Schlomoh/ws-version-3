@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import measurements from "../../../constants/measurements.json";
+import measurements from "../../constants/measurements.json";
 import logo from "../../../assets/mb.svg";
 
 const StBar = styled.nav`
