@@ -15,9 +15,8 @@ const useElementIntersection = (options: optionInterface) => {
     const [i] = e;
     setVisibility(i.isIntersecting);
     setRatio(i.intersectionRatio);
-    // console.log(intersectRatio);
   };
-
+  
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, options);
     const el = elRef.current as unknown as Element;
