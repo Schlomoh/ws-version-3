@@ -2,19 +2,37 @@
   "content": [
     {
       "title": "About",
-      "text": ["Hi there, and welcome to my page!", "I'm Mo, a web Dev constantly trying out new stuff with the goal to improve on every project.", "Especially working with 3D web integration, tensorflow and the first steps into the world of web3, I focus on advancing my experience with a hands-on approach."]
+      "text": [
+        "Hi there, and welcome to my page!",
+        "I'm Mo, a web Dev constantly trying out new stuff with the goal to improve on every project.",
+        "Especially working with 3D web integration, tensorflow and the first steps into the world of web3, I focus on advancing my experience with a hands-on approach."
+      ]
     },
     {
       "title": "Work",
-      "text": ["Officia occaecat sint aute qui esse est qui culpa non aute exercitation deserunt incididunt laborum et veniam fugiat pariatur consectetur irure ipsum ea veniam do eiusmod cillum officia eu aute proident laboris consectetur sint nisi duis officia consectetur adipisicing veniam aliqua ullamco pariatur cillum excepteur esse q laborum."]
+      "text": [
+        "- Online shop for own brand \"Brighter. Clothing\"",
+        "- Basic gallery app using ionic framework",
+        "- Python instagram bot using selenium (inspired by instaPy)",
+        "- Webpage creation using CRA for private inquiry",
+        "- GLB to USDZ converter using docker. Integrated into django backend",
+        "- RnD - Remeshing / UV projection / normal map baking pipeline using pymeshlab / pymesh / blender",
+        "- Tesseract OCR for reformatting of scanned image documents into HTML",
+        "- Piqups - Webpage using tfjs models to provide pickup lines",
+        "For reference see \"Links\""
+      ]
     },
     {
       "title": "Links",
-      "text": ["Officia occaecat sint aute qui aute exercitation deserunt incididunt laborum et veniam fugiat pariatur consectetur irure ipsum ea veniam do eiusmod cillum officia eu aute proident laboris consectetur sint nisi duis officia consectetur adipisicing veniam aliqua ullamco pariatur cillum excepteur esse qui ullamco magna est laborum laboris et adipisicing dolore ut ullamco exercitation do culpa est sit."]
+      "text": [
+        "Officia occaecat sint aute qui aute exercitation deserunt incididunt laborum et veniam fugiat pariatur consectetur irure ipsum ea veniam do eiusmod cillum officia eu aute proident laboris consectetur sint nisi duis officia consectetur adipisicing veniam aliqua ullamco pariatur cillum excepteur esse qui ullamco magna est laborum laboris et adipisicing dolore ut ullamco exercitation do culpa est sit."
+      ]
     },
     {
       "title": "Contact",
-      "text": ["Cillum exercitation et aute labore et sunt labore ea occaecat exercitation excepteur excepteur ea laborum laborum nulla eu id aliquip culpa cillum enim officia qui qui aute labore adipisicing proident eu ullamco do quis dolore in esse non quis sit enim consectetur irure reprehenderit Lorem veniam duis deserunt ex et deserunt officia nostrud dolor qui pariatur commodo cillum velit amet qui incididunt id et deserunt."]
+      "text": [
+        "Cillum exercitation et aute labore et sunt labore ea occaecat exercitation excepteur excepteur ea laborum laborum nulla eu id aliquip culpa cillum enim officia qui qui aute labore adipisicing proident eu ullamco do quis dolore in esse non quis sit enim consectetur irure reprehenderit Lorem veniam duis deserunt ex et deserunt officia nostrud dolor qui pariatur commodo cillum velit amet qui incididunt id et deserunt."
+      ]
     }
   ]
 }
