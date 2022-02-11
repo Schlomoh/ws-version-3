@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import useElementIntersection from "../../utils/intersectionObserver";
+import useElementIntersection from "../utils/intersectionObserver";
 
 const StScrollElement: any = styled.div`
   background-color: ${(props: any) => props.background};

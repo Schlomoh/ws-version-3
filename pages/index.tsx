@@ -1,7 +1,7 @@
 import ContentElement from "../src/components/layout/contentElement";
 import ScrollContainer from "../src/components/layout/scrollContainer";
 import ScrollElement from "../src/components/layout/scrollElement";
-import contentData from "../src/content/content.json";
+import contentData from "../src/constants/content.json";
 
 import img1 from "../src/assets/boy.png";
 import img2 from "../src/assets/pencil.png";
