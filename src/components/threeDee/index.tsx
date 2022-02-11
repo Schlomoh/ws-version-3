@@ -3,10 +3,16 @@ import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
+/**
+ * The box composed of the geometry and the material
+ * @param props
+ * @returns
+ */
 function Box(props: JSX.IntrinsicElements["mesh"]) {
   const ref = useRef<THREE.Mesh>(null!);
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
+  // hook for updating on each frame
   useFrame(() => (ref.current.rotation.y += 0.01));
   return (
     <mesh
@@ -23,6 +29,10 @@ function Box(props: JSX.IntrinsicElements["mesh"]) {
   );
 }
 
+/**
+ * The three convas to be use as regular react component
+ * @returns Canvas
+ */
 const TdCanvas = () => {
   return (
     <Canvas style={{ height: "50vh", width: "100%" }}>

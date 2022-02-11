@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import useElementIntersection from "../utils/intersectionObserver";
 
+// style
 const StContentElement: any = styled.div`
   max-width: 500px;
   height: max-content;
@@ -31,16 +32,21 @@ const StContentElement: any = styled.div`
     transform cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s;
 `;
 
+/**
+ * The actual box that contains texts and image
+ */
 const ContentElement = ({
   children,
 }: {
   children: React.ReactChild | React.ReactChild[];
 }) => {
+  // to create a fluid ratio update for possible animating
   function createThresholdArr(): number[] {
     // array = [0.00, 0.01, ..., 0.99, 1.00]
     return Array.from(Array(100).keys(), (i) => i / 100);
   }
 
+  // trigger the 'visible' property a little later with margin
   const options = {
     root: null,
     rootMargin: "-200px",

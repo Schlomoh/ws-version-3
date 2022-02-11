@@ -1,13 +1,14 @@
+// components
+import Image from "next/image";
 import ContentElement from "../src/components/layout/contentElement";
 import ScrollContainer from "../src/components/layout/scrollContainer";
 import ScrollElement from "../src/components/layout/scrollElement";
+// content
 import contentData from "../src/constants/content.json";
-
 import img1 from "../src/assets/boy.png";
 import img2 from "../src/assets/pencil.png";
 import img3 from "../src/assets/link.png";
 import img4 from "../src/assets/chat.png";
-import Image from "next/image";
 
 const ScrollElements = () => {
   const content = contentData.content;
@@ -17,7 +18,7 @@ const ScrollElements = () => {
   const elements = content.map((section, i) => {
     const bgIndex = (i + 1) % (content.length / 2);
     const bg = varyingBG[0];
-    
+
     // image component
     const Img = () => (
       <Image
@@ -41,6 +42,7 @@ const ScrollElements = () => {
       );
     };
 
+    // all the content placed inside the scroll element
     return (
       <ScrollElement key={i} bg={bg}>
         <ContentElement>
@@ -51,6 +53,7 @@ const ScrollElements = () => {
       </ScrollElement>
     );
   });
+  // concatnation of 'ScrollElements' mapped from the content array
   return <> {elements} </>;
 };
 

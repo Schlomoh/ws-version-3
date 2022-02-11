@@ -12,7 +12,11 @@ const StScrollElement: any = styled.div`
   align-items: center;
   scroll-snap-align: center;
 `;
-
+/**
+ * The container housing everything concernig content
+ *
+ * Made as kind of background and container for the sideways scrolling
+ **/
 const ScrollElement = ({
   children,
   bg,
@@ -20,12 +24,7 @@ const ScrollElement = ({
   children: React.ReactChild | React.ReactChild[];
   bg: string;
 }) => {
-  
-  return (
-    <StScrollElement background={bg}>
-      {children}
-    </StScrollElement>
-  );
+  return <StScrollElement background={bg}>{children}</StScrollElement>;
 };
 
 export default ScrollElement;
