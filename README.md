@@ -5,7 +5,7 @@
   Very basic home page using next.js
   
   I used:
-  - styled-components (as always)
+  - styled-components (as always) (using SSR)
   - the intersection oberserve api
   - threejs ( not implemented anymore.. maybe sometime again)
   
