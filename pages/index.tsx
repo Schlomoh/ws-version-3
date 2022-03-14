@@ -1,67 +1,47 @@
-// components
-import Image from "next/image";
-import ContentElement from "../src/components/layout/contentElement";
-import ScrollContainer from "../src/components/layout/scrollContainer";
-import ScrollElement from "../src/components/layout/scrollElement";
-// content
-import contentData from "../src/constants/content.json";
-import img1 from "../src/assets/boy.png";
-import img2 from "../src/assets/pencil.png";
-import img3 from "../src/assets/link.png";
-import img4 from "../src/assets/chat.png";
+import BasePage from "../components/basePage";
 
-const ScrollElements = () => {
-  const content = contentData.content;
-  const varyingBG = ["#111", "#222"];
-  const srcSet = [img1, img2, img3, img4];
+const Top = () => (
+  <>
+    <h3>Some subtitles</h3>
+    <h1>Title blablabla</h1>;
+  </>
+);
 
-  const elements = content.map((section, i) => {
-    const bgIndex = (i + 1) % (content.length / 2);
-    const bg = varyingBG[0];
+const Bottom = () => (
+  <>
+    <h2>The main content of the page</h2>
+    <h4>The second subtitle</h4>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
+      sequi porro incidunt provident nesciunt voluptatem sunt corporis repellat
+      reiciendis odit, deserunt excepturi suscipit laboriosam ab inventore,
+      quidem autem blanditiis?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
+      sequi porro incidunt provident nesciunt voluptatem sunt corporis repellat
+      reiciendis odit, deserunt excepturi suscipit laboriosam ab inventore,
+      quidem autem blanditiis?
+    </p>
+    <h4>And more content</h4>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
+      sequi porro incidunt provident nesciunt voluptatem sunt corporis repellat
+      reiciendis odit, deserunt excepturi suscipit laboriosam ab inventore,
+      quidem autem blanditiis?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
+      sequi porro incidunt provident nesciunt voluptatem sunt corporis repellat
+      reiciendis odit, deserunt excepturi suscipit laboriosam ab inventore,
+      quidem autem blanditiis?
+    </p>
+  </>
+);
 
-    // image component
-    const Img = () => (
-      <Image
-        priority={i === 0}
-        objectFit="cover"
-        src={srcSet[i]}
-        width="350px"
-        height="350px"
-        alt=""
-      />
-    );
-
-    // content component
-    const Content = () => {
-      return (
-        <>
-          {section.text.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
-        </>
-      );
-    };
-
-    // all the content placed inside the scroll element
-    return (
-      <ScrollElement key={i} bg={bg}>
-        <ContentElement>
-          <Img />
-          <h2>{section.title}</h2>
-          <Content />
-        </ContentElement>
-      </ScrollElement>
-    );
-  });
-  // concatnation of 'ScrollElements' mapped from the content array
-  return <> {elements} </>;
-};
-
-const Home = () => {
+export const Home = () => {
   return (
-    <ScrollContainer>
-      <ScrollElements />
-    </ScrollContainer>
+    <BasePage title="Title blabl" subtitle="This is a subtitle blabala" Content={Bottom} />
   );
 };
 
