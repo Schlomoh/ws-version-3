@@ -1,15 +1,15 @@
 interface IPageRowProps {
   sticky?: boolean;
-  spacer?: number;
   image?: number;
-  height? : number;
+  height?: number;
+  collapseSpeed?: number;
 }
 
 interface ICenterPageContainerProps {
   noPadding?: boolean;
   padding?: string;
   menu?: boolean;
-  row? : boolean
+  row?: boolean;
 }
 
 interface IBasePageProps {
