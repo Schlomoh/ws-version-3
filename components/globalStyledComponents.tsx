@@ -15,6 +15,8 @@ const CenterColumn = styled(FlexCenterContainer)`
 
 const PaddingContainer = styled.div`
   padding: 30px;
+  width: 100%;
+  min-height: 260px;
 `;
 
 export { CenterColumn, CenterRow, PaddingContainer };

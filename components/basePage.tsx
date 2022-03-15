@@ -82,7 +82,8 @@ const PageTitle = styled.span`
 const MenuRow = (props: IBasePageProps) => {
   const { title, subtitle } = props;
 
-  const [showMenu, setShowMenu] = useState(false);
+  const [changeMenu, setchangeMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true); // show menu is true since the first useEffect call inverses it
   const [menuRowHeight, setHeight] = useState(0);
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -90,28 +91,37 @@ const MenuRow = (props: IBasePageProps) => {
 
   const toggleMenu = useCallback(
     function () {
-      setShowMenu(!showMenu);
+      setchangeMenu(!changeMenu);
     },
-    [showMenu]
+    [changeMenu]
   );
 
   useEffect(() => {
     setHeight(0);
     setTimeout(() => {
       if (contentRef.current) setHeight(contentRef.current.clientHeight);
+      setShowMenu((show) => !show);
     }, 500);
-    console.log(showMenu);
-  }, [showMenu]);
+  }, [changeMenu]);
+
+  const Menu = () => {
+    return <PaddingContainer></PaddingContainer>;
+  };
+  const TitleContent = () => {
+    return (
+      <PaddingContainer>
+        <PageTitle>
+          <h4>{subtitle}</h4>
+          <h1>{title.toUpperCase()}</h1>
+        </PageTitle>
+      </PaddingContainer>
+    );
+  };
 
   return (
     <PageRow sticky height={menuRowHeight} ref={containerRef}>
       <CenterPageContainer ref={contentRef} noPadding row>
-        <PaddingContainer>
-          <PageTitle>
-            <h4>{subtitle}</h4>
-            <h1>{title.toUpperCase()}</h1>
-          </PageTitle>
-        </PaddingContainer>
+        {showMenu ? <Menu /> : <TitleContent />}
         <div onClick={toggleMenu} className="menuButton">
           <h2>MENU</h2>
         </div>
