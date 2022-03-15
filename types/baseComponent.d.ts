@@ -2,6 +2,7 @@ interface IPageRowProps {
   sticky?: boolean;
   spacer?: number;
   image?: number;
+  height? : number;
 }
 
 interface ICenterPageContainerProps {

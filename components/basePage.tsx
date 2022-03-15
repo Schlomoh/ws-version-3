@@ -7,6 +7,13 @@ import {
 
 import background from "../assets/img/background.jpg";
 import Image from "next/image";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
 const border = `solid 1px grey`;
 
@@ -14,6 +21,7 @@ const CenterPageContainer = styled(CenterColumn)<ICenterPageContainerProps>`
   width: 100%;
   max-width: 500px;
   border-left: ${border};
+  height: max-content;
   padding: ${(props) =>
     props.noPadding ? "0" : props.padding ? props.padding : "30px"};
 
@@ -30,7 +38,8 @@ const CenterPageContainer = styled(CenterColumn)<ICenterPageContainerProps>`
     display: flex;
     border-left: ${border};
     border-right: ${border};
-    p {
+    cursor: pointer;
+    h2 {
       transform: rotate(90deg);
     }
   }
@@ -41,12 +50,24 @@ const PageRow = styled(CenterRow)<IPageRowProps>`
   background-color: rgb(30, 30, 30);
   color: white;
   max-height: ${(props) => (props.image ? `${props.image}px` : "unset")};
-  height: ${(props) => (props.spacer ? `${props.spacer}px` : "unset")};
+
+  /* height: ${(props) =>
+    props.spacer
+      ? `${props.spacer}px`
+      : props.height && props.height > 0
+      ? `${props.height}px`
+      : "unset"}; */
+
+  height: ${(props) => `${props.height}px`};
+
   border-bottom: ${(props) => (props.image ? "none" : border)};
+
   ${(props) =>
     props.sticky
       ? `position: sticky; top: 0; z-index: 2; border-top: ${border};`
       : `position: relative`};
+
+  transition: height 0.5s;
 `;
 
 const PageTitle = styled.span`
@@ -58,44 +79,50 @@ const PageTitle = styled.span`
   }
 `;
 
-const MenuBar = styled(CenterRow)`
-  width: 100%;
-  border-top: ${border};
-  justify-content: space-evenly;
-  .menuItem {
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-    p {
-      margin: 0;
-    }
-  }
-  .menuItem:first-child {
-    border-right: ${border};
-  }
-  .menuItem:last-child {
-    border-left: ${border};
-  }
-`;
+const MenuRow = (props: IBasePageProps) => {
+  const { title, subtitle } = props;
 
-const Menu = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [menuRowHeight, setHeight] = useState(0);
+
+  const contentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const toggleMenu = useCallback(
+    function () {
+      setShowMenu(!showMenu);
+    },
+    [showMenu]
+  );
+
+  useEffect(() => {
+    setHeight(0);
+    setTimeout(() => {
+      if (contentRef.current) setHeight(contentRef.current.clientHeight);
+    }, 500);
+    console.log(showMenu);
+  }, [showMenu]);
+
   return (
-    <MenuBar>
-      <div className="menuItem">
-        <p>Home</p>
-      </div>
-      <div className="menuItem">
-        <p>Projects</p>
-      </div>
-      <div className="menuItem">
-        <p>About</p>
-      </div>
-    </MenuBar>
+    <PageRow sticky height={menuRowHeight} ref={containerRef}>
+      <CenterPageContainer ref={contentRef} noPadding row>
+        <PaddingContainer>
+          <PageTitle>
+            <h4>{subtitle}</h4>
+            <h1>{title.toUpperCase()}</h1>
+          </PageTitle>
+        </PaddingContainer>
+        <div onClick={toggleMenu} className="menuButton">
+          <h2>MENU</h2>
+        </div>
+      </CenterPageContainer>
+    </PageRow>
   );
 };
 
 const BasePage = (props: IBasePageProps) => {
-  const { title, subtitle, Content } = props;
+  const { Content } = props;
+
   return (
     <main>
       <PageRow image={400}>
@@ -106,21 +133,7 @@ const BasePage = (props: IBasePageProps) => {
         </CenterPageContainer>
       </PageRow>
 
-      <PageRow sticky>
-        <CenterPageContainer noPadding row>
-          <PaddingContainer>
-            <PageTitle>
-              <h4>{subtitle}</h4>
-              <h1>{title.toUpperCase()}</h1>
-            </PageTitle>
-          </PaddingContainer>
-          <div className="menuButton">
-            <p>
-              <strong>MENU</strong>
-            </p>
-          </div>
-        </CenterPageContainer>
-      </PageRow>
+      <MenuRow {...props} />
 
       <PageRow>
         <CenterPageContainer>
