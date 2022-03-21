@@ -13,10 +13,20 @@ const CenterColumn = styled(FlexCenterContainer)`
   flex-direction: column;
 `;
 
-const PaddingContainer = styled.div`
+const PaddingContainer = styled.div<{ justify?: string }>`
   padding: 30px;
   width: 100%;
-  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: ${(props) => (props.justify ? props.justify : "")};
 `;
 
-export { CenterColumn, CenterRow, PaddingContainer };
+const hover = (css: string) => {
+  return `@media (hover:hover) {
+    :hover {
+      ${css}
+    }
+  }`;
+};
+
+export { CenterColumn, CenterRow, PaddingContainer, hover };
