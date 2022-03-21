@@ -1,6 +1,5 @@
 // react and next base components
 import { useState, useRef, useLayoutEffect } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image";
 
 // style and layout
@@ -16,6 +15,7 @@ import {
 
 //img asset
 import background from "../assets/img/background.jpg";
+import useChangePage from "./utils/routingUtils";
 
 const MenuWrapper = styled(PaddingContainer)`
   padding: 0;
@@ -74,10 +74,7 @@ const MenuRow = () => {
     setchangeMenu(!changeMenu);
   }
 
-  const router = useRouter();
-  function changePage(href: string) {
-    router.push(href);
-  }
+  const changePage = useChangePage(toggleMenu)
 
   // 'blinking effect'
   // first setting height to 0 so closing the menu
@@ -96,13 +93,13 @@ const MenuRow = () => {
         <div onClick={() => changePage("/")} className="menuItem">
           <p>Home.</p>
         </div>
-        <div onClick={() => changePage("about")} className="menuItem">
+        <div onClick={() => changePage("/about")} className="menuItem">
           <p>About.</p>
         </div>
-        <div onClick={() => changePage("projects")} className="menuItem">
+        <div onClick={() => changePage("/projects")} className="menuItem">
           <p>Projects.</p>
         </div>
-        <div onClick={() => changePage("contact")} className="menuItem">
+        <div onClick={() => changePage("/contact")} className="menuItem">
           <p>Contact.</p>
         </div>
       </MenuWrapper>

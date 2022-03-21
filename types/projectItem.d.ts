@@ -3,4 +3,5 @@ interface IItemProps {
   imgSrc: string | StaticImageData;
   uploaded: string;
   priority?: boolean;
+  link: string;
 }

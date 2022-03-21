@@ -1,7 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { hover } from "./globalStyledComponents";
+import useChangePage from "./utils/routingUtils";
 
 const ProjectButton = styled.div`
+  cursor: pointer;
+
   position: relative;
   overflow: hidden;
   height: 400px;
@@ -18,6 +22,7 @@ const ProjectButton = styled.div`
     z-index: 2;
     margin: 0;
     max-width: 80vw;
+    color: white;
   }
 
   h2 {
@@ -32,6 +37,9 @@ const ProjectButton = styled.div`
     font-weight: 300;
     font-size: 14px;
   }
+
+  ${hover(`background-color: rgb(60,60,60)`)}
+  transition: background-color .3s;
 `;
 
 const ImageWrapper = styled.div`
@@ -40,9 +48,17 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const ProjectItem = ({ name, imgSrc, uploaded, priority }: IItemProps) => {
+const ProjectItem = ({
+  name,
+  imgSrc,
+  uploaded,
+  priority,
+  link,
+}: IItemProps) => {
+  const changePage = useChangePage();
+
   return (
-    <ProjectButton>
+    <ProjectButton onClick={() => changePage(link)}>
       <p className="text">{uploaded}</p>
       <h2 className="text">{name.toUpperCase()}</h2>
       <ImageWrapper>
