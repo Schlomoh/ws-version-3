@@ -13,6 +13,7 @@ interface ICenterPageContainerProps {
 }
 
 interface IBasePageProps {
+  image: StaticImageData | string;
   Content: () => JSX.Element;
   title: string;
   subtitle: string;
