@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400&family=Crete+Round&family=Heebo:wght@900&family=Work+Sans:wght@300;400;500;600&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: rgb(30, 30, 30);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* font styles */
+a,
+img,
+button,
+p,
+h3,
+h4 {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+}
+
+a,
+img,
+button,
+p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+h1,
+h2 {
+  font-family: "Heebo", sans-serif;
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* sizes */
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}

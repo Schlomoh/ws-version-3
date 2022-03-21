@@ -1,15 +1,14 @@
-import '../src/globals.css'
-import type { AppProps } from 'next/app'
-import Overlay from '../src/components/overlays'
+import "../index.css";
+import type { AppProps } from "next/app";
+import MenuRow from "../components/menuRow";
 
-
-// app overide to wrap the pages into the overly component
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-  <Overlay>
-    <Component {...pageProps} />
-  </Overlay>
-  )
+    <>
+      <MenuRow />
+      <Component {...pageProps} />;
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
