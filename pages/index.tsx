@@ -38,14 +38,7 @@ const Content = () => (
 );
 
 export const Home = () => {
-  return (
-    <BasePage
-      image={background}
-      title="Home page."
-      subtitle="You're on the"
-      Content={Content}
-    />
-  );
+  return <BasePage render={<Content />} />;
 };
 
 export default Home;

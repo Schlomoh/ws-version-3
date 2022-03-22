@@ -1,5 +1,5 @@
 // react and next base components
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
 
 // style and layout
@@ -63,10 +63,6 @@ const MenuRow = () => {
   const [showMenu, setShowMenu] = useState(true); // show menu is true since the first useEffect call inverses it
   const [menuRowHeight, setHeight] = useState(menuHeight);
 
-  //refs
-  const contentRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   // time for half the collapse motion. the setTimeout and css animation
   const collapseSpeed = 0.3;
 
@@ -74,15 +70,15 @@ const MenuRow = () => {
     setchangeMenu(!changeMenu);
   }
 
-  const changePage = useChangePage(toggleMenu)
+  const changePage = useChangePage(toggleMenu);
 
   // 'blinking effect'
   // first setting height to 0 so closing the menu
   // after timeout reseting height to 'menuHeight'
-  useLayoutEffect(() => {
+  useEffect(() => {
     setHeight(0);
     setTimeout(() => {
-      if (contentRef.current) setHeight(menuHeight);
+      setHeight(menuHeight);
       setShowMenu((show) => !show);
     }, collapseSpeed * 1000);
   }, [changeMenu]);
@@ -126,16 +122,12 @@ const MenuRow = () => {
           </div>
         </CenterPageContainer>
       </PageRow>
-      <PageRow
-        sticky
-        height={menuRowHeight}
-        collapseSpeed={collapseSpeed}
-        ref={containerRef}
-      >
-        <CenterPageContainer ref={contentRef} noPadding row>
+
+      <PageRow sticky height={menuRowHeight} collapseSpeed={collapseSpeed}>
+        <CenterPageContainer noPadding row>
           {showMenu ? <Menu /> : <TitleContent />}
           <MenuButton onClick={toggleMenu}>
-            <h2>MENU</h2>
+            <h2>MENU.</h2>
           </MenuButton>
         </CenterPageContainer>
       </PageRow>

@@ -10,6 +10,7 @@ const createProjectHomeListing = (content: TProjectContentArr) => {
         name={project.title}
         imgSrc={project.image}
         uploaded="1w"
+        priority={i === 0}
       />
     );
   });

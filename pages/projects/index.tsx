@@ -1,21 +1,15 @@
-import {
-  CenterPageContainer,
-  PageRow,
-} from "../../components/globalStyledComponents";
+import BasePage from "../../components/basePage";
 import ProjectHomeListing from "../../components/projectListing";
 import { ocrFormattingContent } from "./ocrReformatting";
 import { remeshContent } from "./remeshing";
 
 export const projects = [remeshContent, ocrFormattingContent];
 
-const Projects = () => {
-  return (
-    <PageRow>
-      <CenterPageContainer noPadding>
-        <ProjectHomeListing content={projects} />
-      </CenterPageContainer>
-    </PageRow>
-  );
+const PageContent = () => {
+  return <ProjectHomeListing content={projects} />;
 };
 
+const Projects = () => {
+  return <BasePage render={<PageContent />} />;
+};
 export default Projects;
