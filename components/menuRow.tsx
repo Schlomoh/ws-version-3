@@ -16,6 +16,10 @@ import {
 //img asset
 import background from "../assets/img/background.jpg";
 import useChangePage from "./utils/routingUtils";
+import { useSelector } from "react-redux";
+import store, { RootState } from "../stateManagement/store";
+import { remeshContent } from "../pages/projects/remeshing";
+import { ocrFormattingContent } from "../pages/projects/ocrReformatting";
 
 const MenuWrapper = styled(PaddingContainer)`
   padding: 0;
@@ -53,7 +57,14 @@ const MenuButton = styled(CenterColumn)`
   h2 {
     transform: rotate(90deg);
   }
+
+  ${hover(`background-color: rgb(60,60,60)`)}
+  :active {
+    background-color: rgb(20, 20, 20);
+  }
 `;
+
+export const collapseSpeed = 0.3;
 
 const MenuRow = () => {
   const menuHeight = 240;
@@ -64,7 +75,6 @@ const MenuRow = () => {
   const [menuRowHeight, setHeight] = useState(menuHeight);
 
   // time for half the collapse motion. the setTimeout and css animation
-  const collapseSpeed = 0.3;
 
   function toggleMenu() {
     setchangeMenu(!changeMenu);
@@ -103,11 +113,16 @@ const MenuRow = () => {
   };
 
   const TitleContent = () => {
+    const title = useSelector((state: RootState) => state.pageContent.title);
+    const subTitle = useSelector((state: RootState) => state.pageContent.subTitle)
+    ;
+    const secTitle = store.getState().pageContent.title
+    console.log(secTitle, subTitle)
     return (
       <PaddingContainer justify="center">
         <PageTitle>
-          <h4>bla</h4>
-          <h1>{"bla".toUpperCase()}</h1>
+          <h4>{subTitle}</h4>
+          <h1>{title.toUpperCase()}</h1>
         </PageTitle>
       </PaddingContainer>
     );

@@ -1,11 +1,19 @@
 import BasePage from "../components/basePage";
 
-import background from "../assets/img/background.jpg";
-
 import { projects } from "./projects";
 
 import { PaddingContainer } from "../components/globalStyledComponents";
 import ProjectHomeListing from "../components/projectListing";
+
+import background from "../assets/img/background.jpg";
+import { remeshContent } from "./projects/remeshing";
+
+const titleContent = {
+  title: "Home Page",
+  subTitle: "Welcome, Friend!",
+  image: background,
+  link: "/",
+} as IProjectContent;
 
 const Content = () => (
   <>
@@ -38,7 +46,7 @@ const Content = () => (
 );
 
 export const Home = () => {
-  return <BasePage render={<Content />} />;
+  return <BasePage menuHeaderContent={titleContent} render={<Content />} />;
 };
 
 export default Home;

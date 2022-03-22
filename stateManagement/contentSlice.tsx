@@ -1,17 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  title: "",
-  subTitle: "",
-  imgSrc: "",
-} as contentInitialState;
+  title: "404",
+  subTitle: "I think you're lost..",
+  image: "",
+  link: "",
+} as IProjectContent;
 
 const contentSlice = createSlice({
   name: "pageContent",
   initialState,
   reducers: {
     setPageContent(state, action) {
-      state = action.payload;
+      state.title = action.payload.title;
+      state.subTitle = action.payload.subTitle;
+      state.image = action.payload.image;
+      state.link = action.payload.link;
     },
   },
 });

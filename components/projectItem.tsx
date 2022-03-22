@@ -39,6 +39,9 @@ const ProjectButton = styled.div`
   }
 
   ${hover(`background-color: rgb(60,60,60)`)}
+    :active {
+      background-color: rgb(20, 20, 20);
+    }
   transition: background-color .3s;
 `;
 

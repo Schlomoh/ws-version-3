@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import BasePage from "./basePage";
-import { CenterPageContainer, PageRow } from "./globalStyledComponents";
 
 const ProjectPage = styled.div``;
 
-const BaseProjectPage = ({ children }: any) => {
+const BaseProjectPage = ({
+  children,
+  menuHeaderContent,
+}: IBaseProjectPageProps) => {
   return (
-    <PageRow>
-      <CenterPageContainer>{children}</CenterPageContainer>
-    </PageRow>
+    <BasePage
+      menuHeaderContent={menuHeaderContent}
+      render={children}
+    ></BasePage>
   );
 };
 

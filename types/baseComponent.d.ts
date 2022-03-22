@@ -14,4 +14,10 @@ interface ICenterPageContainerProps {
 
 interface IBasePageProps {
   render: JSX.Element;
+  menuHeaderContent: IProjectContent;
+}
+
+interface IBaseProjectPageProps {
+  children: JSX.Element;
+  menuHeaderContent: IProjectContent;
 }

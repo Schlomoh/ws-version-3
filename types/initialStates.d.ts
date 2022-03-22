@@ -1,7 +1,8 @@
 interface contentInitialState {
     title: string;
     subTitle: string;
-    imgSrc: string;
+    image: string | StaticImageData;
+    link: string;
 }
 
 interface ICookieSelection {
