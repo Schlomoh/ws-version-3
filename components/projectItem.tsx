@@ -17,12 +17,15 @@ const ProjectButton = styled.div`
 
   padding: 30px 100px 30px 20px;
 
+  word-wrap: break-word;
+  word-break: break-all;
   .text {
     position: absolute;
     z-index: 2;
     margin: 0;
     max-width: 80vw;
     color: white;
+  
   }
 
   h2 {

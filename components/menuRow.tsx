@@ -40,6 +40,9 @@ const MenuWrapper = styled(PaddingContainer)`
 `;
 
 const PageTitle = styled.span`
+  word-wrap: break-word;
+  word-break: break-all;
+
   h1 {
     margin: 0;
   }
@@ -114,10 +117,11 @@ const MenuRow = () => {
 
   const TitleContent = () => {
     const title = useSelector((state: RootState) => state.pageContent.title);
-    const subTitle = useSelector((state: RootState) => state.pageContent.subTitle)
-    ;
-    const secTitle = store.getState().pageContent.title
-    console.log(secTitle, subTitle)
+    const subTitle = useSelector(
+      (state: RootState) => state.pageContent.subTitle
+    );
+    const secTitle = store.getState().pageContent.title;
+    console.log(secTitle, subTitle);
     return (
       <PaddingContainer justify="center">
         <PageTitle>
