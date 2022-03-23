@@ -4,19 +4,21 @@ import ProjectHomeListing from "../../components/projectListing";
 import { ocrFormattingContent } from "./ocrReformatting";
 import { remeshContent } from "./remeshing";
 import { usdzConversionContent } from "./usdzConversion";
-import image from '../../assets/img/sunset.jpg'
+import image from "../../assets/img/sunset.jpg";
+import { piqupsContent } from "./piqups";
 
 export const projects = [
   remeshContent,
   ocrFormattingContent,
   usdzConversionContent,
+  piqupsContent,
 ];
 
 const titleContent = {
   subTitle: "You're on the",
   title: "Projects page",
-  link:'/projects',
-  image: image
+  link: "/projects",
+  image: image,
 } as IProjectContent;
 
 const PageContent = () => {
