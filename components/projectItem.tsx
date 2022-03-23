@@ -3,35 +3,39 @@ import styled from "styled-components";
 import { hover } from "./globalStyledComponents";
 import useChangePage from "./utils/routingUtils";
 
-const ProjectButton = styled.div`
+const ProjectButton = styled.div<{ low?: string }>`
   cursor: pointer;
 
   position: relative;
   overflow: hidden;
-  height: 400px;
+  height: ${(props) => (props.low && props.low === "true" ? "200px" : "400px")};
 
   border: solid 1px grey;
   border-left: none;
 
   margin-bottom: 30px;
-
   padding: 30px 100px 30px 20px;
 
   word-wrap: break-word;
 
-  .text {
+  .itemText {
     position: absolute;
     z-index: 2;
     margin: 0;
-    max-width: 80vw;
     color: white;
-  
   }
 
-  h2 {
+  .titleWrap {
     padding-left: 10px;
     bottom: 30px;
+    max-width: 80%;
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+
+    h2,
+    h4 {
+      margin: 0;
+    }
+    margin: 0;
   }
 
   p {
@@ -42,10 +46,10 @@ const ProjectButton = styled.div`
   }
 
   ${hover(`background-color: rgb(60,60,60)`)}
-    :active {
-      background-color: rgb(20, 20, 20);
-    }
-  transition: background-color .3s;
+  :active {
+    background-color: rgb(20, 20, 20);
+  }
+  transition: background-color 0.3s;
 `;
 
 const ImageWrapper = styled.div`
@@ -54,26 +58,23 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const ProjectItem = ({
-  name,
-  imgSrc,
-  uploaded,
-  priority,
-  link,
-}: IItemProps) => {
+const ProjectItem = (props: IItemProps) => {
+  const { title, subTitle, imgSrc, uploaded, priority, link, low } = props;
   const changePage = useChangePage();
-
   return (
-    <ProjectButton onClick={() => changePage(link)}>
-      <p className="text">{uploaded}</p>
-      <h2 className="text">{name.toUpperCase()}</h2>
+    <ProjectButton low={low} onClick={() => changePage(link)}>
+      <p className="itemText">{uploaded}</p>
+      <div className="titleWrap itemText">
+        <h2 className="">{title.toUpperCase()}</h2>
+        {low === "true" ? null : <h4 className="">{subTitle}</h4>}
+      </div>
       <ImageWrapper>
         <Image
           priority={priority}
           layout="fill"
           objectFit="cover"
           src={imgSrc}
-          alt={name}
+          alt={title}
         />
       </ImageWrapper>
     </ProjectButton>

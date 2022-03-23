@@ -17,10 +17,7 @@ const titleContent = {
 
 const Content = () => (
   <>
-    <PaddingContainer>
-      <h2 style={{ marginBottom: "0" }}>Browse my projects.</h2>
-    </PaddingContainer>
-    <ProjectHomeListing content={projects} />
+    <ProjectHomeListing low='true' content={projects} />
     <PaddingContainer>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,

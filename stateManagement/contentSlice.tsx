@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import background from '../assets/img/background.jpg'
 
 const initialState = {
   title: "404",
   subTitle: "I think you're lost..",
-  image: "",
+  image: background,
   link: "",
 } as IProjectContent;
 

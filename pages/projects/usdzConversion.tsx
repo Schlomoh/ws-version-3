@@ -1,17 +1,17 @@
 import BaseProjectPage from "../../components/baseProjectPage";
-import image from "../../assets/img/graffiti.jpg";
+import image from "../../assets/img/wave-ball.jpg";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 
-export const ocrFormattingContent = {
-  title: "OCR Reformatting.",
-  subTitle: "Using Tesseract.js.",
+export const usdzConversionContent = {
+  title: "USDZ Conversion.",
+  subTitle: "GLB to USDZ conversion using Docker.",
   image: image,
-  link: "/projects/ocrReformatting",
+  link: "/projects/usdzConversion",
 } as IProjectContent;
 
-const content = ocrFormattingContent;
+const content = usdzConversionContent;
 
-const OcrReformatting = () => {
+const UsdzConversion = () => {
   return (
     <BaseProjectPage menuHeaderContent={content}>
       <PaddingContainer>
@@ -21,4 +21,4 @@ const OcrReformatting = () => {
   );
 };
 
-export default OcrReformatting;
+export default UsdzConversion;

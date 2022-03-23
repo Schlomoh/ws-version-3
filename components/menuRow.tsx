@@ -18,8 +18,6 @@ import background from "../assets/img/background.jpg";
 import useChangePage from "./utils/routingUtils";
 import { useSelector } from "react-redux";
 import store, { RootState } from "../stateManagement/store";
-import { remeshContent } from "../pages/projects/remeshing";
-import { ocrFormattingContent } from "../pages/projects/ocrReformatting";
 
 const MenuWrapper = styled(PaddingContainer)`
   padding: 0;
@@ -41,7 +39,6 @@ const MenuWrapper = styled(PaddingContainer)`
 
 const PageTitle = styled.span`
   word-wrap: break-word;
-  word-break: break-all;
 
   h1 {
     margin: 0;
@@ -116,12 +113,11 @@ const MenuRow = () => {
   };
 
   const TitleContent = () => {
-    const title = useSelector((state: RootState) => state.pageContent.title);
-    const subTitle = useSelector(
-      (state: RootState) => state.pageContent.subTitle
-    );
-    const secTitle = store.getState().pageContent.title;
-    console.log(secTitle, subTitle);
+    const [title, subTitle] = useSelector((state: RootState) => [
+      state.pageContent.title,
+      state.pageContent.subTitle,
+    ]);
+
     return (
       <PaddingContainer justify="center">
         <PageTitle>
@@ -132,12 +128,14 @@ const MenuRow = () => {
     );
   };
 
+  const image = useSelector((state: RootState) => state.pageContent.image);
+
   return (
     <>
       <PageRow image={100}>
         <CenterPageContainer noPadding>
           <div className="imageContainer">
-            <Image objectFit="cover" src={background} alt="" />
+            <Image objectFit="cover" src={image} alt="" />
           </div>
         </CenterPageContainer>
       </PageRow>
