@@ -1,6 +1,5 @@
 // react and next base components
-import { useState, useRef, useLayoutEffect } from "react";
-import { useRouter } from "next/router";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
 
 // style and layout
@@ -16,6 +15,9 @@ import {
 
 //img asset
 import background from "../assets/img/background.jpg";
+import useChangePage from "./utils/routingUtils";
+import { useSelector } from "react-redux";
+import store, { RootState } from "../stateManagement/store";
 
 const MenuWrapper = styled(PaddingContainer)`
   padding: 0;
@@ -36,6 +38,9 @@ const MenuWrapper = styled(PaddingContainer)`
 `;
 
 const PageTitle = styled.span`
+  word-wrap: break-word;
+  word-break: break-word;
+
   h1 {
     margin: 0;
   }
@@ -53,7 +58,14 @@ const MenuButton = styled(CenterColumn)`
   h2 {
     transform: rotate(90deg);
   }
+
+  ${hover(`background-color: rgb(60,60,60)`)}
+  :active {
+    background-color: rgb(20, 20, 20);
+  }
 `;
+
+export const collapseSpeed = 0.3;
 
 const MenuRow = () => {
   const menuHeight = 240;
@@ -63,29 +75,21 @@ const MenuRow = () => {
   const [showMenu, setShowMenu] = useState(true); // show menu is true since the first useEffect call inverses it
   const [menuRowHeight, setHeight] = useState(menuHeight);
 
-  //refs
-  const contentRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   // time for half the collapse motion. the setTimeout and css animation
-  const collapseSpeed = 0.3;
 
   function toggleMenu() {
     setchangeMenu(!changeMenu);
   }
 
-  const router = useRouter();
-  function changePage(href: string) {
-    router.push(href);
-  }
+  const changePage = useChangePage(toggleMenu);
 
   // 'blinking effect'
   // first setting height to 0 so closing the menu
   // after timeout reseting height to 'menuHeight'
-  useLayoutEffect(() => {
+  useEffect(() => {
     setHeight(0);
     setTimeout(() => {
-      if (contentRef.current) setHeight(menuHeight);
+      setHeight(menuHeight);
       setShowMenu((show) => !show);
     }, collapseSpeed * 1000);
   }, [changeMenu]);
@@ -96,13 +100,13 @@ const MenuRow = () => {
         <div onClick={() => changePage("/")} className="menuItem">
           <p>Home.</p>
         </div>
-        <div onClick={() => changePage("about")} className="menuItem">
+        <div onClick={() => changePage("/about")} className="menuItem">
           <p>About.</p>
         </div>
-        <div onClick={() => changePage("projects")} className="menuItem">
+        <div onClick={() => changePage("/projects")} className="menuItem">
           <p>Projects.</p>
         </div>
-        <div onClick={() => changePage("contact")} className="menuItem">
+        <div onClick={() => changePage("/contact")} className="menuItem">
           <p>Contact.</p>
         </div>
       </MenuWrapper>
@@ -110,35 +114,38 @@ const MenuRow = () => {
   };
 
   const TitleContent = () => {
+    const [title, subTitle] = useSelector((state: RootState) => [
+      state.pageContent.title,
+      state.pageContent.subTitle,
+    ]);
+
     return (
       <PaddingContainer justify="center">
         <PageTitle>
-          <h4>bla</h4>
-          <h1>{"bla".toUpperCase()}</h1>
+          <h4>{subTitle}</h4>
+          <h1>{title.toUpperCase()}</h1>
         </PageTitle>
       </PaddingContainer>
     );
   };
+
+  const image = useSelector((state: RootState) => state.pageContent.image);
 
   return (
     <>
       <PageRow image={100}>
         <CenterPageContainer noPadding>
           <div className="imageContainer">
-            <Image objectFit="cover" src={background} alt="" />
+            <Image objectFit="cover" src={image} alt="" />
           </div>
         </CenterPageContainer>
       </PageRow>
-      <PageRow
-        sticky
-        height={menuRowHeight}
-        collapseSpeed={collapseSpeed}
-        ref={containerRef}
-      >
-        <CenterPageContainer ref={contentRef} noPadding row>
+
+      <PageRow sticky height={menuRowHeight} collapseSpeed={collapseSpeed}>
+        <CenterPageContainer noPadding row>
           {showMenu ? <Menu /> : <TitleContent />}
           <MenuButton onClick={toggleMenu}>
-            <h2>MENU</h2>
+            <h2>MENU.</h2>
           </MenuButton>
         </CenterPageContainer>
       </PageRow>

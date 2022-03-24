@@ -1,16 +1,16 @@
 import BasePage from "../components/basePage";
 import { PaddingContainer } from "../components/globalStyledComponents";
 
-import image from "../assets/img/goat.jpg";
+import image from "../assets/img/telephones.jpg";
 
 const AboutContent = () => {
   return <PaddingContainer></PaddingContainer>;
 };
 
 const aboutTitleContent = {
-  title: "About me.",
-  subTitle: "Its all...",
-  link: "/about",
+  title: "Contact page.",
+  subTitle: "Lets get in touch.",
+  link: "/contact",
   image: image,
 } as IPageTitleContent;
 

@@ -13,8 +13,20 @@ interface ICenterPageContainerProps {
 }
 
 interface IBasePageProps {
-  image: StaticImageData | string;
-  Content: () => JSX.Element;
-  title: string;
-  subtitle: string;
+  render: JSX.Element;
+  menuHeaderContent: IProjectContent;
 }
+
+interface IBaseProjectPageProps {
+  children: JSX.Element;
+  menuHeaderContent: IProjectContent;
+}
+
+interface IPageTitleContent {
+  title: string;
+  subTitle: string;
+  image: string | StaticImageData;
+  link: string;
+}
+
+type TProjectContentArr = IPageTitleContent[];
