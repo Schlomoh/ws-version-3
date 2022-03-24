@@ -21,3 +21,12 @@ interface IBaseProjectPageProps {
   children: JSX.Element;
   menuHeaderContent: IProjectContent;
 }
+
+interface IPageTitleContent {
+  title: string;
+  subTitle: string;
+  image: string | StaticImageData;
+  link: string;
+}
+
+type TProjectContentArr = IPageTitleContent[];

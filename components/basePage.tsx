@@ -26,9 +26,9 @@ const Footer = () => {
       <CenterPageContainer>
         <BaseFooter>
           <FooterEntry onClick={() => changePage("/")}>Home.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/")}>About.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/")}>Projects.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/")}>Contact.</FooterEntry>
+          <FooterEntry onClick={() => changePage("/about")}>About.</FooterEntry>
+          <FooterEntry onClick={() => changePage("/projects")}>Projects.</FooterEntry>
+          <FooterEntry onClick={() => changePage("/contact")}>Contact.</FooterEntry>
         </BaseFooter>
       </CenterPageContainer>
     </PageRow>

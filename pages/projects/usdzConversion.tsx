@@ -7,7 +7,7 @@ export const usdzConversionContent = {
   subTitle: "GLB to USDZ conversion using Docker.",
   image: image,
   link: "/projects/usdzConversion",
-} as IProjectContent;
+} as IPageTitleContent;
 
 const content = usdzConversionContent;
 

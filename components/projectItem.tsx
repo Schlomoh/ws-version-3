@@ -17,6 +17,7 @@ const ProjectButton = styled.div<{ low?: string }>`
   padding: 30px 100px 30px 20px;
 
   word-wrap: break-word;
+  word-break: break-word;
 
   .itemText {
     position: absolute;

@@ -39,6 +39,7 @@ const MenuWrapper = styled(PaddingContainer)`
 
 const PageTitle = styled.span`
   word-wrap: break-word;
+  word-break: break-word;
 
   h1 {
     margin: 0;

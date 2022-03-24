@@ -6,7 +6,7 @@ const initialState = {
   subTitle: "I think you're lost..",
   image: background,
   link: "",
-} as IProjectContent;
+} as IPageTitleContent;
 
 const contentSlice = createSlice({
   name: "pageContent",

@@ -1,18 +1,17 @@
 import BaseProjectPage from "../../components/baseProjectPage";
-import image from "../../assets/img/flower-robot.jpg";
+import image from "../../assets/img/heart.jpg";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 
-export const piqupsContent = {
-  title: "Piqups.com.",
-  subTitle:
-    "Face recognition and object classification using tfjs models.",
+export const instagramBotContent = {
+  title: "Instagram Bot.",
+  subTitle: "Automating interactions on Instagram using Python.",
   image: image,
-  link: "/projects/piqups",
+  link: "/projects/instagramBot",
 } as IPageTitleContent;
 
-const content = piqupsContent;
+const content = instagramBotContent;
 
-const Piqups = () => {
+const InstagramBot = () => {
   return (
     <BaseProjectPage menuHeaderContent={content}>
       <PaddingContainer></PaddingContainer>
@@ -20,4 +19,4 @@ const Piqups = () => {
   );
 };
 
-export default Piqups;
+export default InstagramBot;

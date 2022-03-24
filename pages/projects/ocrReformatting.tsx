@@ -7,7 +7,7 @@ export const ocrFormattingContent = {
   subTitle: "Using Tesseract.js.",
   image: image,
   link: "/projects/ocrReformatting",
-} as IProjectContent;
+} as IPageTitleContent;
 
 const content = ocrFormattingContent;
 

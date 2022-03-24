@@ -7,7 +7,7 @@ export const remeshContent = {
   subTitle: "Remeshing and UV projection using Pymeshlab.",
   image: image,
   link: "/projects/remeshing",
-} as IProjectContent;
+} as IPageTitleContent;
 
 const content = remeshContent;
 

@@ -1,6 +1,6 @@
 import BasePage from "../components/basePage";
 
-import { projects } from "./projects";
+import { projectContent } from "./projects/content";
 
 import { PaddingContainer } from "../components/globalStyledComponents";
 import ProjectHomeListing from "../components/projectListing";
@@ -13,11 +13,11 @@ const titleContent = {
   subTitle: "Welcome, Friend!",
   image: background,
   link: "/",
-} as IProjectContent;
+} as IPageTitleContent;
 
 const Content = () => (
   <>
-    <ProjectHomeListing low='true' content={projects} />
+    <ProjectHomeListing low="true" content={projectContent} />
     <PaddingContainer>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
