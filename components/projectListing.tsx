@@ -6,7 +6,7 @@ const createProjectHomeListing = (props: {
   low?: string;
 }) => {
   const { content, low } = props;
-  return content.map((project: IProjectContent, i: number) => {
+  return content.map((project: IPageTitleContent, i: number) => {
     return (
       <ProjectItem
         low={low}
