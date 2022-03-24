@@ -2,7 +2,20 @@ import BasePage from "../../components/basePage";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 import ProjectHomeListing from "../../components/projectListing";
 import image from "../../assets/img/sunset.jpg";
-import { projectContent } from "./content";
+
+import { remeshContent } from "./remeshing";
+import { usdzConversionContent } from "./usdzConversion";
+import { piqupsContent } from "./piqups";
+import { instagramBotContent } from "./instagramBot";
+import { ocrFormattingContent } from "./ocrReformatting";
+
+export const projectContent = [
+  remeshContent,
+  usdzConversionContent,
+  piqupsContent,
+  instagramBotContent,
+  ocrFormattingContent,
+];
 
 const titleContent = {
   subTitle: "You're on the",

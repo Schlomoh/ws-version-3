@@ -1,12 +1,11 @@
 import BasePage from "../components/basePage";
 
-import { projectContent } from "./projects/content";
-
 import { PaddingContainer } from "../components/globalStyledComponents";
 import ProjectHomeListing from "../components/projectListing";
 
 import background from "../assets/img/background.jpg";
-import { remeshContent } from "./projects/remeshing";
+
+import { projectContent } from "./projects";
 
 const titleContent = {
   title: "Home Page",
