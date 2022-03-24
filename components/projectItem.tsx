@@ -8,7 +8,7 @@ const ProjectButton = styled.div<{ low?: string }>`
 
   position: relative;
   overflow: hidden;
-  height: ${(props) => (props.low && props.low === "true" ? "200px" : "400px")};
+  height: ${(props) => (props.low && props.low === "true" ? "100px" : "400px")};
 
   border: solid 1px grey;
   border-left: none;
@@ -30,13 +30,12 @@ const ProjectButton = styled.div<{ low?: string }>`
     padding-left: 10px;
     bottom: 30px;
     max-width: 80%;
-    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 5px 10px rgb(0, 0, 0));
 
     h2,
     h4 {
       margin: 0;
     }
-    margin: 0;
   }
 
   p {

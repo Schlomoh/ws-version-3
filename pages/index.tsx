@@ -16,7 +16,6 @@ const titleContent = {
 
 const Content = () => (
   <>
-    <ProjectHomeListing low="true" content={projectContent} />
     <PaddingContainer>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
@@ -38,6 +37,7 @@ const Content = () => (
         inventore, quidem autem blanditiis?
       </p>
     </PaddingContainer>
+    <ProjectHomeListing low="true" content={projectContent} />
   </>
 );
 

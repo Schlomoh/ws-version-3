@@ -1,5 +1,5 @@
 import BaseProjectPage from "../../components/baseProjectPage";
-import image from "../../assets/img/wave-ball.jpg";
+import image from "../../assets/img/wave-surface.jpg";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 
 export const usdzConversionContent = {

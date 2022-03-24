@@ -44,7 +44,7 @@ const PageTitle = styled.span`
   h1 {
     margin: 0;
   }
-  h4 {
+  p {
     margin: 10px 0;
   }
 `;
@@ -122,7 +122,7 @@ const MenuRow = () => {
     return (
       <PaddingContainer justify="center">
         <PageTitle>
-          <h4>{subTitle}</h4>
+          <p>{subTitle}</p>
           <h1>{title.toUpperCase()}</h1>
         </PageTitle>
       </PaddingContainer>
@@ -133,10 +133,10 @@ const MenuRow = () => {
 
   return (
     <>
-      <PageRow image={100}>
+      <PageRow image={200}>
         <CenterPageContainer noPadding>
           <div className="imageContainer">
-            <Image objectFit="cover" src={image} alt="" />
+            <Image priority objectFit="cover" src={image} alt="" />
           </div>
         </CenterPageContainer>
       </PageRow>
