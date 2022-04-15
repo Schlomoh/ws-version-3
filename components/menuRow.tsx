@@ -1,6 +1,7 @@
 // react and next base components
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 // style and layout
 import styled from "styled-components";
@@ -13,11 +14,8 @@ import {
   PageRow,
 } from "./globalStyledComponents";
 
-//img asset
-import background from "../assets/img/background.jpg";
 import useChangePage from "./utils/routingUtils";
-import { useSelector } from "react-redux";
-import store, { RootState } from "../stateManagement/store";
+import { RootState } from "../stateManagement/store";
 
 const MenuWrapper = styled(PaddingContainer)`
   padding: 0;

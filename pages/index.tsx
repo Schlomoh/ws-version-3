@@ -16,26 +16,9 @@ const titleContent = {
 
 const Content = () => (
   <>
+
     <PaddingContainer>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
-        sequi porro incidunt provident nesciunt voluptatem sunt corporis
-        repellat reiciendis odit, deserunt excepturi suscipit laboriosam ab
-        inventore, quidem autem blanditiis?
-      </p>
-      <h4>And maybe get in contact</h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
-        sequi porro incidunt provident nesciunt voluptatem sunt corporis
-        repellat reiciendis odit, deserunt excepturi suscipit laboriosam ab
-        inventore, quidem autem blanditiis?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
-        sequi porro incidunt provident nesciunt voluptatem sunt corporis
-        repellat reiciendis odit, deserunt excepturi suscipit laboriosam ab
-        inventore, quidem autem blanditiis?
-      </p>
+      <h2>Look around</h2>
     </PaddingContainer>
     <ProjectHomeListing low="true" content={projectContent} />
   </>

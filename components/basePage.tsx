@@ -42,7 +42,7 @@ const BasePage = (props: IBasePageProps) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    store.dispatch(setPageContent(menuHeaderContent));
+    if (!show) store.dispatch(setPageContent(menuHeaderContent));
   });
 
   useEffect(() => {

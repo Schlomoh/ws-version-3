@@ -56,13 +56,12 @@ const PageRow = styled(CenterRow)<IPageRowProps>`
     ${(props) => (props.collapseSpeed ? `${props.collapseSpeed}s` : "")};
 `;
 
-const hover = (css: string) => {
-  return `@media (hover:hover) {
+const hover = (css: string) => `
+  @media (hover:hover) {
     :hover {
       ${css}
     }
   }`;
-};
 
 export {
   border,
