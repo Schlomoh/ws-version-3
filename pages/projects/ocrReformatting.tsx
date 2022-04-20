@@ -3,10 +3,10 @@ import image from "../../assets/img/graffiti.jpg";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 
 export const ocrFormattingContent = {
-  title: "OCR Reformat.",
+  title: "OCR Reformatting.",
   subTitle: "Using Tesseract.js.",
   image: image,
-  link: "/projects/ocrReformat",
+  link: "/projects/ocrReformatting",
 } as IPageTitleContent;
 
 const content = ocrFormattingContent;

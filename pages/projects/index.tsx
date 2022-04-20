@@ -4,7 +4,7 @@ import ProjectHomeListing from "../../components/projectListing";
 import image from "../../assets/img/sunset.jpg";
 
 import { remeshContent } from "./remeshing";
-import { usdzConversionContent } from "./usdzConversion";
+import { usdzConversionContent } from "./usdzConverter";
 import { piqupsContent } from "./piqups";
 import { instagramBotContent } from "./instagramBot";
 import { ocrFormattingContent } from "./ocrReformatting";
