@@ -50,18 +50,18 @@ strong {
 
 /* sizes */
 h1 {
-  font-size: 48px;
+  font-size: 42px;
 }
 h2 {
-  font-size: 36px;
+  font-size: 32px;
   margin-bottom: 10px;
 }
 h3 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 400;
 }
 h4 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   margin-bottom: 10px;
 }

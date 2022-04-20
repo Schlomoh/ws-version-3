@@ -28,8 +28,8 @@ const PageContent = () => {
   return (
     <>
       <PaddingContainer>
-        <h2 style={{ marginBottom: "0" }}>Browse my projects.</h2>
-        <h3 style={{ marginTop: "0" }}>More is constantly in progress.</h3>
+        <h2>Browse my projects.</h2>
+        <h3>More is constantly in progress.</h3>
         <p>
           Feel free to look at my Github profile, where you can find most of the
           code related to these projects.

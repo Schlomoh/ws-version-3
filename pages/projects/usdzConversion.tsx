@@ -3,10 +3,10 @@ import image from "../../assets/img/wave-surface.jpg";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 
 export const usdzConversionContent = {
-  title: "USDZ Conversion.",
+  title: "USDZ converter.",
   subTitle: "GLB to USDZ conversion using Docker.",
   image: image,
-  link: "/projects/usdzConversion",
+  link: "/projects/usdzConverter",
 } as IPageTitleContent;
 
 const content = usdzConversionContent;

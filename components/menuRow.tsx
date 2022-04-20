@@ -43,7 +43,8 @@ const MenuWrapper = styled(CenterColumn)`
 
 const PageTitle = styled.span`
   word-wrap: break-word;
-  word-break: break-word;
+  /* word-break: break-word; */
+  text-overflow: ellipsis;
 
   h1 {
     margin: 0;
