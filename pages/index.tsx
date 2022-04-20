@@ -8,7 +8,7 @@ import background from "../assets/img/background.jpg";
 import { projectContent } from "./projects";
 
 const titleContent = {
-  title: "Home Page",
+  title: "Home Page.",
   subTitle: "Welcome, Friend!",
   image: background,
   link: "/",
@@ -16,9 +16,18 @@ const titleContent = {
 
 const Content = () => (
   <>
-
     <PaddingContainer>
-      <h2>Look around</h2>
+      <h2>Glad you are here!</h2>
+      <p>
+        If you share my interest in the latest technologies and ever-changing
+        topics, I&apos;m sure you&apos;ll find something you like here. And who
+        knows, maybe the opportunity will arise to get to know each other and
+        share ideas.
+      </p>
+      {/* <p>
+        I&apos;m compiling my collected experiences here with the hope to
+        provide some of my knowledge to others.
+      </p> */}
     </PaddingContainer>
     <ProjectHomeListing low="true" content={projectContent} />
   </>

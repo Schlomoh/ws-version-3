@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 
+import { BiMenu } from "react-icons/bi";
+
 // style and layout
 import styled from "styled-components";
 import {
@@ -16,9 +18,13 @@ import {
 
 import useChangePage from "./utils/routingUtils";
 import { RootState } from "../stateManagement/store";
+import useElementIntersection, {
+  createThresholdArr,
+} from "./utils/useIntersectionObserver";
+import { IconContext } from "react-icons";
 
-const MenuWrapper = styled(PaddingContainer)`
-  padding: 0;
+const MenuWrapper = styled(CenterColumn)`
+  width: 100%;
   .menuItem {
     height: 60px;
     cursor: pointer;
@@ -55,6 +61,7 @@ const MenuButton = styled(CenterColumn)`
 
   h2 {
     transform: rotate(90deg);
+    margin: initial;
   }
 
   ${hover(`background-color: rgb(60,60,60)`)}
@@ -67,16 +74,26 @@ export const collapseSpeed = 0.3;
 
 const MenuRow = () => {
   const menuHeight = 240;
+  const smallMenuHeight = 120;
 
   //states
-  const [changeMenu, setchangeMenu] = useState(false); // the 'trigger'
-  const [showMenu, setShowMenu] = useState(true); // show menu is true since the first useEffect call inverses it
+  const [init, setInit] = useState(true); // initial load of page
+  const [changeMenu, setChangeMenu] = useState(false); // the 'trigger'
+  const [showMenu, setShowMenu] = useState(false);
   const [menuRowHeight, setHeight] = useState(menuHeight);
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: createThresholdArr(),
+  };
+
+  const { ref, isVisible, ratio } = useElementIntersection(options);
 
   // time for half the collapse motion. the setTimeout and css animation
 
   function toggleMenu() {
-    setchangeMenu(!changeMenu);
+    setChangeMenu(!changeMenu);
   }
 
   const changePage = useChangePage(toggleMenu);
@@ -84,17 +101,29 @@ const MenuRow = () => {
   // 'blinking effect'
   // first setting height to 0 so closing the menu
   // after timeout reseting height to 'menuHeight'
+  // wow i hate that i decided to do this
+  // WHY IS SHOW MEUN ALWAYS INVERTED AAAAAAAAAH WTF IS GOING ON???????????
   useEffect(() => {
-    setHeight(0);
+    if (!init) setHeight(0);
     setTimeout(() => {
-      setHeight(menuHeight);
-      setShowMenu((show) => !show);
+      if (isVisible || !showMenu || (init && isVisible)) {
+        setHeight(menuHeight);
+      } else {
+        setHeight(smallMenuHeight);
+      }
+      if (!init) setShowMenu((show) => !show);
+      setInit(false);
     }, collapseSpeed * 1000);
   }, [changeMenu]);
 
+  useEffect(() => {
+    if (isVisible) setHeight(menuHeight);
+    else if (!isVisible && !showMenu) setHeight(smallMenuHeight);
+  }, [isVisible, ratio]);
+
   const Menu = () => {
     return (
-      <MenuWrapper justify="center">
+      <MenuWrapper>
         <div onClick={() => changePage("/")} className="menuItem">
           <p>Home.</p>
         </div>
@@ -111,6 +140,8 @@ const MenuRow = () => {
     );
   };
 
+  const isSmall = menuRowHeight === menuHeight;
+
   const TitleContent = () => {
     const [title, subTitle] = useSelector((state: RootState) => [
       state.pageContent.title,
@@ -120,7 +151,7 @@ const MenuRow = () => {
     return (
       <PaddingContainer justify="center">
         <PageTitle>
-          <p>{subTitle}</p>
+          {isSmall ? <p>{subTitle}</p> : <></>}
           <h1>{title.toUpperCase()}</h1>
         </PageTitle>
       </PaddingContainer>
@@ -131,19 +162,26 @@ const MenuRow = () => {
 
   return (
     <>
-      <PageRow image={200}>
+      <PageRow ref={ref} image={200}>
         <CenterPageContainer noPadding>
           <div className="imageContainer">
             <Image priority objectFit="cover" src={image} alt="" />
           </div>
         </CenterPageContainer>
       </PageRow>
-
       <PageRow sticky height={menuRowHeight} collapseSpeed={collapseSpeed}>
         <CenterPageContainer noPadding row>
           {showMenu ? <Menu /> : <TitleContent />}
           <MenuButton onClick={toggleMenu}>
-            <h2>MENU.</h2>
+            {isSmall ? (
+              <h2>MENU.</h2>
+            ) : (
+              <IconContext.Provider
+                value={{ color: "white", size: '45px', style: { margin: "auto", stroke: 'white' } }}
+              >
+                <BiMenu />
+              </IconContext.Provider>
+            )}
           </MenuButton>
         </CenterPageContainer>
       </PageRow>

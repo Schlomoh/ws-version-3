@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400&family=Crete+Round&family=Heebo:wght@900&family=Work+Sans:wght@300;400;500;600&display=swap");
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
 html,
 body {
   padding: 0;
@@ -25,7 +27,6 @@ p,
 h3,
 h4 {
   font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
 }
 
 a,
@@ -53,10 +54,17 @@ h1 {
 }
 h2 {
   font-size: 36px;
+  margin-bottom: 10px;
 }
 h3 {
   font-size: 28px;
+  font-weight: 400;
 }
 h4 {
   font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
+`;
+
+export default GlobalStyle;

@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { setPageContent } from "../stateManagement/contentSlice";
 import store from "../stateManagement/store";
-import { CenterPageContainer, PageRow } from "./globalStyledComponents";
+import {
+  CenterPageContainer,
+  PageRow,
+  TextWrapper,
+} from "./globalStyledComponents";
 import { collapseSpeed } from "./menuRow";
 import useChangePage from "./utils/routingUtils";
 
@@ -27,8 +30,12 @@ const Footer = () => {
         <BaseFooter>
           <FooterEntry onClick={() => changePage("/")}>Home.</FooterEntry>
           <FooterEntry onClick={() => changePage("/about")}>About.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/projects")}>Projects.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/contact")}>Contact.</FooterEntry>
+          <FooterEntry onClick={() => changePage("/projects")}>
+            Projects.
+          </FooterEntry>
+          <FooterEntry onClick={() => changePage("/contact")}>
+            Contact.
+          </FooterEntry>
         </BaseFooter>
       </CenterPageContainer>
     </PageRow>
@@ -70,14 +77,16 @@ const BasePage = (props: IBasePageProps) => {
     transitionDelay: collapseSpeed.toString() + "s",
   };
   return (
-    <main>
-      <PageRow>
-        <CenterPageContainer style={style} ref={containerRef} noPadding>
-          {render}
-        </CenterPageContainer>
-      </PageRow>
+    <>
+      <main>
+        <PageRow>
+          <CenterPageContainer style={style} ref={containerRef} noPadding>
+            <TextWrapper>{render}</TextWrapper>
+          </CenterPageContainer>
+        </PageRow>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

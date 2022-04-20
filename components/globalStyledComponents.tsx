@@ -2,6 +2,29 @@ import styled from "styled-components";
 
 const border = `solid 1px grey`;
 
+const TextWrapper = styled.span`
+  p {
+    color: #aeaeae;
+  }
+  a {
+    color: white;
+  }
+  a {
+  background: 
+   linear-gradient(transparent, transparent),
+    linear-gradient(white, white);
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+a:hover,
+a:focus {
+  background-size: 0 0.1em, 100% 0.1em;
+}
+`;
+
 const FlexCenterContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -25,7 +48,7 @@ const PaddingContainer = styled.div<{ justify?: string }>`
 
 const CenterPageContainer = styled(CenterColumn)<ICenterPageContainerProps>`
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   border-left: ${border};
 
   padding: ${(props) =>
@@ -65,6 +88,7 @@ const hover = (css: string) => `
 
 export {
   border,
+  TextWrapper,
   CenterColumn,
   CenterRow,
   PaddingContainer,
