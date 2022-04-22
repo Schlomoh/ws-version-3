@@ -3,41 +3,32 @@ import BasePage from "../components/basePage";
 import { PaddingContainer } from "../components/globalStyledComponents";
 import ProjectHomeListing from "../components/projectListing";
 
-import background from "../assets/img/background.jpg";
+import sunset from "../assets/img/sunset.jpg";
 
 import { projectContent } from "./projects";
 
 const titleContent = {
-  title: "Home Page",
+  title: "Home Page.",
   subTitle: "Welcome, Friend!",
-  image: background,
+  image: sunset,
   link: "/",
 } as IPageTitleContent;
 
 const Content = () => (
   <>
-    <ProjectHomeListing low="true" content={projectContent} />
     <PaddingContainer>
+      <h2>Glad you are here!</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
-        sequi porro incidunt provident nesciunt voluptatem sunt corporis
-        repellat reiciendis odit, deserunt excepturi suscipit laboriosam ab
-        inventore, quidem autem blanditiis?
+        Would you like to learn more about the projects I've worked on? Here is
+        my story so far, with links that will take you right into some of those
+        past endeavours. Let me know what you think!
       </p>
-      <h4>And maybe get in contact</h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
-        sequi porro incidunt provident nesciunt voluptatem sunt corporis
-        repellat reiciendis odit, deserunt excepturi suscipit laboriosam ab
-        inventore, quidem autem blanditiis?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus rerum,
-        sequi porro incidunt provident nesciunt voluptatem sunt corporis
-        repellat reiciendis odit, deserunt excepturi suscipit laboriosam ab
-        inventore, quidem autem blanditiis?
-      </p>
+      {/* <p>
+        I&apos;m compiling my collected experiences here with the hope to
+        provide some of my knowledge to others.
+      </p> */}
     </PaddingContainer>
+    <ProjectHomeListing low="true" content={projectContent} />
   </>
 );
 

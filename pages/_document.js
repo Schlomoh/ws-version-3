@@ -1,5 +1,6 @@
-import Document from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { Html, Main, NextScript } from "next/document";
+import { Head } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -26,5 +27,28 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400&family=Crete+Round&family=Heebo:wght@900&family=Source+Code+Pro&family=Work+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
