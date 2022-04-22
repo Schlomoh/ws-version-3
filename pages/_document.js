@@ -44,10 +44,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400&family=Crete+Round&family=Heebo:wght@900&family=Source+Code+Pro&family=Work+Sans:wght@300;400;500;600&display=swap"
             rel="stylesheet"
           />
-
-          {/* add favicon and title */}
-          <title>Moritz Becker | Web development</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />
