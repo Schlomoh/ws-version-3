@@ -16,17 +16,13 @@ async function loadGist(id: string) {
       fetch(`${url}/raw/${file}`).then((r) => r.text())
     )
   );
-//   console.log(data);
 
-const fileObj = {} as IFileObject
-jsonData.files.forEach((fileName, index) => {
-    fileObj[fileName] = data[index].toString()
+  const fileObj = {} as IFileObject;
+  jsonData.files.forEach((fileName, index) => {
+    fileObj[fileName] = data[index].toString();
   });
-  
-  console.log(fileObj);
+
   return fileObj;
 }
-
-
 
 export default loadGist;
