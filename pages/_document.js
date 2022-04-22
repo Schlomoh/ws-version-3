@@ -45,8 +45,9 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
 
-          {/* add favicon */}
-          <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+          {/* add favicon and title */}
+          <title>Moritz Becker | Web development</title>
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />
