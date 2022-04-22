@@ -4,6 +4,7 @@ import { setPageContent } from "../stateManagement/contentSlice";
 import store from "../stateManagement/store";
 import {
   CenterPageContainer,
+  CenterRow,
   PageRow,
   TextWrapper,
 } from "./globalStyledComponents";
@@ -25,20 +26,29 @@ const FooterEntry = styled.div`
 const Footer = () => {
   const changePage = useChangePage();
   return (
-    <PageRow>
-      <CenterPageContainer>
-        <BaseFooter>
-          <FooterEntry onClick={() => changePage("/")}>Home.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/about")}>About.</FooterEntry>
-          <FooterEntry onClick={() => changePage("/projects")}>
-            Projects.
-          </FooterEntry>
-          <FooterEntry onClick={() => changePage("/contact")}>
-            Contact.
-          </FooterEntry>
-        </BaseFooter>
-      </CenterPageContainer>
-    </PageRow>
+    <>
+      <PageRow>
+        <CenterPageContainer>
+          <BaseFooter>
+            <FooterEntry onClick={() => changePage("/")}>Home.</FooterEntry>
+            <FooterEntry onClick={() => changePage("/about")}>
+              About.
+            </FooterEntry>
+            <FooterEntry onClick={() => changePage("/projects")}>
+              Projects.
+            </FooterEntry>
+            <FooterEntry onClick={() => changePage("/contact")}>
+              Contact.
+            </FooterEntry>
+          </BaseFooter>
+          <CenterRow>
+            <TextWrapper small>
+              <p>Created with 🧠 and next.js | © 2022 Moritz Becker </p>
+            </TextWrapper>
+          </CenterRow>
+        </CenterPageContainer>
+      </PageRow>
+    </>
   );
 };
 

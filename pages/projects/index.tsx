@@ -1,7 +1,7 @@
 import BasePage from "../../components/basePage";
 import { PaddingContainer } from "../../components/globalStyledComponents";
 import ProjectHomeListing from "../../components/projectListing";
-import image from "../../assets/img/sunset.jpg";
+import image from "../../assets/img/library-2.jpg";
 
 import { remeshContent } from "./remeshing";
 import { usdzConversionContent } from "./usdzConverter";
@@ -29,10 +29,19 @@ const PageContent = () => {
     <>
       <PaddingContainer>
         <h2>Browse my projects.</h2>
-        <h3>More is constantly in progress.</h3>
+        <h3>More is constantly in progress...</h3>
         <p>
-          Feel free to look at my Github profile, where you can find most of the
-          code related to these projects.
+          GitHub is a great place to check out my code. Most of everything
+          related to my programming can be found{" "}
+          <a
+            target="_blank"
+            referrerPolicy="no-referrer"
+            href="https://github.com/schlomoh"
+          >
+            there
+          </a>
+          . If you're ever curious about what I'm working on, or want to see
+          some of my past projects, feel free to take a look!
         </p>
       </PaddingContainer>
       <ProjectHomeListing content={projectContent} />

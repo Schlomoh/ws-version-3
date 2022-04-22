@@ -128,11 +128,11 @@ const MenuRow = () => {
         <div onClick={() => changePage("/")} className="menuItem">
           <p>Home.</p>
         </div>
-        <div onClick={() => changePage("/about")} className="menuItem">
-          <p>About.</p>
-        </div>
         <div onClick={() => changePage("/projects")} className="menuItem">
           <p>Projects.</p>
+        </div>
+        <div onClick={() => changePage("/about")} className="menuItem">
+          <p>About.</p>
         </div>
         <div onClick={() => changePage("/contact")} className="menuItem">
           <p>Contact.</p>
@@ -178,7 +178,11 @@ const MenuRow = () => {
               <h2>MENU.</h2>
             ) : (
               <IconContext.Provider
-                value={{ color: "white", size: '45px', style: { margin: "auto", stroke: 'white' } }}
+                value={{
+                  color: "white",
+                  size: "45px",
+                  style: { margin: "auto", stroke: "white" },
+                }}
               >
                 <BiMenu />
               </IconContext.Provider>

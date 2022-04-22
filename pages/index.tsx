@@ -3,14 +3,14 @@ import BasePage from "../components/basePage";
 import { PaddingContainer } from "../components/globalStyledComponents";
 import ProjectHomeListing from "../components/projectListing";
 
-import background from "../assets/img/background.jpg";
+import sunset from "../assets/img/sunset.jpg";
 
 import { projectContent } from "./projects";
 
 const titleContent = {
   title: "Home Page.",
   subTitle: "Welcome, Friend!",
-  image: background,
+  image: sunset,
   link: "/",
 } as IPageTitleContent;
 
@@ -19,10 +19,9 @@ const Content = () => (
     <PaddingContainer>
       <h2>Glad you are here!</h2>
       <p>
-        If you share my interest in the latest technologies and ever-changing
-        topics, I&apos;m sure you&apos;ll find something you like here. And who
-        knows, maybe the opportunity will arise to get to know each other and
-        share ideas.
+        Would you like to learn more about the projects I've worked on? Here is
+        my story so far, with links that will take you right into some of those
+        past endeavours. Let me know what you think!
       </p>
       {/* <p>
         I&apos;m compiling my collected experiences here with the hope to
