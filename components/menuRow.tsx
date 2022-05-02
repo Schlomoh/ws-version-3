@@ -1,12 +1,19 @@
 // react and next base components
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
+import { IconContext } from "react-icons";
 import { BiMenu } from "react-icons/bi";
 
+import useChangePage from "./utils/routingUtils";
+import useElementIntersection, {
+  createThresholdArr,
+} from "./utils/useIntersectionObserver";
+import { RootState } from "../stateManagement/store";
+
 // style and layout
-import styled from "styled-components";
 import {
   border,
   CenterColumn,
@@ -15,13 +22,6 @@ import {
   PaddingContainer,
   PageRow,
 } from "./globalStyledComponents";
-
-import useChangePage from "./utils/routingUtils";
-import { RootState } from "../stateManagement/store";
-import useElementIntersection, {
-  createThresholdArr,
-} from "./utils/useIntersectionObserver";
-import { IconContext } from "react-icons";
 
 const MenuWrapper = styled(CenterColumn)`
   width: 100%;
@@ -44,6 +44,7 @@ const MenuWrapper = styled(CenterColumn)`
 const PageTitle = styled.span`
   word-wrap: break-word;
   /* word-break: break-word; */
+  word-break: normal;
   text-overflow: ellipsis;
 
   h1 {

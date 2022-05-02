@@ -16,10 +16,7 @@ const aboutTitleContent = {
 
 const About = () => {
   return (
-    <BasePage
-      menuHeaderContent={aboutTitleContent}
-      render={<AboutContent />}
-    />
+    <BasePage menuHeaderContent={aboutTitleContent} render={<AboutContent />} />
   );
 };
 

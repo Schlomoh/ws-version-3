@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { hover } from "./globalStyledComponents";
 import useChangePage from "./utils/routingUtils";
+import { hover } from "./globalStyledComponents";
 
 const ProjectButton = styled.div<{ low?: string }>`
   cursor: pointer;

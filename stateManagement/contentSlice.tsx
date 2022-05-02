@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import background from '../assets/img/background.jpg'
+import background from "../assets/img/background.jpg";
 
 const initialState = {
-  title: "404",
-  subTitle: "I think you're lost..",
+  title: "",
+  subTitle: "",
   image: background,
   link: "",
 } as IPageTitleContent;
@@ -17,6 +17,7 @@ const contentSlice = createSlice({
       state.subTitle = action.payload.subTitle;
       state.image = action.payload.image;
       state.link = action.payload.link;
+      state.githubSource = action.payload.githubSource;
     },
   },
 });
