@@ -1,46 +1,43 @@
-import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { setPageContent } from "../stateManagement/contentSlice";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+
 import store from "../stateManagement/store";
+import { setPageContent } from "../stateManagement/contentSlice";
+import { collapseSpeed } from "./menuRow";
 import {
   CenterPageContainer,
   CenterRow,
   PageRow,
   TextWrapper,
 } from "./globalStyledComponents";
-import { collapseSpeed } from "./menuRow";
-import useChangePage from "./utils/routingUtils";
 
 const BaseFooter = styled.footer`
-  display: inherit;
+  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-`;
-
-const FooterEntry = styled.div`
-  padding: 10px;
-  margin-left: 10px;
-  cursor: pointer;
+  align-items: center;
+  a {
+    margin: 10px;
+  }
 `;
 
 const Footer = () => {
-  const changePage = useChangePage();
   return (
     <>
       <PageRow>
         <CenterPageContainer>
-          <BaseFooter>
-            <FooterEntry onClick={() => changePage("/")}>Home.</FooterEntry>
-            <FooterEntry onClick={() => changePage("/about")}>
-              About.
-            </FooterEntry>
-            <FooterEntry onClick={() => changePage("/projects")}>
-              Projects.
-            </FooterEntry>
-            <FooterEntry onClick={() => changePage("/contact")}>
-              Contact.
-            </FooterEntry>
-          </BaseFooter>
+          <TextWrapper>
+            <BaseFooter>
+              <Link href="/">Home.</Link>
+              <Link href="/about">About.</Link>
+              <Link href="/projects">Projects.</Link>
+              <Link href="/contact">Contact.</Link>
+              <Link href="/privacyPolicy">Privacy Policy.</Link>
+              <Link href="/cookiePolicy">Cookie Policy.</Link>
+            </BaseFooter>
+          </TextWrapper>
           <CenterRow>
             <TextWrapper small>
               <p>Created with 🧠 and next.js | © 2022 Moritz Becker </p>
@@ -86,6 +83,7 @@ const BasePage = (props: IBasePageProps) => {
     transition: "transform 0.5s ease-out, opacity 0.5s",
     transitionDelay: collapseSpeed.toString() + "s",
   };
+
   return (
     <>
       <main>

@@ -1,12 +1,15 @@
 import BaseProjectPage from "../../components/baseProjectPage";
-import image from "../../assets/img/graffiti.jpg";
+import NoProject from "../../components/noProject";
 import { PaddingContainer } from "../../components/globalStyledComponents";
+
+import image from "../../assets/img/graffiti.jpg";
 
 export const ocrFormattingContent = {
   title: "OCR Reformatting.",
   subTitle: "Using Tesseract.js.",
   image: image,
   link: "/projects/ocrReformatting",
+  githubSource: "https://github.com/Schlomoh/OCR-text-formatting",
 } as IPageTitleContent;
 
 const content = ocrFormattingContent;
@@ -15,7 +18,7 @@ const OcrReformatting = () => {
   return (
     <BaseProjectPage menuHeaderContent={content}>
       <PaddingContainer>
-        <h4></h4>
+        <NoProject />
       </PaddingContainer>
     </BaseProjectPage>
   );

@@ -1,11 +1,11 @@
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
+import Head from "next/head";
 
 import store from "../stateManagement/store";
 import MenuRow from "../components/menuRow";
 import GlobalStyle from "../globalStyle";
 import PageCookieBanner from "../components/cookieBanner";
-import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,24 +1,34 @@
+import Image from "next/image";
 import BaseProjectPage from "../../../components/baseProjectPage";
+import CodeExample from "../../../components/codeExample";
+
 import image from "../../../assets/img/wave-surface.jpg";
 import gltfUsdz from "../../../assets/img/gltfUsdz.jpg";
+
+import loadGist, { getGist } from "../../../components/utils/gistFetching";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import {
   ArticleImage,
   PaddingContainer,
 } from "../../../components/globalStyledComponents";
-import Image from "next/image";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-
-import loadGist from "../../../components/utils/gistFetching";
-import CodeExample from "../../../components/codeExample";
 
 export const usdzConversionContent = {
   title: "USDZ converter.",
   subTitle: "GLB to USDZ conversion using Docker.",
   image: image,
   link: "/projects/usdzConverter",
+  githubSource: "https://github.com/Schlomoh/usdz-converter",
 } as IPageTitleContent;
 
 const content = usdzConversionContent;
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      gists: await loadGist("65a12144313254e205eedfe58d76087b"),
+    },
+  };
+};
 
 const UsdzConversion = ({
   gists,
@@ -184,7 +194,7 @@ const UsdzConversion = ({
           care of receiving the arguments and shall then call the converter with
           them.
         </p>
-        <CodeExample lang="python" code={gists["main.py"]} />
+        <CodeExample lang="python" code={getGist(gists, "main.py")} />
         <p>
           To validate the input and output values, I define the function
           "check_io", which checks if the input path exists and the output
@@ -195,7 +205,7 @@ const UsdzConversion = ({
           created. If everything is valid the function returns "True" and we can
           continue.
         </p>
-        <CodeExample lang="python" code={gists["check_io.py"]} />
+        <CodeExample lang="python" code={getGist(gists, "check_io.py")} />
         <p>
           After that input, output and recursive (read_dir_recursive) can be
           used and we can start writing the docker util.
@@ -217,7 +227,7 @@ const UsdzConversion = ({
           used to tell "glob" to also read the sub-folders if requested. Then
           the list of file paths is returned.
         </p>
-        <CodeExample lang="python" code={gists["list_files.py"]} />
+        <CodeExample lang="python" code={getGist(gists, "list_files.py")} />
         <p>
           Now the actual "Docker_util" can be taken care of. For this I create a
           class, which will contain all necessary values and methods. To start
@@ -237,7 +247,7 @@ const UsdzConversion = ({
         </p>
         <CodeExample
           lang="python"
-          code={gists["docker_util_var_construct.py"]}
+          code={getGist(gists, "docker_util_var_construct.py")}
         />
         <p>
           Now we have to check if the image "Plattar/python-xrutils" is already
@@ -247,7 +257,10 @@ const UsdzConversion = ({
           longer than 0, the available image is retrieved, otherwise it is
           downloaded using the "pull" method and then returned.
         </p>
-        <CodeExample lang="python" code={gists["get_image_method.py"]} />
+        <CodeExample
+          lang="python"
+          code={getGist(gists, "get_image_method.py")}
+        />
         <p>
           With this, three of the four important items of our checklist are
           already fulfilled. Yay.
@@ -267,7 +280,10 @@ const UsdzConversion = ({
           possible file at the end of the input path.
         </p>
         <p>Now this is the full "path_operations.py" file:</p>
-        <CodeExample lang="python" code={gists["full_path_operations.py"]} />
+        <CodeExample
+          lang="python"
+          code={getGist(gists, "full_path_operations.py")}
+        />
         <p>
           Now I use these paths and the docker paths defined at the beginning of
           the class to connect the in- and output host paths to the locations
@@ -281,7 +297,10 @@ const UsdzConversion = ({
           All together this results in the following code for the "bind_volume"
           method:
         </p>
-        <CodeExample lang="python" code={gists["bind_volume_method.py"]} />
+        <CodeExample
+          lang="python"
+          code={getGist(gists, "bind_volume_method.py")}
+        />
         <p>
           Now to execute the command which starts the "usd_from_gltf" tool
           inside the container, I define the method "call_converter". (almost
@@ -302,7 +321,10 @@ const UsdzConversion = ({
           output arguments for the command that will be executed inside the
           running Docker container.
         </p>
-        <CodeExample lang="python" code={gists["call_converter_method.py"]} />
+        <CodeExample
+          lang="python"
+          code={getGist(gists, "call_converter_method.py")}
+        />
         <p>
           And now, to tie everything together, two final methods are defined:
           The "stop" and "start" methods. The "stop" method is only two lines
@@ -311,7 +333,7 @@ const UsdzConversion = ({
           then removes the container created at the beginning, including volumes
           (i.e. the connection for the file exchange).
         </p>
-        <CodeExample lang="python" code={gists["stop_method.py"]} />
+        <CodeExample lang="python" code={getGist(gists, "stop_method.py")} />
         <p>
           The "start" method now simply calls all previously defined methods one
           after the other, then iterates through the list of input files with
@@ -319,15 +341,18 @@ const UsdzConversion = ({
           least, in case of an error as well as after finishing the conversion,
           our little "stop" method is called.
         </p>
-        <CodeExample lang="python" code={gists["start_method.py"]} />
+        <CodeExample lang="python" code={getGist(gists, "start_method.py")} />
         <p>Here is the full "docker_util.py" code for you:</p>
-        <CodeExample lang="python" code={gists["full_docker_util.py"]} />
+        <CodeExample
+          lang="python"
+          code={getGist(gists, "full_docker_util.py")}
+        />
         <p>
           All that is missing now is to import this new class, initialize it in
           our "main" function with the input and output values from the CLI
           arguments and then call the "start" method.
         </p>
-        <CodeExample lang="python" code={gists["full_main.py"]} />
+        <CodeExample lang="python" code={getGist(gists, "full_main.py")} />
         <p>
           And that's it! Now we have a converter that can convert any glTF 2.0
           file into the USDZ format. This class can now be used in other
@@ -346,11 +371,3 @@ const UsdzConversion = ({
 };
 
 export default UsdzConversion;
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  return {
-    props: {
-      gists: await loadGist("65a12144313254e205eedfe58d76087b"),
-    },
-  };
-};

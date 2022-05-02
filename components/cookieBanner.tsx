@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { CookieBanner } from "@schlomoh/react-cookieconsent";
 import { TextWrapper } from "./globalStyledComponents";
-import Link from "next/link";
 
 const PageCookieBanner = () => {
   const baseGrey = "#1e1e1e";

@@ -1,6 +1,7 @@
 import BasePage from "../../components/basePage";
-import { PaddingContainer } from "../../components/globalStyledComponents";
 import ProjectHomeListing from "../../components/projectListing";
+import { PaddingContainer } from "../../components/globalStyledComponents";
+
 import image from "../../assets/img/library-2.jpg";
 
 import { remeshContent } from "./remeshing";

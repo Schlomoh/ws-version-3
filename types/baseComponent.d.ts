@@ -27,6 +27,7 @@ interface IPageTitleContent {
   subTitle: string;
   image: string | StaticImageData;
   link: string;
+  githubSource: string;
 }
 
 type TProjectContentArr = IPageTitleContent[];

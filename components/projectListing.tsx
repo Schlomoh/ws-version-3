@@ -1,10 +1,11 @@
-import { useEffect } from "react";
 import ProjectItem from "./projectItem";
 
-const createProjectHomeListing = (props: {
+interface Props {
   content: TProjectContentArr;
   low?: string;
-}) => {
+}
+
+const createProjectHomeListing = (props: Props) => {
   const { content, low } = props;
   return content.map((project: IPageTitleContent, i: number) => {
     return (
@@ -22,10 +23,7 @@ const createProjectHomeListing = (props: {
   });
 };
 
-const ProjectHomeListing = (props: {
-  content: TProjectContentArr;
-  low?: string;
-}) => {
+const ProjectHomeListing = (props: Props) => {
   return <>{createProjectHomeListing(props)}</>;
 };
 
