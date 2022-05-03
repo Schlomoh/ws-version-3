@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "@schlomoh/react-cookieconsent": "^1.5.0",
     "next": "12.1.0",
+    "nodemailer": "^6.7.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "17.0.21",
+    "@types/nodemailer": "^6.4.4",
     "@types/react": "17.0.40",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/styled-components": "^5.1.24",

@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 const border = `solid 1px grey`;
 
-const TextWrapper = styled.span<{ small?: boolean }>`
-  p, li {
+const TextWrapper = styled.span<{ small?: boolean; center?: boolean }>`
+  text-align: ${(props) => (props.center ? "center" : "initial")};
+  p,
+  li {
     font-size: ${(props) => (props.small ? "14px" : "")};
     color: #aeaeae;
   }
@@ -45,12 +47,13 @@ const CenterColumn = styled(FlexCenterContainer)`
   flex-direction: column;
 `;
 
-const PaddingContainer = styled.div<{ justify?: string }>`
+const PaddingContainer = styled.div<{ justify?: string; align?: string }>`
   padding: 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: ${(props) => (props.justify ? props.justify : "")};
+  justify-content: ${(props) => (props.justify ? props.justify : "initial")};
+  align-items: ${(props) => (props.align ? props.align : "initial")};
 `;
 
 const CenterPageContainer = styled(CenterColumn)<ICenterPageContainerProps>`

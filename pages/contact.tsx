@@ -1,11 +1,10 @@
 import BasePage from "../components/basePage";
-import { PaddingContainer } from "../components/globalStyledComponents";
-
+import {
+  PaddingContainer,
+  TextWrapper,
+} from "../components/globalStyledComponents";
 import image from "../assets/img/telephones.jpg";
-
-const AboutContent = () => {
-  return <PaddingContainer></PaddingContainer>;
-};
+import ContactForm from "../components/ContactForm";
 
 const aboutTitleContent = {
   title: "Contact page.",
@@ -13,6 +12,23 @@ const aboutTitleContent = {
   link: "/contact",
   image: image,
 } as IPageTitleContent;
+
+const AboutContent = () => {
+  return (
+    <PaddingContainer>
+      <TextWrapper>
+        <p>Send me a message and I will try to write back right away.</p>
+      </TextWrapper>
+      <ContactForm />
+      <TextWrapper small center>
+        <p>
+          When successfully having sent a message you will receive a
+          confirmation mail.
+        </p>
+      </TextWrapper>
+    </PaddingContainer>
+  );
+};
 
 const About = () => {
   return (
