@@ -42,10 +42,11 @@ const MenuWrapper = styled(CenterColumn)`
 `;
 
 const PageTitle = styled.span`
-  word-wrap: break-word;
-  /* word-break: break-word; */
-  word-break: normal;
-  text-overflow: ellipsis;
+  h1,
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   h1 {
     margin: 0;
@@ -151,7 +152,7 @@ const MenuRow = () => {
     ]);
 
     return (
-      <PaddingContainer justify="center">
+      <PaddingContainer justify="center" style={{width: 'calc(100% - 100px)'}}>
         <PageTitle>
           {isSmall ? <p>{subTitle}</p> : <></>}
           <h1>{title.toUpperCase()}</h1>
