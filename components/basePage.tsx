@@ -39,7 +39,7 @@ const Footer = () => {
             </BaseFooter>
           </TextWrapper>
           <CenterRow>
-            <TextWrapper small>
+            <TextWrapper small center>
               <p>Created with 🧠 and next.js | © 2022 Moritz Becker </p>
             </TextWrapper>
           </CenterRow>

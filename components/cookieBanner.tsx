@@ -19,7 +19,7 @@ const PageCookieBanner = () => {
           and the content and services offered.
           <br />
           Detailed information can be found in the{" "}
-          <Link href="/cookie-policy">cookie policy</Link>.
+          <Link href="/privacyPolicy">Privacy Policy</Link>.
         </p>
       </TextWrapper>
     );
@@ -35,7 +35,7 @@ const PageCookieBanner = () => {
       </p>
       <p>
         Detailed information can be found in the{" "}
-        <Link href="/cookie-policy">cookie policy</Link>.
+        <Link href="/privacyPolicy">Privacy Policy</Link>.
       </p>
     </TextWrapper>
   );
