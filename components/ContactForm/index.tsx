@@ -39,8 +39,6 @@ const sendMail = async (
   response ? setState.gotResponse(true) : null;
 
   let jsonRes = await response.json();
-  console.log(jsonRes.reqHost)
-   jsonRes = jsonRes.resp
   const okay = Object.keys(jsonRes).reduce((accu: any, item: string) => {
     if (jsonRes[item].response.split(" ").includes("Ok:")) accu = true;
     return accu;

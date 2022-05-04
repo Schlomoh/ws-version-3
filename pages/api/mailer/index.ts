@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { getSession } from "next-auth/react";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { emailHtml } from "./emailHtml";
@@ -27,39 +28,30 @@ const sendMail = async (mailObj: MailArgs) => {
 };
 
 const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.url) {
-    const hostname = new URL(req.url, `http://${req.headers.host}`).hostname;
-    if (
-      req.method === "POST" &&
-      hostname ===
-        ("localhost" ||
-          "127.0.0.1" ||
-          "moritzbecker.de" ||
-          "www.moritzbecker.de")
-    ) {
-      const { name, mailAdress, message } = req.body;
-      // mail for informing me
-      const myMailObj: MailArgs = {
-        from: '"moritzbecker.de | contact form"<mail@moritzbecker.de>',
-        to: "info@moritzbecker.de",
-        subject: `New message from ${name}`,
-        text: message,
-      };
-      const myInfo = await sendMail(myMailObj);
-
-      // mail for the contactee
-      const mailObj: MailArgs = {
-        from: '"Moritz Becker | moritzbecker.de"<mail@moritzbecker.de>',
-        to: mailAdress,
-        subject: `Thank you for your message ${name}!`,
-        html: emailHtml,
-      };
-      const info = await sendMail(mailObj);
-      const resObj = { myInfo: myInfo, info: info };
-
-      res.status(200).json(JSON.stringify({resp: resObj, reqHost: hostname}));
-    }
+  const session = await getSession({ req });
+  if (session) {
   }
+  const { name, mailAdress, message } = req.body;
+  // mail for informing me
+  const myMailObj: MailArgs = {
+    from: '"moritzbecker.de | contact form"<mail@moritzbecker.de>',
+    to: "info@moritzbecker.de",
+    subject: `New message from ${name}`,
+    text: message,
+  };
+  const myInfo = await sendMail(myMailObj);
+
+  // mail for the contactee
+  const mailObj: MailArgs = {
+    from: '"Moritz Becker | moritzbecker.de"<mail@moritzbecker.de>',
+    to: mailAdress,
+    subject: `Thank you for your message ${name}!`,
+    html: emailHtml,
+  };
+  const info = await sendMail(mailObj);
+  const resObj = { myInfo: myInfo, info: info };
+
+  res.status(200).json(JSON.stringify(resObj));
 };
 
 export default handleContact;
