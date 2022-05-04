@@ -57,7 +57,7 @@ const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
       const info = await sendMail(mailObj);
       const resObj = { myInfo: myInfo, info: info };
 
-      res.status(200).json(JSON.stringify(resObj));
+      res.status(200).json(JSON.stringify({resp: resObj, reqHost: hostname}));
     }
   }
 };
