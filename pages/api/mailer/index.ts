@@ -29,7 +29,14 @@ const sendMail = async (mailObj: MailArgs) => {
 const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.url) {
     const hostname = new URL(req.url, `http://${req.headers.host}`).hostname;
-    if (req.method === "POST" && hostname === ("localhost" || "127.0.0.1")) {
+    if (
+      req.method === "POST" &&
+      hostname ===
+        ("localhost" ||
+          "127.0.0.1" ||
+          "moritzbecker.de" ||
+          "www.moritzbecker.de")
+    ) {
       const { name, mailAdress, message } = req.body;
       // mail for informing me
       const myMailObj: MailArgs = {
@@ -48,7 +55,7 @@ const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
         html: emailHtml,
       };
       const info = await sendMail(mailObj);
-      const resObj = { myInfo: myInfo, info: info }
+      const resObj = { myInfo: myInfo, info: info };
 
       res.status(200).json(JSON.stringify(resObj));
     }
