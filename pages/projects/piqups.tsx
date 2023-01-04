@@ -1,6 +1,4 @@
-import BaseProjectPage from "../../components/baseProjectPage";
-import NoProject from "../../components/noProject";
-import { PaddingContainer } from "../../components/globalStyledComponents";
+import { BaseProjectPage, NoProject, PaddingContainer } from "../../components";
 
 import image from "../../assets/img/flower-robot.jpg";
 
@@ -10,13 +8,13 @@ export const piqupsContent = {
   image: image,
   link: "/projects/piqups",
   githubSource: "https://github.com/Schlomoh/flingy",
-} as IPageTitleContent;
+};
 
 const content = piqupsContent;
 
 const Piqups = () => {
   return (
-    <BaseProjectPage menuHeaderContent={content}>
+    <BaseProjectPage>
       <PaddingContainer>
         <NoProject />
       </PaddingContainer>

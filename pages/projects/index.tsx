@@ -1,29 +1,20 @@
-import BasePage from "../../components/basePage";
-import ProjectHomeListing from "../../components/projectListing";
-import { PaddingContainer } from "../../components/globalStyledComponents";
-
-import image from "../../assets/img/library-2.jpg";
+import { BasePage, ProjectListing, PaddingContainer } from "../../components";
 
 import { remeshContent } from "./remeshing";
 import { usdzConversionContent } from "./usdzConverter";
 import { piqupsContent } from "./piqups";
 import { instagramBotContent } from "./instagramBot";
+import { cookieConsentContent } from "./cookieConsent";
 import { ocrFormattingContent } from "./ocrReformatting";
 
-export const projectContent = [
-  remeshContent,
+export const projectData = [
   usdzConversionContent,
+  cookieConsentContent,
   piqupsContent,
+  remeshContent,
   instagramBotContent,
   ocrFormattingContent,
 ];
-
-const titleContent = {
-  subTitle: "You're on the",
-  title: "Projects page.",
-  link: "/projects",
-  image: image,
-} as IPageTitleContent;
 
 const PageContent = () => {
   return (
@@ -45,12 +36,16 @@ const PageContent = () => {
           some of my past projects, feel free to take a look!
         </p>
       </PaddingContainer>
-      <ProjectHomeListing content={projectContent} />
+      <ProjectListing projectData={projectData} />
     </>
   );
 };
 
 const Projects = () => {
-  return <BasePage menuHeaderContent={titleContent} render={<PageContent />} />;
+  return (
+    <BasePage>
+      <PageContent />
+    </BasePage>
+  );
 };
 export default Projects;

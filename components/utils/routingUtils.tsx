@@ -1,6 +1,4 @@
 import { useRouter } from "next/router";
-import { setPageContent } from "../../stateManagement/contentSlice";
-import store from "../../stateManagement/store";
 
 const useChangePage = (callback?: () => void) => {
   const router = useRouter();

@@ -1,13 +1,12 @@
-import BasePage from "../components/basePage";
+import { BasePage, PaddingContainer } from "../components";
 import image from "../assets/img/flower-robot.jpg";
-import { PaddingContainer } from "../components/globalStyledComponents";
 
 export const cookiePolicyTitleContent = {
   title: "Cookie Policy",
   subTitle: "Last Updated: 02-May-2022",
   image: image,
   link: "/cookiePolicy",
-} as IPageTitleContent;
+};
 
 const CookiePolicyContent = () => (
   <PaddingContainer>
@@ -40,10 +39,9 @@ const CookiePolicyContent = () => (
 
 const CookiePolicy = () => {
   return (
-    <BasePage
-      menuHeaderContent={cookiePolicyTitleContent}
-      render={<CookiePolicyContent />}
-    />
+    <BasePage>
+      <CookiePolicyContent />
+    </BasePage>
   );
 };
 

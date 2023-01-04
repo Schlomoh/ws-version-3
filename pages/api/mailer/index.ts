@@ -1,5 +1,4 @@
 import nodemailer from "nodemailer";
-import { getSession } from "next-auth/react";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { emailHtml } from "./emailHtml";
@@ -28,9 +27,6 @@ const sendMail = async (mailObj: MailArgs) => {
 };
 
 const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
-  const session = await getSession({ req });
-  if (session) {
-  }
   const { name, mailAdress, message } = req.body;
   // mail for informing me
   const myMailObj: MailArgs = {

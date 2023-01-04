@@ -1,6 +1,4 @@
-import BaseProjectPage from "../../components/baseProjectPage";
-import NoProject from "../../components/noProject";
-import { PaddingContainer } from "../../components/globalStyledComponents";
+import { BaseProjectPage, NoProject, PaddingContainer } from "../../components";
 
 import image from "../../assets/img/heart.jpg";
 
@@ -10,13 +8,13 @@ export const instagramBotContent = {
   image: image,
   link: "/projects/instagramBot",
   githubSource: "https://github.com/Schlomoh/Folico",
-} as IPageTitleContent;
+};
 
 const content = instagramBotContent;
 
 const InstagramBot = () => {
   return (
-    <BaseProjectPage menuHeaderContent={content}>
+    <BaseProjectPage>
       <PaddingContainer>
         <NoProject />
       </PaddingContainer>

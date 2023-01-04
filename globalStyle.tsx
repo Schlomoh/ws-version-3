@@ -7,12 +7,12 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: rgb(30, 30, 30);
+  background-color: ${(props) => props.theme.colors.surface.elevation[0]};
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 * {

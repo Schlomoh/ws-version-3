@@ -1,17 +1,5 @@
-import BasePage from "../components/basePage";
-import {
-  PaddingContainer,
-  TextWrapper,
-} from "../components/globalStyledComponents";
-import image from "../assets/img/telephones.jpg";
-import ContactForm from "../components/ContactForm";
-
-const aboutTitleContent = {
-  title: "Contact page.",
-  subTitle: "Lets get in touch.",
-  link: "/contact",
-  image: image,
-} as IPageTitleContent;
+import { BasePage } from "../components";
+import { ContactForm, PaddingContainer, TextWrapper } from "../components";
 
 const AboutContent = () => {
   return (
@@ -32,7 +20,9 @@ const AboutContent = () => {
 
 const About = () => {
   return (
-    <BasePage menuHeaderContent={aboutTitleContent} render={<AboutContent />} />
+    <BasePage>
+      <AboutContent />
+    </BasePage>
   );
 };
 

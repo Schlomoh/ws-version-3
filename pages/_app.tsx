@@ -1,11 +1,11 @@
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
-import Head from "next/head";
+import { ThemeProvider } from "styled-components";
 
+import { theme, TitleBar, CookieBanner } from "../components";
 import store from "../stateManagement/store";
-import MenuRow from "../components/menuRow";
 import GlobalStyle from "../globalStyle";
-import PageCookieBanner from "../components/cookieBanner";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,10 +15,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <Provider store={store}>
-        <GlobalStyle />
-        <MenuRow />
-        <PageCookieBanner />
-        <Component {...pageProps} />;
+        <ThemeProvider theme={theme}>
+          <GlobalStyle theme={theme} />
+          <TitleBar />
+          <CookieBanner />
+          <Component {...pageProps} />;
+        </ThemeProvider>
       </Provider>
     </>
   );

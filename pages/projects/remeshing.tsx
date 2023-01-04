@@ -1,6 +1,4 @@
-import BaseProjectPage from "../../components/baseProjectPage";
-import NoProject from "../../components/noProject";
-import { PaddingContainer } from "../../components/globalStyledComponents";
+import { BaseProjectPage, NoProject, PaddingContainer } from "../../components";
 
 import image from "../../assets/img/triangle-surface.jpg";
 
@@ -10,13 +8,13 @@ export const remeshContent = {
   image: image,
   link: "/projects/remeshing",
   githubSource: "https://github.com/Schlomoh/Remesh_testing",
-} as IPageTitleContent;
+};
 
 const content = remeshContent;
 
 const Remeshing = () => {
   return (
-    <BaseProjectPage menuHeaderContent={content}>
+    <BaseProjectPage>
       <PaddingContainer>
         <NoProject />
       </PaddingContainer>

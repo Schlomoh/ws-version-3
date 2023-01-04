@@ -1,6 +1,4 @@
-import BaseProjectPage from "../../components/baseProjectPage";
-import NoProject from "../../components/noProject";
-import { PaddingContainer } from "../../components/globalStyledComponents";
+import { BaseProjectPage, NoProject, PaddingContainer } from "../../components";
 
 import image from "../../assets/img/graffiti.jpg";
 
@@ -10,13 +8,13 @@ export const ocrFormattingContent = {
   image: image,
   link: "/projects/ocrReformatting",
   githubSource: "https://github.com/Schlomoh/OCR-text-formatting",
-} as IPageTitleContent;
+};
 
 const content = ocrFormattingContent;
 
 const OcrReformatting = () => {
   return (
-    <BaseProjectPage menuHeaderContent={content}>
+    <BaseProjectPage>
       <PaddingContainer>
         <NoProject />
       </PaddingContainer>

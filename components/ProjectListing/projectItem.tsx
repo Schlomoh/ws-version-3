@@ -1,17 +1,28 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import styled from "styled-components";
-import useChangePage from "./utils/routingUtils";
-import { hover } from "./globalStyledComponents";
 
-const ProjectButton = styled.div<{ low?: string }>`
+import useChangePage from "../utils/routingUtils";
+import { hover } from "../Styled";
+
+interface ProjectButtonProps {
+  small?: boolean;
+}
+
+interface ItemProps {
+  title: string;
+  subTitle: string;
+  imgSrc: string | StaticImageData;
+  uploaded: string;
+  priority?: boolean;
+  link: string;
+  small?: boolean;
+}
+
+const ProjectButton = styled.div<ProjectButtonProps>`
   cursor: pointer;
-
   position: relative;
   overflow: hidden;
-  height: ${(props) => (props.low && props.low === "true" ? "100px" : "400px")};
-
-  border: solid 1px grey;
-  border-left: none;
+  height: ${(props) => (props.small && props.small ? "100px" : "400px")};
 
   margin-bottom: 30px;
   padding: 30px 100px 30px 20px;
@@ -58,23 +69,22 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const ProjectItem = (props: IItemProps) => {
-  const { title, subTitle, imgSrc, uploaded, priority, link, low } = props;
+const ProjectItem = (props: ItemProps) => {
+  const { title, subTitle, imgSrc, uploaded, priority, link, small } = props;
   const changePage = useChangePage();
   return (
-    <ProjectButton low={low} onClick={() => changePage(link)}>
+    <ProjectButton onClick={() => changePage(link)} {...props}>
       <p className="itemText">{uploaded}</p>
       <div className="titleWrap itemText">
         <h2 className="">{title.toUpperCase()}</h2>
-        {low === "true" ? null : <h4 className="">{subTitle}</h4>}
+        {small ? null : <h4 className="">{subTitle}</h4>}
       </div>
       <ImageWrapper>
         <Image
           priority={priority}
-          layout="fill"
-          objectFit="cover"
           src={imgSrc}
           alt={title}
+          style={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
       </ImageWrapper>
     </ProjectButton>

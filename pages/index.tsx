@@ -1,18 +1,4 @@
-import BasePage from "../components/basePage";
-
-import { PaddingContainer } from "../components/globalStyledComponents";
-import ProjectHomeListing from "../components/projectListing";
-
-import sunset from "../assets/img/sunset.jpg";
-
-import { projectContent } from "./projects";
-
-const titleContent = {
-  title: "Home Page.",
-  subTitle: "Welcome, Friend!",
-  image: sunset,
-  link: "/",
-} as IPageTitleContent;
+import { BasePage, PaddingContainer } from "../components";
 
 const Content = () => (
   <>
@@ -28,12 +14,15 @@ const Content = () => (
         provide some of my knowledge to others.
       </p> */}
     </PaddingContainer>
-    <ProjectHomeListing low="true" content={projectContent} />
   </>
 );
 
 export const Home = () => {
-  return <BasePage menuHeaderContent={titleContent} render={<Content />} />;
+  return (
+    <BasePage>
+      <Content />
+    </BasePage>
+  );
 };
 
 export default Home;

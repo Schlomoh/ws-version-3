@@ -6,7 +6,8 @@ const initialState = {
   subTitle: "",
   image: background,
   link: "",
-} as IPageTitleContent;
+  githubSource: "",
+};
 
 const contentSlice = createSlice({
   name: "pageContent",

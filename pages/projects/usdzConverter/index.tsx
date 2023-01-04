@@ -1,16 +1,17 @@
 import Image from "next/image";
-import BaseProjectPage from "../../../components/baseProjectPage";
-import CodeExample from "../../../components/codeExample";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 import image from "../../../assets/img/wave-surface.jpg";
 import gltfUsdz from "../../../assets/img/gltfUsdz.jpg";
 
-import loadGist, { getGist } from "../../../components/utils/gistFetching";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import {
   ArticleImage,
+  BaseProjectPage,
+  CodeExample,
+  getGist,
+  loadGist,
   PaddingContainer,
-} from "../../../components/globalStyledComponents";
+} from "../../../components";
 
 export const usdzConversionContent = {
   title: "USDZ converter.",
@@ -18,7 +19,7 @@ export const usdzConversionContent = {
   image: image,
   link: "/projects/usdzConverter",
   githubSource: "https://github.com/Schlomoh/usdz-converter",
-} as IPageTitleContent;
+};
 
 const content = usdzConversionContent;
 
@@ -34,7 +35,7 @@ const UsdzConversion = ({
   gists,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <BaseProjectPage menuHeaderContent={content}>
+    <BaseProjectPage>
       <PaddingContainer>
         <h3>Python pipeline for converting glTF files to the USDZ format.</h3>
         <h2>Overview.</h2>
@@ -56,7 +57,7 @@ const UsdzConversion = ({
           following section and jump directly into the pipeline implementation.
         </p>
         <ArticleImage>
-          <Image src={gltfUsdz}></Image>
+          <Image src={gltfUsdz} alt=""></Image>
         </ArticleImage>
         <h2>The two file types.</h2>
         <h4>GLTF.</h4>

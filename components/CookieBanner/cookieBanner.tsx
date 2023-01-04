@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { CookieBanner } from "@schlomoh/react-cookieconsent";
-import { TextWrapper } from "./globalStyledComponents";
+import { TextWrapper, theme } from "../";
 
 const PageCookieBanner = () => {
-  const baseGrey = "#1e1e1e";
+  const baseGrey = theme.colors.backgroundColor;
   const buttonStyle = {
     borderRadius: 0,
     marginLeft: 0,
     backgroundColor: baseGrey,
   } as React.CSSProperties;
+
   const InfoContent = () => {
     return (
       <TextWrapper>

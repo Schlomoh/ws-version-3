@@ -6,7 +6,7 @@ interface IFileObject {
   [key: string]: string;
 }
 
-async function loadGist(id: string) {
+export async function loadGist(id: string) {
   const url = `https://gist.githubusercontent.com/Schlomoh/${id}`;
   try {
     const jsonResponse = await fetch(`${url}.json`);
@@ -33,5 +33,3 @@ async function loadGist(id: string) {
 export const getGist = (gists: IFileObject, i: string) => {
   return gists !== null ? gists[i] : "Code was not available.";
 };
-
-export default loadGist;

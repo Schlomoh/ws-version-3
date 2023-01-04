@@ -1,5 +1,4 @@
-import BasePage from "../components/basePage";
-import { PaddingContainer } from "../components/globalStyledComponents";
+import { PaddingContainer, BasePage } from "../components";
 
 import image from "../assets/img/goat.jpg";
 
@@ -37,11 +36,13 @@ const aboutTitleContent = {
   subTitle: "Its all...",
   link: "/about",
   image: image,
-} as IPageTitleContent;
+};
 
 const About = () => {
   return (
-    <BasePage menuHeaderContent={aboutTitleContent} render={<AboutContent />} />
+    <BasePage>
+      <AboutContent />
+    </BasePage>
   );
 };
 

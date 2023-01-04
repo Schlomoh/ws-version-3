@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TextWrapper } from "./globalStyledComponents";
+import { TextWrapper } from "../";
 
 const NoProject = () => {
   return (
@@ -15,8 +15,9 @@ const NoProject = () => {
         by then.
       </p>
       <p>
-        Or you can just go back to the <Link href="/projects">projects page</Link> and
-        maybe find somthing else there.
+        Or you can just go back to the{" "}
+        <Link href="/projects">projects page</Link> and maybe find somthing else
+        there.
       </p>
     </TextWrapper>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface optionInterface {
   root: null | Element;
@@ -16,9 +16,7 @@ export function createThresholdArr(): number[] {
  * @param options - intersection oberver options
  * @returns [elemetRef, isVisible, ratio];
  */
-function useElementIntersection(
-  options: optionInterface
-) {
+function useElementIntersection(options: optionInterface) {
   const elRef = useRef<HTMLDivElement>(null);
   const [isVisible, setVisibility] = useState(false);
   const [ratio, setRatio] = useState(1);
@@ -42,7 +40,8 @@ function useElementIntersection(
       if (el) observer.unobserve(el);
     };
   });
-  return {ref: elRef, isVisible: isVisible,ratio: ratio};
+  
+  return { ref: elRef, isVisible: isVisible, ratio: ratio };
 }
 
 export default useElementIntersection;
