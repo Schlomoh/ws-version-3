@@ -3,7 +3,7 @@ import { CookieBanner } from "@schlomoh/react-cookieconsent";
 import { TextWrapper, theme } from "../";
 
 const PageCookieBanner = () => {
-  const baseGrey = theme.colors.backgroundColor;
+  const baseGrey = theme.colors.surface.elevation[0];
   const buttonStyle = {
     borderRadius: 0,
     marginLeft: 0,
