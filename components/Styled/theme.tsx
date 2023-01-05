@@ -16,9 +16,9 @@ const theme: DefaultTheme = {
     },
     surface: {
       elevation: {
-        0: "#212529",
-        1: "#343a40",
-        2: "#495057",
+        0: "#0a0a0a",
+        1: "#141414",
+        2: "#1f1f1f",
       },
     },
   },

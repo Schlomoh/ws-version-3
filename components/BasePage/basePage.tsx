@@ -13,7 +13,7 @@ const BasePage = (props: IBasePageProps) => {
       <main>
         <PageRow>
           <CenterPageContainer noPadding>
-            <TextWrapper>{children}</TextWrapper>
+            {children}
           </CenterPageContainer>
         </PageRow>
       </main>

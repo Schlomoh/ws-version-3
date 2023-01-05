@@ -26,6 +26,8 @@ export {
   CenterColumn,
   CenterPageContainer,
   CenterRow,
+  GridContainer,
+  GridElement,
   PaddingContainer,
   PageRow,
   Surface,

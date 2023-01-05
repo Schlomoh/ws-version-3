@@ -8,6 +8,8 @@ export {
   CenterColumn,
   CenterPageContainer,
   CenterRow,
+  GridContainer,
+  GridElement,
   PaddingContainer,
   PageRow,
 } from "./containers";

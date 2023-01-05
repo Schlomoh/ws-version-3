@@ -69,3 +69,25 @@ export const PageRow = styled(CenterRow)<PageRowProps>`
   transition: height
     ${(props) => (props.collapseSpeed ? `${props.collapseSpeed}s` : "")};
 `;
+
+export const GridContainer = styled.div`
+  display: flex;
+  flex-direction: rew;
+  justify-content: space-between;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column-reverse;
+  }
+`;
+
+export const GridElement = styled.div`
+  margin: 0 1rem 0 0;
+  width: 50%;
+
+  :last-child {
+    margin: 0;
+  }
+  @media screen and (max-width: 600px) {
+    margin: 1rem 0;
+  }
+`;

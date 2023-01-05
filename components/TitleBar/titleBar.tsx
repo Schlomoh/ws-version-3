@@ -41,12 +41,15 @@ const Offset = styled.div`
 `;
 
 const Backdrop = styled.div<{ show: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
   opacity: ${(props) => (props.show ? 1 : 0)};
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
 
   transition: visibility 0.3s, opacity 0.3s;
 `;
