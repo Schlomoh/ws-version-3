@@ -89,5 +89,6 @@ export const GridElement = styled.div`
   }
   @media screen and (max-width: 600px) {
     margin: 1rem 0;
+    width: 100%;
   }
 `;
