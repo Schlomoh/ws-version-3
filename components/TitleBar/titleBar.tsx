@@ -3,8 +3,9 @@ import { useState } from "react";
 
 import { Surface } from "../Styled";
 import { FadeIn } from "../FadeIn";
+
 import MenuIcon from "./menuIcon";
-import MenuItems from "./MenuItems";
+import MenuItems from "./menuItems";
 
 interface FloatingBarProps {
   expanded: boolean;
