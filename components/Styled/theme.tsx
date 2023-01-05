@@ -1,6 +1,12 @@
 import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
+  misc: {
+    borderRadius: {
+      outer: "20px",
+      inner: "15px",
+    },
+  },
   colors: {
     accent: {
       yellow: "#e9ff70",

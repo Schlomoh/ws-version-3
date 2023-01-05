@@ -42,7 +42,7 @@ const TextWrapper = styled.span<Props>`
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
-    transition: background-size 400ms;
+    transition: background-size 0.4s, 0.3s;
   }
 
   a:hover,
@@ -50,6 +50,7 @@ const TextWrapper = styled.span<Props>`
   h3:hover,
   h3:focus {
     background-size: 0 0.1em, 100% 0.1em;
+    color: var(--linkColor);
   }
 
   p,

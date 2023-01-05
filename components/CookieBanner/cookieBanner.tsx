@@ -45,10 +45,7 @@ const PageCookieBanner = () => {
     <CookieBanner
       enableManagement
       cookieCategories={["Analysis", "Social media"]}
-      containerStyle={{
-        backgroundColor: baseGrey,
-        borderTop: "solid 1px grey",
-      }}
+      containerStyle={{ backgroundColor: baseGrey }}
       headingColor="white"
       primaryButtonStyle={buttonStyle}
       secondaryButtonStyle={buttonStyle}

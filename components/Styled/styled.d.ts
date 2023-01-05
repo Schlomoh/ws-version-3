@@ -4,10 +4,16 @@ import "styled-components";
 // and extend them!
 declare module "styled-components" {
   export interface DefaultTheme {
+    misc: {
+      borderRadius: {
+        outer: string;
+        inner: string;
+      };
+    };
     colors: {
       accent: {
         [key: string]: string;
-        'yellow': string;
+        yellow: string;
         pink: string;
         blue: string;
         orange: string;

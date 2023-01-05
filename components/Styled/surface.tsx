@@ -1,5 +1,4 @@
 import styled, { DefaultTheme } from "styled-components";
-import { CenterColumn, PaddingContainer } from "./containers";
 
 interface SurfaceProps {
   color?: keyof DefaultTheme["colors"]["accent"] | "Base";
@@ -10,7 +9,7 @@ const Surface = styled.div<SurfaceProps>`
   position: relative;
   overflow: hidden;
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: ${(props) => props.theme.misc.borderRadius.outer};
   background-color: ${(props) => {
     const base = props.theme.colors.surface.elevation;
     const accent = props.theme.colors.accent;

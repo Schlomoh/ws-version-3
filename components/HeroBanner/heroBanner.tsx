@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PaddingContainer, Surface, TextWrapper } from "../Styled";
 
 const Banner = styled(PaddingContainer)`
-  height: 80vh;
+  min-height: 80vh;
 `;
 
 const HeroBanner = () => {

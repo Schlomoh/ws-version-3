@@ -1,17 +1,10 @@
 import styled from "styled-components";
-import Link from "next/link";
 import { useState } from "react";
-import { IconContext } from "react-icons";
-import { HiMenuAlt4 } from "react-icons/hi";
 
-import {
-  CenterColumn,
-  CenterRow,
-  PaddingContainer,
-  Surface,
-  TextWrapper,
-} from "../Styled";
+import { Surface } from "../Styled";
 import { FadeIn } from "../FadeIn";
+import MenuIcon from "./menuIcon";
+import MenuItems from "./MenuItems";
 
 interface FloatingBarProps {
   expanded: boolean;
@@ -57,45 +50,6 @@ const Backdrop = styled.div<{ show: boolean }>`
   transition: visibility 0.3s, opacity 0.3s;
 `;
 
-const MenuLink = styled(Link)`
-  margin-bottom: 1rem;
-`;
-
-const MenuItem = ({ label, href }: { label: string; href: string }) => {
-  return (
-    <li>
-      <MenuLink href={href}>
-        <h3>{label}</h3>
-      </MenuLink>
-    </li>
-  );
-};
-
-const MenuItems = () => {
-  return (
-    <PaddingContainer>
-      <TextWrapper color="black" underline>
-        <ul>
-          <MenuItem href="/" label="Home" />
-          <MenuItem href="/projects" label="Projects" />
-          <MenuItem href="/contact" label="Contact" />
-          <MenuItem href="/about" label="About" />
-        </ul>
-      </TextWrapper>
-    </PaddingContainer>
-  );
-};
-
-const MenuIcon = () => {
-  return (
-    <PaddingContainer align="center" justify="center" noPadding>
-      <IconContext.Provider value={{ style: { fontSize: "20px" } }}>
-        <HiMenuAlt4 />
-      </IconContext.Provider>
-    </PaddingContainer>
-  );
-};
-
 const TitleBar = () => {
   const [expanded, setExpanded] = useState(false);
   const [transitionEnded, setTransitionEnded] = useState(true);
@@ -127,7 +81,7 @@ const TitleBar = () => {
           </FadeIn>
         )}
       </FloatingBar>
-      <Backdrop show={expanded} />
+      <Backdrop show={expanded} onClick={collapse} />
     </>
   );
 };
