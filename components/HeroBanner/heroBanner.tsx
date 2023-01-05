@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  CenterPageContainer,
-  PaddingContainer,
-  Surface,
-  TextWrapper,
-} from "../Styled";
+import { PaddingContainer, Surface, TextWrapper } from "../Styled";
 
 const Banner = styled(PaddingContainer)`
   height: 80vh;
@@ -13,7 +8,7 @@ const Banner = styled(PaddingContainer)`
 const HeroBanner = () => {
   return (
     <Banner>
-      <Surface color="yellow">
+      <Surface color="pink">
         <TextWrapper color="black">
           <h2>Glad</h2>
           <h1>you're here!</h1>

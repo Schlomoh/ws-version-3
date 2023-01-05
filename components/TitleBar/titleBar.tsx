@@ -46,6 +46,17 @@ const Offset = styled.div`
   height: calc(3.5rem + 2rem);
 `;
 
+const Backdrop = styled.div<{ show: boolean }>`
+  visibility: ${(props) => (props.show ? "visible" : "hidden")};
+  opacity: ${(props) => (props.show ? 1 : 0)};
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+
+  transition: visibility 0.3s, opacity 0.3s;
+`;
+
 const MenuLink = styled(Link)`
   margin-bottom: 1rem;
 `;
@@ -116,6 +127,7 @@ const TitleBar = () => {
           </FadeIn>
         )}
       </FloatingBar>
+      <Backdrop show={expanded} />
     </>
   );
 };

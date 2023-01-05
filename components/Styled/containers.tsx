@@ -35,7 +35,7 @@ export const CenterColumn = styled(FlexCenterContainer)`
 `;
 
 export const PaddingContainer = styled.div<PaddingContainerProps>`
-  padding: ${(props) => (props.noPadding ? "0px" : "30px")};
+  padding: ${(props) => (props.noPadding ? "0px" : "1rem")};
   width: 100%;
   height: 100%;
 
