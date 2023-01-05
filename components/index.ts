@@ -3,6 +3,8 @@ export { BaseProjectPage } from "./BaseProjectPage";
 export { CodeExample } from "./CodeExample";
 export { ContactForm } from "./ContactForm";
 export { CookieBanner } from "./CookieBanner";
+export { FadeIn } from "./FadeIn";
+export { HeroBanner } from "./HeroBanner";
 export { Loader } from "./Loader";
 export { NoProject } from "./NoProject";
 export { ProjectListing } from "./ProjectListing";
@@ -26,4 +28,5 @@ export {
   CenterRow,
   PaddingContainer,
   PageRow,
+  Surface,
 } from "./Styled";

@@ -2,7 +2,12 @@ import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
   colors: {
-    accent: "white",
+    accent: {
+      yellow: "#e9ff70",
+      blue: "#70d6ff",
+      pink: "#ff70a6",
+      orange: "#ff9770",
+    },
     surface: {
       elevation: {
         0: "#212529",
@@ -17,6 +22,12 @@ const theme: DefaultTheme = {
       subHeading: "lightgrey",
       paragraph: "grey",
       link: "white",
+      contrast: {
+        heading: "black",
+        subHeading: "lightgrey",
+        paragraph: "grey",
+        link: "white",
+      },
     },
   },
 };

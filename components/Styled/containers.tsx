@@ -1,15 +1,17 @@
+import { CSSProperties } from "react";
 import styled from "styled-components";
 
 interface CenterPageContainerProps {
   noPadding?: boolean;
-  padding?: string;
+  padding?: CSSProperties["padding"];
   menu?: boolean;
   row?: boolean;
 }
 
 interface PaddingContainerProps {
-  justify?: string;
-  align?: string;
+  justify?: CSSProperties["justifyContent"];
+  align?: CSSProperties["alignItems"];
+  noPadding?: boolean;
 }
 
 interface PageRowProps {
@@ -33,8 +35,9 @@ export const CenterColumn = styled(FlexCenterContainer)`
 `;
 
 export const PaddingContainer = styled.div<PaddingContainerProps>`
-  padding: 30px;
+  padding: ${(props) => (props.noPadding ? "0px" : "30px")};
   width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -46,10 +49,9 @@ export const CenterPageContainer = styled(
   FlexCenterContainer
 )<CenterPageContainerProps>`
   width: 100%;
-  max-width: 800px;
 
   padding: ${(props) =>
-    props.noPadding ? "0" : props.padding ? props.padding : "30px"};
+    props.noPadding ? "0" : props.padding ? props.padding : "2rem"};
   flex-direction: ${(props) => (props.row ? "row" : "column")};
 `;
 

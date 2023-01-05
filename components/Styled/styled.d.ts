@@ -5,7 +5,13 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
-      accent: string;
+      accent: {
+        [key: string]: string;
+        'yellow': string;
+        pink: string;
+        blue: string;
+        orange: string;
+      };
       surface: {
         elevation: {
           0: string;
@@ -20,6 +26,12 @@ declare module "styled-components" {
         subHeading: string;
         paragraph: string;
         link: string;
+        contrast: {
+          heading: string;
+          subHeading: string;
+          paragraph: string;
+          link: string;
+        };
       };
     };
   }

@@ -3,24 +3,42 @@ import styled from "styled-components";
 interface Props {
   small?: boolean;
   center?: boolean;
+  underline?: boolean;
 }
 
 const TextWrapper = styled.span<Props>`
+  --linkColor: ${(props) =>
+    props.color ? props.color : props.theme.text.colors.link};
+  --paragraphColor: ${(props) =>
+    props.color ? props.color : props.theme.text.colors.paragraph};
+  --headingColor: ${(props) =>
+    props.color ? props.color : props.theme.text.colors.heading};
+  --subheadingColor: ${(props) =>
+    props.color ? props.color : props.theme.text.colors.subHeading};
+
   text-align: ${(props) => (props.center ? "center" : "initial")};
-  p,
+
+  ul {
+    padding: 0;
+  }
+
   li {
-    font-size: ${(props) => (props.small ? "14px" : "")};
-    color: ${(props) => props.theme.text.colors.paragraph};
+    margin-bottom: 0.5rem;
   }
+
+  ${(props) =>
+    props.underline &&
+    `
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5`},
   a {
-    color: ${(props) => props.theme.text.colors.link};
-  }
-  a {
+    color: var(--linkColor);
     background: linear-gradient(transparent, transparent),
-      linear-gradient(
-        ${(props) => props.theme.text.colors.link},
-        ${(props) => props.theme.text.colors.link}
-      );
+      linear-gradient(var(--linkColor), var(--linkColor));
     background-size: 100% 0.1em, 0 0.1em;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
@@ -28,8 +46,30 @@ const TextWrapper = styled.span<Props>`
   }
 
   a:hover,
-  a:focus {
+  a:focus,
+  h3:hover,
+  h3:focus {
     background-size: 0 0.1em, 100% 0.1em;
+  }
+
+  p,
+  a,
+  li {
+    list-style-type: none;
+    font-size: ${(props) => (props.small ? "14px" : "")};
+    color: var(--paragraphColor);
+  }
+
+  h1,
+  h2 {
+    color: var(--headingColor);
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--subheadingColor);
   }
 `;
 

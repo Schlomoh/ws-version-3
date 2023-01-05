@@ -50,16 +50,20 @@ strong {
 
 /* sizes */
 h1 {
-  font-size: 42px;
+  font-size: 3.5rem;
+  margin-block-start: 0;
 }
+
 h2 {
   font-size: 32px;
   margin-bottom: 10px;
 }
+
 h3 {
   font-size: 26px;
   font-weight: 400;
 }
+
 h4 {
   font-size: 22px;
   font-weight: 400;
