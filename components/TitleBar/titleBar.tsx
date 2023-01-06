@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import { Surface, SurfaceProps } from "../Styled";
+import { hover, Surface, SurfaceProps } from "../Styled";
 import { FadeIn } from "../FadeIn";
 
 import MenuIcon from "./menuIcon";
 import MenuItems from "./menuItems";
+import Logo from "./logo";
 
 interface FloatingBarProps {
   expanded: boolean;
@@ -13,11 +14,12 @@ interface FloatingBarProps {
 
 const FloatingBar = styled(Surface)<FloatingBarProps>`
   --fullWidth: calc(100% - 2rem);
-  --smallSize: 50px;
+  --smallSize: 55.5px;
 
+  cursor: pointer;
   position: fixed !important;
   margin: 1rem;
-  padding: 0;
+  padding: 0 !important;
   top: 0;
   right: 0;
   box-shadow: 0 2px 2rem -10px rgba(0, 0, 0, 0.2);
@@ -33,11 +35,16 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
       props.expanded ? "var(--fullWidth)" : "var(--smallSize)"};
   }
 
-  transition: width 0.3s, height 0.3s;
+  scale: 0.9;
+  ${hover("scale: 1;")}
+
+  transition: width 0.3s, height 0.3s, scale 0.3s;
 `;
 
 const Offset = styled.div`
   height: calc(50px + 2rem);
+  padding: 1.5rem;
+  padding-left: 1rem;
 `;
 
 const Backdrop = styled.div<{ show: boolean }>`
@@ -85,7 +92,9 @@ const TitleBar = () => {
         )}
       </FloatingBar>
       <Backdrop show={expanded} onClick={collapse} />
-      <Offset />
+      <Offset>
+        <Logo />
+      </Offset>
     </>
   );
 };

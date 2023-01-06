@@ -17,7 +17,7 @@ const Footer = () => {
     <>
       <PageRow>
         <CenterPageContainer>
-          <TextWrapper>
+          <TextWrapper underline>
             <FooterWrapper>
               <Link href="/">Home.</Link>
               <Link href="/about">About.</Link>

@@ -4,6 +4,7 @@ export interface SurfaceProps {
   color?: keyof DefaultTheme["colors"]["accent"] | "Base";
   variant?: "outlined" | "solid";
   elevation?: 0 | 1 | 2;
+  corner?: "inner" | "outer";
 }
 
 const Surface = styled.div<SurfaceProps>`
@@ -23,10 +24,17 @@ const Surface = styled.div<SurfaceProps>`
     return "transparent";
   }};
 
+  --border-radius: ${(props) => {
+    const outer = props.theme.misc.borderRadius.outer;
+    const inner = props.theme.misc.borderRadius.inner;
+
+    return !props.corner || props.corner === "outer" ? outer : inner;
+  }};
+
   position: relative;
   overflow: hidden;
   padding: 2rem;
-  border-radius: ${(props) => props.theme.misc.borderRadius.outer};
+  border-radius: var(--border-radius);
   background-color: var(--background-color);
   border: ${(props) =>
     props.variant === "outlined" ? "solid 5px var(--surface-color)" : "none"};

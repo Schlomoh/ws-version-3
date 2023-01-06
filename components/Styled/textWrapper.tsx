@@ -66,12 +66,14 @@ const TextWrapper = styled.span<Props>`
   a:focus,
   h3:hover,
   h3:focus {
-    background-size: 0 0.1em, 100% 0.1em;
-    color: var(--linkColor);
+    ${(props) =>
+      props.underline &&
+      ` background-size: 0 0.1em, 100% 0.1em;
+        color: var(--linkColor);
+      `}
   }
 
   p,
-  a,
   li {
     list-style-type: none;
     font-size: ${(props) => (props.small ? "14px" : "")};

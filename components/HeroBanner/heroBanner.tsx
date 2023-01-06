@@ -17,7 +17,7 @@ const Banner = styled(PaddingContainer)`
 const HeroBanner = () => {
   return (
     <Banner>
-      <GridContainer>
+      <GridContainer direction="column-reverse">
         <GridElement>
           <Surface variant="outlined" color="pink" style={{ alignSelf: "end" }}>
             <TextWrapper>

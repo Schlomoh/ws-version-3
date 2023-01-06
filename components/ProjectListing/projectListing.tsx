@@ -26,10 +26,11 @@ const ProjectListing = (props: Props) => {
         imgSrc={project.image}
         uploaded="1w"
         priority={i === 0}
+        style={{ marginBottom: i + 1 === projectData.length ? 0 : "1rem" }}
       />
     );
   });
-  return <>{list}</>;
+  return <div>{list}</div>;
 };
 
 export default ProjectListing;

@@ -30,8 +30,8 @@ const theme: DefaultTheme = {
       link: "white",
       contrast: {
         heading: "black",
-        subHeading: "lightgrey",
-        paragraph: "grey",
+        subHeading: "#232323",
+        paragraph: "#434343",
         link: "white",
       },
     },

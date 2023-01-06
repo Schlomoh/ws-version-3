@@ -70,14 +70,16 @@ export const PageRow = styled(CenterRow)<PageRowProps>`
     ${(props) => (props.collapseSpeed ? `${props.collapseSpeed}s` : "")};
 `;
 
-export const GridContainer = styled.div`
+export const GridContainer = styled.div<{
+  direction?: CSSProperties["flexDirection"];
+}>`
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   @media screen and (max-width: 600px) {
-    flex-direction: column-reverse;
+    flex-direction: ${(props) => props.direction || "column"};
   }
 `;
 
