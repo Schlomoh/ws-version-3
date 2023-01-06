@@ -4,17 +4,34 @@ interface Props {
   small?: boolean;
   center?: boolean;
   underline?: boolean;
+  mode?: "default" | "contrast";
 }
 
 const TextWrapper = styled.span<Props>`
   --linkColor: ${(props) =>
-    props.color ? props.color : props.theme.text.colors.link};
+    props.color
+      ? props.color
+      : props.mode === "contrast"
+      ? props.theme.text.colors.contrast.link
+      : props.theme.text.colors.link};
   --paragraphColor: ${(props) =>
-    props.color ? props.color : props.theme.text.colors.paragraph};
+    props.color
+      ? props.color
+      : props.mode === "contrast"
+      ? props.theme.text.colors.contrast.paragraph
+      : props.theme.text.colors.paragraph};
   --headingColor: ${(props) =>
-    props.color ? props.color : props.theme.text.colors.heading};
+    props.color
+      ? props.color
+      : props.mode === "contrast"
+      ? props.theme.text.colors.contrast.heading
+      : props.theme.text.colors.heading};
   --subheadingColor: ${(props) =>
-    props.color ? props.color : props.theme.text.colors.subHeading};
+    props.color
+      ? props.color
+      : props.mode === "contrast"
+      ? props.theme.text.colors.contrast.subHeading
+      : props.theme.text.colors.subHeading};
 
   text-align: ${(props) => (props.center ? "center" : "initial")};
 

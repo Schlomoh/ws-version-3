@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Euler } from "three";
 import { Canvas as ThreeCanvas, useFrame } from "@react-three/fiber";
-import { Scroll, ScrollControls, useScroll } from "@react-three/drei";
+import { Preload, Scroll, ScrollControls, useScroll } from "@react-three/drei";
 import { Model } from "./model";
 
 import {
@@ -21,8 +21,13 @@ const Banner = styled(PaddingContainer)`
 
 const CanvasContainer = styled.div`
   position: absolute;
+  left: 0;
+  top: 0;
   width: 100vw;
-  height: 100%;
+  height: 80vh;
+`;
+const CanvasOffset = styled.div`
+  height: 50vh;
 `;
 
 const ScrollElement = () => {
@@ -36,7 +41,13 @@ const ScrollElement = () => {
   });
 
   const yRotation = calcRot(progress);
-  return <Model rotation={new Euler(0, yRotation, 0)} />;
+  return (
+    <Model
+      rotation={new Euler(0, yRotation, 0)}
+      scale={0.6}
+      position={[0, 0.6, 0]}
+    />
+  );
 };
 
 const Canvas = () => {
@@ -44,7 +55,7 @@ const Canvas = () => {
     <ThreeCanvas>
       <ScrollControls
         pages={1} // Each page takes 100% of the height of the canvas
-        distance={1} // A factor that increases scroll bar travel (default: 1)
+        distance={0.1} // A factor that increases scroll bar travel (default: 1)
         damping={4} // Friction, higher is faster (default: 4)
         horizontal={false} // Can also scroll horizontally (default: false)
         infinite={false}
@@ -53,7 +64,9 @@ const Canvas = () => {
           <ScrollElement />
         </Scroll>
       </ScrollControls>
+      <Preload />
       <ambientLight />
+      <pointLight position={[-10, 10, 10]} />
       <pointLight position={[10, 10, 10]} />
     </ThreeCanvas>
   );
@@ -64,12 +77,12 @@ const HeroBanner = () => {
     <Banner>
       <GridContainer>
         <GridElement>
-          <Surface color="pink" style={{ alignSelf: "end" }}>
-            <TextWrapper color="black">
-              <h2>Glad</h2>
-              <h1>you're here!</h1>
+          <Surface variant="outlined" color="pink" style={{ alignSelf: "end" }}>
+            <TextWrapper>
+              <h2>Hey,</h2>
+              <h1>found me!</h1>
             </TextWrapper>
-            <TextWrapper color="black">
+            <TextWrapper mode="contrast">
               <p>
                 Would you like to learn more about the projects I've worked on?
                 Here is my story so far, with links that will take you right
@@ -78,11 +91,13 @@ const HeroBanner = () => {
             </TextWrapper>
           </Surface>
         </GridElement>
-        <GridElement></GridElement>
+        <GridElement>
+          <CanvasContainer>
+            <Canvas />
+          </CanvasContainer>
+          <CanvasOffset />
+        </GridElement>
       </GridContainer>
-      <CanvasContainer>
-        <Canvas />
-      </CanvasContainer>
     </Banner>
   );
 };

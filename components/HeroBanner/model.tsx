@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 export function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF("/3d/tv.glb") as unknown as GLTFResult;
   return (
-    <group {...props} dispose={null} scale={.5}>
+    <group {...props} dispose={null}>
       <mesh
         geometry={nodes["fsf_07_-_Default_0"].geometry}
         material={materials["07_-_Default"]}

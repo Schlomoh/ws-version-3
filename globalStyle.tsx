@@ -41,7 +41,7 @@ h1,
 h2 {
   font-family: "Heebo", sans-serif;
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 1;
 }
 
 strong {

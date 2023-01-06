@@ -85,6 +85,7 @@ export const GridElement = styled.div`
   display: flex;
   margin: 0 1rem 0 0;
   width: 50%;
+  height: 100%;
 
   :last-child {
     margin: 0;

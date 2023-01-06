@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import { Surface } from "../Styled";
+import { Surface, SurfaceProps } from "../Styled";
 import { FadeIn } from "../FadeIn";
 
 import MenuIcon from "./menuIcon";
@@ -15,7 +15,7 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
   --fullWidth: calc(100% - 2rem);
   --smallSize: 50px;
 
-  position: fixed;
+  position: fixed !important;
   margin: 1rem;
   padding: 0;
   top: 0;
@@ -68,7 +68,6 @@ const TitleBar = () => {
 
   return (
     <>
-      <Offset />
       <FloatingBar
         expanded={expanded}
         onClick={toggle}
@@ -86,6 +85,7 @@ const TitleBar = () => {
         )}
       </FloatingBar>
       <Backdrop show={expanded} onClick={collapse} />
+      <Offset />
     </>
   );
 };
