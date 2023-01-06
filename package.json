@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.51.8",
     "@react-three/fiber": "^8.10.0",
     "@reduxjs/toolkit": "^1.8.0",
     "@schlomoh/react-cookieconsent": "^1.6.1",

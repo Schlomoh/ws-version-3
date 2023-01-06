@@ -71,8 +71,9 @@ export const PageRow = styled(CenterRow)<PageRowProps>`
 `;
 
 export const GridContainer = styled.div`
+  height: 100%;
   display: flex;
-  flex-direction: rew;
+  flex-direction: row;
   justify-content: space-between;
 
   @media screen and (max-width: 600px) {
@@ -81,6 +82,7 @@ export const GridContainer = styled.div`
 `;
 
 export const GridElement = styled.div`
+  display: flex;
   margin: 0 1rem 0 0;
   width: 50%;
 

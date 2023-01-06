@@ -37,7 +37,7 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
 `;
 
 const Offset = styled.div`
-  height: calc(3.5rem + 2rem);
+  height: calc(50px + 2rem);
 `;
 
 const Backdrop = styled.div<{ show: boolean }>`
