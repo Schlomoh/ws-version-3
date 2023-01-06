@@ -20,7 +20,7 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
   padding: 0;
   top: 0;
   right: 0;
-  box-shadow: 0 5px 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2rem -10px rgba(0, 0, 0, 0.2);
   z-index: 100;
   max-width: 500px;
 

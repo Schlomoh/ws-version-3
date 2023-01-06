@@ -81,8 +81,11 @@ export const GridContainer = styled.div`
   }
 `;
 
-export const GridElement = styled.div`
+export const GridElement = styled.div<{
+  justify?: CSSProperties["justifyContent"];
+}>`
   display: flex;
+  justify-content: ${(props) => (props.justify ? props.justify : "initial")};
   margin: 0 1rem 0 0;
   width: 50%;
   height: 100%;
