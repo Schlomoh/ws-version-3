@@ -39,12 +39,16 @@ const ProjectButton = styled(Surface)<ProjectButtonProps>`
   scale: ${(props) => (props.isVisible ? 1 : 0.95)};
 
   ${hover(`border-width: 10px;`)}
+  .imageWrapper {
+    ${hover(`border-radius: 5px;`)}
+    transition: border-radius .3s;
+  }
 
-  transition: border 0.3s, opacity .3s, scale .3s;
+  transition: border 0.3s, opacity 0.3s, scale 0.3s;
 `;
 
 const ImageWrapper = styled(Surface)`
-  height: 50%;
+  height: 60%;
   overflow: hidden;
   position: relative;
   padding: 0 !important;
@@ -83,7 +87,7 @@ const ProjectItem = (props: ItemProps) => {
         isVisible={isVisible}
         {...props}
       >
-        <ImageWrapper corner="inner">
+        <ImageWrapper className="imageWrapper" corner="inner">
           <Image
             priority={priority}
             src={imgSrc}

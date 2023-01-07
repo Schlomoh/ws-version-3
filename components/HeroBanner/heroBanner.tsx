@@ -10,7 +10,7 @@ import {
 import Canvas from "./canvas";
 
 const Banner = styled(PaddingContainer)`
-  padding-top: 0 !important;
+  padding: 0 1rem;
   min-height: 80vh;
 `;
 

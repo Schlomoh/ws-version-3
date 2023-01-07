@@ -7,7 +7,7 @@ const ScrollElement = ({ children }: { children: JSX.Element }) => {
   const [progress, setProgress] = useState(0);
   const data = useScroll();
 
-  const calcRot = (alpha: number) => Math.PI * 2 * alpha;
+  const calcRot = (alpha: number) => Math.PI * alpha - Math.PI / 2;
 
   useFrame(() => {
     setProgress(data.range(0, 1));
@@ -16,7 +16,7 @@ const ScrollElement = ({ children }: { children: JSX.Element }) => {
   const yRotation = calcRot(progress);
   return (
     <group
-      rotation={new Euler(0, yRotation, 0)}
+      rotation={new Euler(0, yRotation / 2, 0)}
       scale={0.6}
       position={[0, 0.6, 0]}
     >

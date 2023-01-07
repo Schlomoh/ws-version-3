@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CookieBanner } from "@schlomoh/react-cookieconsent";
-import { TextWrapper, theme } from "../";
+import { GridContainer, GridElement, TextWrapper, theme } from "../";
 
 const PageCookieBanner = () => {
   const baseGrey = theme.colors.surface.elevation[0];
@@ -13,15 +13,21 @@ const PageCookieBanner = () => {
   const InfoContent = () => {
     return (
       <TextWrapper>
-        <h3>Who doesn&apos;t love a good cookie? 🍪</h3>
-        <p>
-          Cookies and other technologies such as content caching and request
-          analysis are used on this site to further improve the user experience
-          and the content and services offered.
-          <br />
-          Detailed information can be found in the{" "}
-          <Link href="/privacyPolicy">Privacy Policy</Link>.
-        </p>
+        <GridContainer>
+          <GridElement>
+            <div>
+            <h3>Who doesn&apos;t love a good cookie? 🍪</h3>
+            <p>
+              Cookies and other technologies such as content caching and request
+              analysis are used on this site to further improve the user
+              experience and the content and services offered.
+              <br />
+              Detailed information can be found in the{" "}
+              <Link href="/privacyPolicy">Privacy Policy</Link>.
+            </p>
+            </div>
+          </GridElement>
+        </GridContainer>
       </TextWrapper>
     );
   };
@@ -45,7 +51,10 @@ const PageCookieBanner = () => {
     <CookieBanner
       enableManagement
       cookieCategories={["Analysis", "Social media"]}
-      containerStyle={{ backgroundColor: baseGrey }}
+      containerStyle={{
+        backgroundColor: baseGrey,
+        boxShadow: "box-shadow: 0 2px 2rem -10px rgba(0, 0, 0, 0.2);",
+      }}
       headingColor="white"
       primaryButtonStyle={buttonStyle}
       secondaryButtonStyle={buttonStyle}

@@ -97,7 +97,7 @@ const BaseGridElement = styled.div<GridElementProps>`
   @media screen and (max-width: 600px) {
     width: 100%;
   }
-  
+
   .wrapper {
     width: 100%;
     margin: 0 0.5rem;
@@ -108,7 +108,7 @@ const BaseGridElement = styled.div<GridElementProps>`
 
 export const GridElement = (
   props: GridElementProps & {
-    children: JSX.Element;
+    children: JSX.Element | JSX.Element[];
   }
 ) => {
   return (
