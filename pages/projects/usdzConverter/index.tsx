@@ -36,7 +36,7 @@ const UsdzConversion = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <BaseProjectPage>
-      <PaddingContainer>
+      <>
         <h3>Python pipeline for converting glTF files to the USDZ format.</h3>
         <h2>Overview.</h2>
         <p>
@@ -366,7 +366,7 @@ const UsdzConversion = ({
           I'd love to hear your feedback and hear what you thought of this
           article.
         </p>
-      </PaddingContainer>
+      </>
     </BaseProjectPage>
   );
 };

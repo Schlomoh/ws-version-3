@@ -10,15 +10,13 @@ interface Project {
 
 interface Props {
   projectData: Project[];
-  small?: boolean;
 }
 
 const ProjectListing = (props: Props) => {
-  const { projectData, small } = props;
+  const { projectData } = props;
   const list = projectData.map((project: Project, i: number) => {
     return (
       <ProjectItem
-        small={small}
         link={project.link}
         key={i}
         title={project.title}

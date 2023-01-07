@@ -24,6 +24,7 @@ interface PageRowProps {
 interface GridElementProps {
   justify?: CSSProperties["justifyContent"];
   padding?: CSSProperties["padding"];
+  width?: CSSProperties["width"];
 }
 
 export const FlexCenterContainer = styled.div`
@@ -77,11 +78,12 @@ export const PageRow = styled(CenterRow)<PageRowProps>`
 
 export const GridContainer = styled.div<{
   direction?: CSSProperties["flexDirection"];
+  justify?: CSSProperties["justifyContent"];
 }>`
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: ${(props) => props.justify || "space-between"};
   flex-wrap: wrap;
   margin: 0 -0.5rem;
   @media screen and (max-width: 600px) {
@@ -92,10 +94,13 @@ export const GridContainer = styled.div<{
 const BaseGridElement = styled.div<GridElementProps>`
   display: flex;
   justify-content: ${(props) => (props.justify ? props.justify : "initial")};
-  width: 50%;
+  width: ${(props) => props.width || "50%"};
   /* height: 100%; */
   @media screen and (max-width: 600px) {
     width: 100%;
+  }
+  @media screen and (min-width: 900px) {
+    width: 60vw;
   }
 
   .wrapper {

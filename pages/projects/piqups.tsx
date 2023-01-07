@@ -15,9 +15,7 @@ const content = piqupsContent;
 const Piqups = () => {
   return (
     <BaseProjectPage>
-      <PaddingContainer>
-        <NoProject />
-      </PaddingContainer>
+      <NoProject />
     </BaseProjectPage>
   );
 };

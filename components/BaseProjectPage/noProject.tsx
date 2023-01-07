@@ -4,7 +4,7 @@ import { TextWrapper } from "../";
 const NoProject = () => {
   return (
     <TextWrapper>
-      <h3>There is no project content available yet 😅</h3>
+      <h3>There is no project article available yet. 😅</h3>
       <p>
         But you can visit the GitHub page of this project to check it out on
         your own. By visiting the page, you'll be able to see all the code that

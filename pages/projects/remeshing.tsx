@@ -15,9 +15,7 @@ const content = remeshContent;
 const Remeshing = () => {
   return (
     <BaseProjectPage>
-      <PaddingContainer>
-        <NoProject />
-      </PaddingContainer>
+      <NoProject />
     </BaseProjectPage>
   );
 };

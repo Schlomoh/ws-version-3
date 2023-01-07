@@ -15,9 +15,7 @@ const content = cookieConsentContent;
 const CookieConsent = () => {
   return (
     <BaseProjectPage>
-      <PaddingContainer>
-        <NoProject />
-      </PaddingContainer>
+      <NoProject />
     </BaseProjectPage>
   );
 };

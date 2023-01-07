@@ -15,9 +15,7 @@ const content = ocrFormattingContent;
 const OcrReformatting = () => {
   return (
     <BaseProjectPage>
-      <PaddingContainer>
-        <NoProject />
-      </PaddingContainer>
+      <NoProject />
     </BaseProjectPage>
   );
 };
