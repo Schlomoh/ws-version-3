@@ -25,6 +25,7 @@ interface GridElementProps {
   justify?: CSSProperties["justifyContent"];
   padding?: CSSProperties["padding"];
   width?: CSSProperties["width"];
+  mainElement?: boolean;
 }
 
 export const FlexCenterContainer = styled.div`
@@ -96,11 +97,14 @@ const BaseGridElement = styled.div<GridElementProps>`
   justify-content: ${(props) => (props.justify ? props.justify : "initial")};
   width: ${(props) => props.width || "50%"};
   /* height: 100%; */
+
   @media screen and (max-width: 600px) {
     width: 100%;
   }
+
   @media screen and (min-width: 900px) {
-    width: 60vw;
+    ${(props) => props.mainElement && "width: 60vw;"};
+    ${(props) => props.mainElement && "min-width: 300px;"};
   }
 
   .wrapper {

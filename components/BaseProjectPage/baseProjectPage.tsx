@@ -27,8 +27,8 @@ const GithubInfo = () => {
     state.pageContent.title,
   ]);
 
-  githubSource = 'https://examle.com'
-  pageTitle = 'Whatever'
+  githubSource = "https://examle.com";
+  pageTitle = "Whatever";
 
   const blue = theme.colors.accent.blue;
 
@@ -45,7 +45,7 @@ const GithubInfo = () => {
           <AiFillGithub />
         </IconContext.Provider>
         Find this project on Github:{" "}
-        <TextWrapper underline style={{marginLeft: '1rem'}}>
+        <TextWrapper underline style={{ marginLeft: "1rem" }}>
           <a href={githubSource} target="_blank" referrerPolicy="no-referrer">
             {pageTitle}
             <IconContext.Provider
@@ -74,7 +74,7 @@ const BaseProjectPage = ({ children }: BaseProjectPageProps) => {
       <>
         <PaddingContainer style={{ paddingBottom: "0" }}>
           <GridContainer justify={"center"}>
-            <GridElement width="75%">
+            <GridElement width='100%' mainElement>
               <PaddingContainer noPadding>
                 <Surface
                   variant="outlined"
