@@ -18,7 +18,7 @@ const HeroBanner = () => {
   return (
     <Banner>
       <GridContainer direction="column-reverse">
-        <GridElement>
+        <GridElement padding={"0 0 1rem"}>
           <Surface variant="outlined" color="pink" style={{ alignSelf: "end" }}>
             <TextWrapper>
               <h2>Hey,</h2>
@@ -35,9 +35,15 @@ const HeroBanner = () => {
             </TextWrapper>
           </Surface>
         </GridElement>
-        <GridElement>
+        <GridElement padding={"0 0 1rem"}>
           <>
-            <Surface color="blue" style={{ width: "100%", height: "100%" }} />
+            <Surface
+              color="blue"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
             <Canvas />
           </>
         </GridElement>

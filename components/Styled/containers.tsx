@@ -23,6 +23,7 @@ interface PageRowProps {
 
 interface GridElementProps {
   justify?: CSSProperties["justifyContent"];
+  padding?: CSSProperties["padding"];
 }
 
 export const FlexCenterContainer = styled.div`
@@ -93,22 +94,25 @@ const BaseGridElement = styled.div<GridElementProps>`
   justify-content: ${(props) => (props.justify ? props.justify : "initial")};
   width: 50%;
   /* height: 100%; */
-
   @media screen and (max-width: 600px) {
     width: 100%;
   }
-
+  
   .wrapper {
     width: 100%;
     margin: 0 0.5rem;
+    padding: ${(props) => props.padding || "initial"};
     display: inherit;
   }
 `;
+
 export const GridElement = (
-  props: GridElementProps & { children: JSX.Element }
+  props: GridElementProps & {
+    children: JSX.Element;
+  }
 ) => {
   return (
-    <BaseGridElement>
+    <BaseGridElement {...props}>
       <div className="wrapper">{props.children}</div>
     </BaseGridElement>
   );

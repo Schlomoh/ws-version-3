@@ -80,7 +80,7 @@ const ProjectItem = (props: ItemProps) => {
         onClick={() => changePage(link)}
         variant="outlined"
         color="orange"
-        isVisible={true}
+        isVisible={isVisible}
         {...props}
       >
         <ImageWrapper corner="inner">
