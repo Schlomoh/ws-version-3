@@ -39,7 +39,7 @@ const Canvas = () => {
           </ScrollControls>
           <Shadow />
           <GroundPlane />
-          <Preload />
+          <Preload all/>
         </ThreeCanvas>
       </CanvasContainer>
       <CanvasOffset />

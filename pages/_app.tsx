@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
-import { theme, TitleBar, CookieBanner } from "../components";
+import { theme, TitleBar, CookieBanner, PageTransitioner } from "../components";
 import store from "../stateManagement/store";
 import GlobalStyle from "../globalStyle";
 
@@ -19,7 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <GlobalStyle theme={theme} />
           <TitleBar />
           <CookieBanner />
-          <Component {...pageProps} />;
+          <PageTransitioner>
+            <Component {...pageProps} />
+          </PageTransitioner>
         </ThemeProvider>
       </Provider>
     </>

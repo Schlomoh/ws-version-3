@@ -4,9 +4,11 @@ import styled from "styled-components";
 import useChangePage from "../utils/routingUtils";
 import { hover, Surface, TextWrapper, theme } from "../Styled";
 import { CSSProperties } from "react";
+import { useElementIntersection } from "../utils";
 
 interface ProjectButtonProps {
   small?: boolean;
+  isVisible: boolean;
 }
 
 interface ItemProps {
@@ -17,7 +19,7 @@ interface ItemProps {
   priority?: boolean;
   link: string;
   small?: boolean;
-  style: CSSProperties
+  style: CSSProperties;
 }
 
 const ProjectButton = styled(Surface)<ProjectButtonProps>`
@@ -26,13 +28,17 @@ const ProjectButton = styled(Surface)<ProjectButtonProps>`
   overflow: hidden;
   height: 500px;
   padding: 1rem;
+  box-sizing: border-box;
 
   word-wrap: break-word;
   word-break: break-word;
 
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  scale: ${(props) => (props.isVisible ? 1 : 0.95)};
+
   ${hover(`border-width: 10px;`)}
 
-  transition: border 0.3s;
+  transition: border 0.3s, opacity .3s, scale .3s;
 `;
 
 const ImageWrapper = styled(Surface)`
@@ -58,11 +64,20 @@ const DateWrapper = styled(TextWrapper)`
 const ProjectItem = (props: ItemProps) => {
   const { title, subTitle, imgSrc, uploaded, priority, link, small } = props;
   const changePage = useChangePage();
+
+  const { ref, isVisible } = useElementIntersection({
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.3,
+  });
+
   return (
     <ProjectButton
+      ref={ref}
       onClick={() => changePage(link)}
       variant="outlined"
       color="orange"
+      isVisible={isVisible}
       {...props}
     >
       <ImageWrapper corner="inner">

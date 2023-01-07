@@ -40,7 +40,7 @@ function useElementIntersection(options: optionInterface) {
       if (el) observer.unobserve(el);
     };
   });
-  
+
   return { ref: elRef, isVisible: isVisible, ratio: ratio };
 }
 

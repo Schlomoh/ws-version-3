@@ -14,6 +14,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "@schlomoh/react-cookieconsent": "^1.6.1",
     "@types/three": "^0.148.0",
+    "framer-motion": "^8.2.4",
     "next": "^13.1.0",
     "nodemailer": "^6.7.4",
     "react": "^18.0.0",

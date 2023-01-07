@@ -8,7 +8,7 @@ const MenuLink = styled(Link)`
 const MenuItem = ({ label, href }: { label: string; href: string }) => {
   return (
     <li>
-      <MenuLink href={href}>
+      <MenuLink scroll={false} href={href}>
         <h3>{label}</h3>
       </MenuLink>
     </li>

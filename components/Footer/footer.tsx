@@ -19,12 +19,24 @@ const Footer = () => {
         <CenterPageContainer>
           <TextWrapper underline>
             <FooterWrapper>
-              <Link href="/">Home.</Link>
-              <Link href="/about">About.</Link>
-              <Link href="/projects">Projects.</Link>
-              <Link href="/contact">Contact.</Link>
-              <Link href="/privacyPolicy">Privacy Policy.</Link>
-              <Link href="/cookiePolicy">Cookie Policy.</Link>
+              <Link scroll={false} href="/">
+                Home.
+              </Link>
+              <Link scroll={false} href="/about">
+                About.
+              </Link>
+              <Link scroll={false} href="/projects">
+                Projects.
+              </Link>
+              <Link scroll={false} href="/contact">
+                Contact.
+              </Link>
+              <Link scroll={false} href="/privacyPolicy">
+                Privacy Policy.
+              </Link>
+              <Link scroll={false} href="/cookiePolicy">
+                Cookie Policy.
+              </Link>
             </FooterWrapper>
           </TextWrapper>
           <TextWrapper small center>

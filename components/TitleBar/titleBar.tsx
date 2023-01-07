@@ -18,7 +18,7 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
 
   cursor: pointer;
   position: fixed !important;
-  margin: 1rem;
+  margin: ${(props) => (props.expanded ? "1rem" : ".8rem")};
   padding: 0 !important;
   top: 0;
   right: 0;
@@ -38,7 +38,9 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
   scale: 0.9;
   ${hover("scale: 1;")}
 
-  transition: width 0.3s, height 0.3s, scale 0.3s;
+  ${(props) => props.expanded && "scale: 1;"}
+
+  transition: width 0.3s, height 0.3s, scale 0.3s, margin 0.3s;
 `;
 
 const Offset = styled.div`

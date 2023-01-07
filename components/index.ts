@@ -7,6 +7,7 @@ export { FadeIn } from "./FadeIn";
 export { HeroBanner } from "./HeroBanner";
 export { Loader } from "./Loader";
 export { NoProject } from "./NoProject";
+export { PageTransitioner } from "./PageTransitioner";
 export { ProjectListing } from "./ProjectListing";
 export { TitleBar } from "./TitleBar";
 
