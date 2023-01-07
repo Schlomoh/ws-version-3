@@ -21,6 +21,10 @@ interface PageRowProps {
   collapseSpeed?: number;
 }
 
+interface GridElementProps {
+  justify?: CSSProperties["justifyContent"];
+}
+
 export const FlexCenterContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -77,26 +81,35 @@ export const GridContainer = styled.div<{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
   @media screen and (max-width: 600px) {
     flex-direction: ${(props) => props.direction || "column"};
   }
 `;
 
-export const GridElement = styled.div<{
-  justify?: CSSProperties["justifyContent"];
-}>`
+const BaseGridElement = styled.div<GridElementProps>`
   display: flex;
   justify-content: ${(props) => (props.justify ? props.justify : "initial")};
-  margin: 0 1rem 0 0;
   width: 50%;
-  height: 100%;
+  /* height: 100%; */
 
-  :last-child {
-    margin: 0;
-  }
   @media screen and (max-width: 600px) {
-    margin: 1rem 0;
     width: 100%;
   }
+
+  .wrapper {
+    width: 100%;
+    margin: 0 0.5rem;
+    display: inherit;
+  }
 `;
+export const GridElement = (
+  props: GridElementProps & { children: JSX.Element }
+) => {
+  return (
+    <BaseGridElement>
+      <div className="wrapper">{props.children}</div>
+    </BaseGridElement>
+  );
+};

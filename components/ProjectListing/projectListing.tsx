@@ -30,7 +30,7 @@ const ProjectListing = (props: Props) => {
       />
     );
   });
-  return <div>{list}</div>;
+  return <>{list}</>;
 };
 
 export default ProjectListing;

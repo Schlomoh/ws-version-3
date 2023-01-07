@@ -1,17 +1,21 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { hover } from "../Styled";
 
 const LogoWrapper = styled(Link)`
   svg {
     height: 34px;
     width: 68px;
     fill: grey;
+    :hover {
+      fill: white;
+    }
   }
 `;
 
 const Logo = () => {
   return (
-    <LogoWrapper href='/'>
+    <LogoWrapper href="/">
       <svg
         version="1.1"
         baseProfile="tiny"

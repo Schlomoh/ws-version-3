@@ -26,7 +26,7 @@ const theme: DefaultTheme = {
     colors: {
       heading: "white",
       subHeading: "lightgrey",
-      paragraph: "grey",
+      paragraph: "lightgrey",
       link: "white",
       contrast: {
         heading: "black",

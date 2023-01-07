@@ -29,8 +29,11 @@ const PageContent = () => {
     <>
       <PaddingContainer align="center" style={{ paddingTop: 0 }}>
         <GridContainer>
-          <GridElement style={{ minWidth: "300px", marginTop: 0 }}>
-            <Surface color="blue">
+          <GridElement>
+            <Surface
+              color="blue"
+              style={{ marginBottom: "1rem", height: "500px" }}
+            >
               <TextWrapper mode="contrast">
                 <h1>Browse my projects.</h1>
                 <h2>More is constantly in progress...</h2>
@@ -53,9 +56,7 @@ const PageContent = () => {
               </TextWrapper>
             </Surface>
           </GridElement>
-          <GridElement style={{ width: "100%" }}>
-            <ProjectListing projectData={projectData} />
-          </GridElement>
+          <ProjectListing projectData={projectData} />
         </GridContainer>
       </PaddingContainer>
     </>

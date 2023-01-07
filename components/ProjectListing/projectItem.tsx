@@ -2,7 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import styled from "styled-components";
 
 import useChangePage from "../utils/routingUtils";
-import { hover, Surface, TextWrapper, theme } from "../Styled";
+import { GridElement, hover, Surface, TextWrapper, theme } from "../Styled";
 import { CSSProperties } from "react";
 import { useElementIntersection } from "../utils";
 
@@ -27,7 +27,9 @@ const ProjectButton = styled(Surface)<ProjectButtonProps>`
   position: relative;
   overflow: hidden;
   height: 500px;
+  width: 100%;
   padding: 1rem;
+
   box-sizing: border-box;
 
   word-wrap: break-word;
@@ -72,34 +74,36 @@ const ProjectItem = (props: ItemProps) => {
   });
 
   return (
-    <ProjectButton
-      ref={ref}
-      onClick={() => changePage(link)}
-      variant="outlined"
-      color="orange"
-      isVisible={isVisible}
-      {...props}
-    >
-      <ImageWrapper corner="inner">
-        <Image
-          priority={priority}
-          src={imgSrc}
-          alt={title}
-          style={{ objectFit: "cover", width: "100%", height: "100%" }}
-        />
-      </ImageWrapper>
-      <TextContainer>
-        <DateWrapper color="white">
-          <p>{uploaded}</p>
-        </DateWrapper>
-        <TextWrapper color={theme.colors.accent.orange}>
-          <h2>{title.toUpperCase()}</h2>
-        </TextWrapper>
-        <TextWrapper color="white">
-          <h4>{subTitle}</h4>
-        </TextWrapper>
-      </TextContainer>
-    </ProjectButton>
+    <GridElement>
+      <ProjectButton
+        ref={ref}
+        onClick={() => changePage(link)}
+        variant="outlined"
+        color="orange"
+        isVisible={true}
+        {...props}
+      >
+        <ImageWrapper corner="inner">
+          <Image
+            priority={priority}
+            src={imgSrc}
+            alt={title}
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
+        </ImageWrapper>
+        <TextContainer>
+          <DateWrapper color="white">
+            <p>{uploaded}</p>
+          </DateWrapper>
+          <TextWrapper color={theme.colors.accent.orange}>
+            <h2>{title.toUpperCase()}</h2>
+          </TextWrapper>
+          <TextWrapper color="white">
+            <h4>{subTitle}</h4>
+          </TextWrapper>
+        </TextContainer>
+      </ProjectButton>
+    </GridElement>
   );
 };
 

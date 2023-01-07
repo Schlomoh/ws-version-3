@@ -10,7 +10,7 @@ import {
 import Canvas from "./canvas";
 
 const Banner = styled(PaddingContainer)`
-  padding-top: 0;
+  padding-top: 0 !important;
   min-height: 80vh;
 `;
 
@@ -36,8 +36,10 @@ const HeroBanner = () => {
           </Surface>
         </GridElement>
         <GridElement>
-          <Surface color="blue" style={{ width: "100%" }} />
-          <Canvas />
+          <>
+            <Surface color="blue" style={{ width: "100%", height: "100%" }} />
+            <Canvas />
+          </>
         </GridElement>
       </GridContainer>
     </Banner>
