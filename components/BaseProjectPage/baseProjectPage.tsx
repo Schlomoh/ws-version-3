@@ -24,7 +24,8 @@ interface BaseProjectPageProps {
 
 const GithubInfo = () => {
   const { asPath } = useRouter();
-  const projectName = asPath.split("/").at(-1);
+  const fractions = asPath.split("/");
+  const projectName = fractions && fractions[fractions.length - 1];
   const project = projectName && projectData[projectName];
   const githubSource = (project && project.githubSource) || "";
   const pageTitle = (project && project.title) || "";

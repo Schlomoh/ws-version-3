@@ -10,8 +10,6 @@ export const cookieConsentContent = {
   githubSource: "https://github.com/Schlomoh/cookieConsent",
 };
 
-const content = cookieConsentContent;
-
 const CookieConsent = () => {
   return (
     <BaseProjectPage>
