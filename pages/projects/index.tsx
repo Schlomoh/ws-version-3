@@ -14,15 +14,22 @@ import { piqupsContent } from "./piqups";
 import { instagramBotContent } from "./instagramBot";
 import { cookieConsentContent } from "./cookieConsent";
 import { ocrFormattingContent } from "./ocrReformatting";
-
-export const projectData = [
-  usdzConversionContent,
-  cookieConsentContent,
-  piqupsContent,
-  remeshContent,
-  instagramBotContent,
-  ocrFormattingContent,
-];
+import { StaticImageData } from "next/image";
+interface Project {
+  link: string;
+  title: string;
+  subTitle: string;
+  image: string | StaticImageData;
+  githubSource: string;
+}
+export const projectData: { [key: string]: Project } = {
+  usdzConverter: usdzConversionContent,
+  cookieConsent: cookieConsentContent,
+  instagramBot: instagramBotContent,
+  ocrReformatting: ocrFormattingContent,
+  piqups: piqupsContent,
+  remeshing: remeshContent,
+};
 
 const PageContent = () => {
   return (

@@ -1,4 +1,6 @@
+import { extend } from "@react-three/fiber";
 import { StaticImageData } from "next/image";
+import { projectData } from "../../pages/projects";
 import ProjectItem from "./projectItem";
 
 interface Project {
@@ -9,12 +11,14 @@ interface Project {
 }
 
 interface Props {
-  projectData: Project[];
+  projectData: typeof projectData;
 }
 
-const ProjectListing = (props: Props) => {
+function ProjectListing(props: Props) {
   const { projectData } = props;
-  const list = projectData.map((project: Project, i: number) => {
+  const list = Object.keys(projectData).map((project: any, i: number) => {
+    project = project as Project;
+
     return (
       <ProjectItem
         link={project.link}
@@ -24,11 +28,13 @@ const ProjectListing = (props: Props) => {
         imgSrc={project.image}
         uploaded="1w"
         priority={i === 0}
-        style={{ marginBottom: i + 1 === projectData.length ? 0 : "1rem" }}
+        style={{
+          marginBottom: i + 1 === Object.keys(projectData).length ? 0 : "1rem",
+        }}
       />
     );
   });
   return <>{list}</>;
-};
+}
 
 export default ProjectListing;

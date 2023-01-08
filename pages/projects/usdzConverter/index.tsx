@@ -10,7 +10,6 @@ import {
   CodeExample,
   getGist,
   loadGist,
-  PaddingContainer,
 } from "../../../components";
 
 export const usdzConversionContent = {
@@ -20,8 +19,6 @@ export const usdzConversionContent = {
   link: "/projects/usdzConverter",
   githubSource: "https://github.com/Schlomoh/usdz-converter",
 };
-
-const content = usdzConversionContent;
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

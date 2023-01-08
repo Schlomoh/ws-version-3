@@ -13,7 +13,8 @@ import {
   TextWrapper,
   theme,
 } from "../";
-import { RootState } from "../../stateManagement/store";
+import { useRouter } from "next/router";
+import { projectData } from "../../pages/projects";
 
 // const ProjectPage = styled.div``;
 
@@ -22,13 +23,11 @@ interface BaseProjectPageProps {
 }
 
 const GithubInfo = () => {
-  let [githubSource, pageTitle] = useSelector((state: RootState) => [
-    state.pageContent.githubSource,
-    state.pageContent.title,
-  ]);
-
-  githubSource = "https://examle.com";
-  pageTitle = "Whatever";
+  const { asPath } = useRouter();
+  const projectName = asPath.split("/").at(-1);
+  const project = projectName && projectData[projectName];
+  const githubSource = (project && project.githubSource) || "";
+  const pageTitle = (project && project.title) || "";
 
   const blue = theme.colors.accent.blue;
 
@@ -74,7 +73,7 @@ const BaseProjectPage = ({ children }: BaseProjectPageProps) => {
       <>
         <PaddingContainer style={{ paddingBottom: "0" }}>
           <GridContainer justify={"center"}>
-            <GridElement width='100%' mainElement>
+            <GridElement width="100%" mainElement>
               <PaddingContainer noPadding>
                 <Surface
                   variant="outlined"
