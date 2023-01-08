@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 const ArticleImage = styled.div`
-  position: relative;
   width: 100%;
   height: 500px;
-  border-radius: ${props => props.theme.misc.borderRadius.outer}
+  border-radius: ${props => props.theme.misc.borderRadius.outer};
   
   img {
     object-fit: cover;
     height: 100%;
-    width: 100%
+    width: 100%;
   }
 `;
 
