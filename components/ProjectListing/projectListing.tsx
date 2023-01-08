@@ -17,7 +17,7 @@ interface Props {
 function ProjectListing(props: Props) {
   const { projectData } = props;
   const list = Object.keys(projectData).map((projectName: string, i: number) => {
-    project = projectData[projectName]
+  const project = projectData[projectName]
 
     return (
       <ProjectItem
