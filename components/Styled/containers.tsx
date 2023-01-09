@@ -108,7 +108,7 @@ const BaseGridElement = styled.div<GridElementProps>`
   }
 
   .wrapper {
-    width: 100%;
+    width: calc(100% - 1rem);
     margin: 0 0.5rem;
     padding: ${(props) => props.padding || "initial"};
     display: inherit;
