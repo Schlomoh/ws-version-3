@@ -39,7 +39,7 @@ const PageContent = () => {
           <GridElement>
             <Surface
               color="blue"
-              style={{ marginBottom: "1rem", height: "500px" }}
+              style={{ marginBottom: "1rem", height: "500px", width: "100%" }}
             >
               <TextWrapper mode="contrast">
                 <h1>Browse my projects.</h1>

@@ -19,7 +19,11 @@ const HeroBanner = () => {
     <Banner>
       <GridContainer direction="column-reverse">
         <GridElement padding={"0 0 1rem"}>
-          <Surface variant="outlined" color="pink" style={{ alignSelf: "end" }}>
+          <Surface
+            variant="outlined"
+            color="pink"
+            style={{ alignSelf: "end", width: "100%" }}
+          >
             <TextWrapper>
               <h2>Hey,</h2>
             </TextWrapper>
