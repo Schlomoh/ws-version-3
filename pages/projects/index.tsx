@@ -15,6 +15,7 @@ import { instagramBotContent } from "./instagramBot";
 import { cookieConsentContent } from "./cookieConsent";
 import { ocrFormattingContent } from "./ocrReformatting";
 import { StaticImageData } from "next/image";
+import { vectrealContent } from "./vectreal";
 interface Project {
   link: string;
   title: string;
@@ -23,6 +24,7 @@ interface Project {
   githubSource: string;
 }
 export const projectData: { [key: string]: Project } = {
+  vectreal: vectrealContent,
   usdzConverter: usdzConversionContent,
   cookieConsent: cookieConsentContent,
   instagramBot: instagramBotContent,

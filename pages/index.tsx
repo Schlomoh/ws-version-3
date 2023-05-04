@@ -1,12 +1,4 @@
-import {
-  BasePage,
-  GridContainer,
-  GridElement,
-  HeroBanner,
-  PaddingContainer,
-  Surface,
-  TextWrapper,
-} from "../components";
+import { BasePage, HeroBanner } from "../components";
 
 export const Home = () => {
   return (

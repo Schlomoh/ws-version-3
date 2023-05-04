@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
-import image from "../../../assets/img/wave-surface.jpg";
-import gltfUsdz from "../../../assets/img/gltfUsdz.jpg";
+import image from "./wave-surface.jpg";
+import gltfUsdz from "./gltfUsdz.jpg";
 
 import {
   ArticleImage,
