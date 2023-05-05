@@ -1,23 +1,17 @@
-import styled from "styled-components";
 import {
+  Banner,
   GridContainer,
   GridElement,
-  PaddingContainer,
   Surface,
   TextWrapper,
   theme,
 } from "../Styled";
 import Canvas from "./canvas";
 
-const Banner = styled(PaddingContainer)`
-  padding: 0 1rem;
-  min-height: 80vh;
-`;
-
 const HeroBanner = () => {
   return (
     <Banner>
-      <GridContainer direction="column-reverse">
+      <GridContainer direction="column-reverse" style={{ flexWrap: "nowrap" }}>
         <GridElement padding={"0 0 1rem"}>
           <Surface
             variant="outlined"
@@ -31,10 +25,10 @@ const HeroBanner = () => {
               <h1>found me!</h1>
             </TextWrapper>
             <TextWrapper color="lightgrey">
-              <p>Find out more about the projects I've worked on!</p>
               <p>
-                Here is my story so far, with links that will take you right
-                into some of those past endeavours. Let me know what you think!
+                You've stumbled upon my little corner of the internet, where I
+                share the projects I've worked on and the lessons I've learned
+                along the way.
               </p>
             </TextWrapper>
           </Surface>
@@ -44,6 +38,7 @@ const HeroBanner = () => {
             <Surface
               color="blue"
               style={{
+                overflow: "hidden",
                 width: "100%",
                 height: "100%",
               }}

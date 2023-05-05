@@ -52,9 +52,9 @@ export const PaddingContainer = styled.div<PaddingContainerProps>`
   align-items: ${(props) => (props.align ? props.align : "initial")};
 `;
 
-export const CenterPageContainer = styled(
-  FlexCenterContainer
-)<CenterPageContainerProps>`
+export const CenterPageContainer = styled(FlexCenterContainer)<
+  CenterPageContainerProps
+>`
   width: 100%;
 
   padding: ${(props) =>
@@ -87,7 +87,7 @@ export const GridContainer = styled.div<{
   justify-content: ${(props) => props.justify || "space-between"};
   flex-wrap: wrap;
   margin: 0 -0.5rem;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     flex-direction: ${(props) => props.direction || "column"};
   }
 `;
@@ -126,3 +126,12 @@ export const GridElement = (
     </BaseGridElement>
   );
 };
+
+export const Banner = styled(PaddingContainer)`
+  padding: 0 1rem;
+  min-height: unset;
+
+  @media screen and (min-width: 800px) {
+    min-height: 80vh;
+  }
+`;

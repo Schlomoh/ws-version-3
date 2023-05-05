@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import FormStyle from "./style";
-import { Loader } from "../";
 import sendMail from "./sendMail";
+import { MoonLoader as Loader } from "react-spinners";
 
 const Success = () => <h2>Message sent :)</h2>;
 const Failure = () => <h2>That didnt work :/</h2>;
@@ -13,7 +13,7 @@ const ContactForm = () => {
 
   const Feedback = () => {
     if (sent && !gotResponse) {
-      return <Loader />;
+      return <Loader color="white" />;
     } else if (gotResponse) {
       if (success) {
         return <Success />;

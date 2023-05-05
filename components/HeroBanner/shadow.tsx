@@ -3,9 +3,9 @@ import { SoftShadows } from "@react-three/drei";
 const Shadow = () => {
   return (
     <>
-      <ambientLight />
-      <pointLight position={[-10, 10, 10]} />
-      <pointLight position={[10, 10, 10]} />
+      {/* <ambientLight /> */}
+      {/* <pointLight position={[-10, 10, 10]} />
+      <pointLight position={[10, 10, 10]} /> */}
       <directionalLight
         castShadow
         position={[2.5, 8, 5]}

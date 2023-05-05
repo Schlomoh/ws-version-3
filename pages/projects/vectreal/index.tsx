@@ -17,14 +17,8 @@ const Vectreal = () => {
   return (
     <BaseProjectPage>
       <>
-        <h3>
-          VECTREAL Unveiled: A Game-Changer in 3D E-commerce, Built with Love
-        </h3>
-
-        <ArticleImage height="fit-content">
-          <Image src={screenshot4} alt=""></Image>
-        </ArticleImage>
-        <h2>Overview.</h2>
+        <h2>VECTREAL Unveiled:</h2>
+        <h3>A Game-Changer in 3D E-commerce, Built with Love</h3>
         <p>
           Hey there, friends! I've been working on something pretty awesome
           lately, and I just can't keep it to myself any longer.
@@ -35,6 +29,11 @@ const Vectreal = () => {
           interacted with online. Grab a cup of coffee, sit back, and let me
           give you a behind-the-scenes look at this game-changer in the making.
         </p>
+        <ArticleImage height="fit-content">
+          <Image src={screenshot4} alt=""></Image>
+        </ArticleImage>
+        <h2>Overview.</h2>
+
         <p>
           VECTREAL is my baby, born out of countless hours of coding using
           ReactJS, Redux Toolkit, Auth0 for authentication, and MongoDB for

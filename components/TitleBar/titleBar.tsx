@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-import { hover, Surface, SurfaceProps } from "../Styled";
+import { hover, Surface } from "../Styled";
 import { FadeIn } from "../FadeIn";
 
 import MenuIcon from "./menuIcon";
@@ -35,11 +35,8 @@ const FloatingBar = styled(Surface)<FloatingBarProps>`
       props.expanded ? "var(--fullWidth)" : "var(--smallSize)"};
   }
 
-  scale: 0.9;
-  ${hover("scale: 1;")}
-
-  ${(props) => props.expanded && "scale: 1;"}
-
+  scale: ${(props) => (props.expanded ? 1 : 0.9)};
+  ${hover("scale: 1")};
   transition: width 0.3s, height 0.3s, scale 0.3s, margin 0.3s;
 `;
 

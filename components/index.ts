@@ -5,7 +5,6 @@ export { ContactForm } from "./ContactForm";
 export { CookieBanner } from "./CookieBanner";
 export { FadeIn } from "./FadeIn";
 export { HeroBanner } from "./HeroBanner";
-export { Loader } from "./Loader";
 export { PageTransitioner } from "./PageTransitioner";
 export { ProjectListing } from "./ProjectListing";
 export { TitleBar } from "./TitleBar";
@@ -15,6 +14,8 @@ export { loadGist, getGist, useElementIntersection } from "./utils";
 export {
   hover,
   theme,
+  Banner,
+  Button,
   TextWrapper,
   ArticleImage,
   FlexCenterContainer,
