@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import background from "../assets/img/background.jpg";
+import background from "../assets/img/wave-ball.jpg";
 
 const initialState = {
   title: "",

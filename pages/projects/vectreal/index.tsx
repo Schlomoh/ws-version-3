@@ -1,7 +1,7 @@
 import Image from "next/image";
-import titleImage from "./vectreal.png";
-import screenshot4 from "./screenshot4.png";
-import screenshot2 from "./screenshot2.png";
+import titleImage from "./vectreal.jpg";
+import screenshot4 from "./screenshot4.jpg";
+import screenshot2 from "./screenshot2.jpg";
 
 import { ArticleImage, BaseProjectPage } from "../../../components";
 

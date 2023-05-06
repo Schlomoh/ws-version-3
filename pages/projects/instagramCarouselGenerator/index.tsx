@@ -1,10 +1,9 @@
-import Image from "next/image";
-import image from "./insta.jpg";
+import image from "./gpt_phone.jpg";
 import { BaseProjectPage } from "../../../components";
 import { useEffect } from "react";
 
 export const instagramCarouselGenContent = {
-  title: "Instagram carousel generator.",
+  title: "Insta carousel generator.",
   subTitle: "Exploring OpenAIs API for GPT.",
   image: image,
   link: "/projects/instagramCarouselGenerator",
@@ -22,7 +21,7 @@ const InstaCarouselGenerator = () => {
   return (
     <BaseProjectPage>
       <h3>My little side project:</h3>
-      <h2>Building an Instagram Carousel Generator 🛠️🚀</h2>
+      <h2>Building an Instagram carousel generator 🛠️🚀</h2>
       <p>
         I'm a programmer who recently ventured into social media marketing.
         During this transition, I realized the need for a tool to simplify
@@ -33,7 +32,7 @@ const InstaCarouselGenerator = () => {
         Instagram Carousel Post Generator and how I tackled various technical
         challenges along the way.
       </p>
-      <h2>The Technologies That Shaped the Project 💡</h2>
+      <h2>The technologies that shaped the project 💡</h2>
       <p>
         When I set out to build the Instagram Carousel Post Generator, I wanted
         to use a tech stack that would make development smooth and efficient.
@@ -74,7 +73,7 @@ const InstaCarouselGenerator = () => {
           </p>
         </li>
       </ul>
-      <h2>Harnessing the Power of the OpenAI API 🧠</h2>
+      <h2>Harnessing the power of the OpenAI API 🧠</h2>
       <p>
         I decided to integrate the OpenAI API into my project because of its
         ability to generate engaging and well-written content. By leveraging the
@@ -82,7 +81,7 @@ const InstaCarouselGenerator = () => {
         carousel posts that resonated with the target audience and encouraged
         engagement.
       </p>
-      <h2>The Development Process 🛠️</h2>
+      <h2>The development process 🛠️</h2>
       <p>
         Building the Instagram Carousel Post Generator was an iterative process.
         I started by designing an interactive user interface that gathered
@@ -91,41 +90,49 @@ const InstaCarouselGenerator = () => {
         p5-react to create dynamic carousel previews, making it easy for users
         to visualize the final result and make adjustments as needed.
       </p>
-      <h2>Bringing It All Together 🎨</h2>
+      <h2>Bringing it all together 🎨</h2>
       <p>
         To make the tool even more user-friendly, I added the ability to export
         and modify the generated carousel posts, giving users the freedom to
         further customize their content. Framer Motion enhanced the overall user
         experience with smooth and visually appealing animations.
       </p>
-      <h2>Sharing My Journey on Twitter 🐦</h2>
+      <h2>Sharing my journey on twitter 🐦</h2>
       <p>
         Throughout this development journey, I documented my progress and shared
         it on Twitter. Check out the thread below to see how the project
         unfolded:
       </p>
-      <blockquote className="twitter-tweet">
-        <p lang="en" dir="ltr">
-          🧵1/ Hey folks! I&#39;m a programmer who recently ventured into social
-          media marketing. I needed a solution to simplify content creation, so
-          I built an Instagram carousel post generator using React. Let&#39;s
-          dive into the technical details.{" "}
-          <a href="https://twitter.com/hashtag/programmingJourney?src=hash&amp;ref_src=twsrc%5Etfw">
-            #programmingJourney
-          </a>{" "}
-          <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">
-            #React
-          </a>{" "}
-          <a href="https://t.co/mXidN0LtfP">pic.twitter.com/mXidN0LtfP</a>
-        </p>
-        &mdash; Mo (@schl0m0h){" "}
-        <a href="https://twitter.com/schl0m0h/status/1648261390564753408?ref_src=twsrc%5Etfw">
-          April 18, 2023
-        </a>
-      </blockquote>{" "}
-      <h2>Final Thoughts 🌟</h2>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "row",
+        }}
+      >
+        <blockquote className="twitter-tweet" data-theme="dark">
+          <p lang="en" dir="ltr">
+            🧵1/ Hey folks! I&#39;m a programmer who recently ventured into
+            social media marketing. I needed a solution to simplify content
+            creation, so I built an Instagram carousel post generator using
+            React. Let&#39;s dive into the technical details.{" "}
+            <a href="https://twitter.com/hashtag/programmingJourney?src=hash&amp;ref_src=twsrc%5Etfw">
+              #programmingJourney
+            </a>{" "}
+            <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">
+              #React
+            </a>{" "}
+            <a href="https://t.co/mXidN0LtfP">pic.twitter.com/mXidN0LtfP</a>
+          </p>
+          &mdash; Mo (@schl0m0h){" "}
+          <a href="https://twitter.com/schl0m0h/status/1648261390564753408?ref_src=twsrc%5Etfw">
+            April 18, 2023
+          </a>
+        </blockquote>{" "}
+      </div>
+      <h2>Final thoughts 🌟</h2>
       <p>
-        Developing the Instagram Carousel Post Generator hasbeen a rewarding
+        Developing the Instagram Carousel Post Generator has been a rewarding
         experience that has not only honed my programming skills but also taught
         me valuable lessons about creating engaging content. It's been a
         fascinating journey, and I'm proud of the final product, which I believe
