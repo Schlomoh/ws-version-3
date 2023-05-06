@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { ReactNode } from "react";
 // import styled from "styled-components";
 import { MdOpenInNew } from "react-icons/md";
 import { AiFillGithub } from "react-icons/ai";
@@ -13,13 +14,12 @@ import {
   TextWrapper,
   theme,
 } from "../";
-import { useRouter } from "next/router";
 import { projectData } from "../../pages/projects";
 
 // const ProjectPage = styled.div``;
 
 interface BaseProjectPageProps {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 const GithubInfo = () => {

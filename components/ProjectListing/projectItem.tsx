@@ -15,7 +15,6 @@ interface ItemProps {
   title: string;
   subTitle: string;
   imgSrc: string | StaticImageData;
-  uploaded: string;
   priority?: boolean;
   link: string;
   style: CSSProperties;
@@ -67,7 +66,7 @@ const DateWrapper = styled(TextWrapper)`
 `;
 
 const ProjectItem = (props: ItemProps) => {
-  const { title, subTitle, imgSrc, uploaded, priority, link } = props;
+  const { title, subTitle, imgSrc, priority, link } = props;
 
   const { ref, isVisible } = useElementIntersection({
     root: null,
@@ -77,7 +76,7 @@ const ProjectItem = (props: ItemProps) => {
 
   return (
     <GridElement>
-      <Link href={link} scroll={false} style={{width: '100%'}}>
+      <Link href={link} scroll={false} style={{ width: "100%" }}>
         <ProjectButton
           ref={ref}
           variant="outlined"
@@ -94,9 +93,9 @@ const ProjectItem = (props: ItemProps) => {
             />
           </ImageWrapper>
           <TextContainer>
-            <DateWrapper color="white">
+            {/* <DateWrapper color="white">
               <p>{uploaded}</p>
-            </DateWrapper>
+            </DateWrapper> */}
             <TextWrapper color={theme.colors.accent.orange}>
               <h2>{title.toUpperCase()}</h2>
             </TextWrapper>

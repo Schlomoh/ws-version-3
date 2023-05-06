@@ -16,6 +16,7 @@ import { cookieConsentContent } from "./cookieConsent";
 import { ocrFormattingContent } from "./ocrReformatting";
 import { StaticImageData } from "next/image";
 import { vectrealContent } from "./vectreal";
+import { instagramCarouselGenContent } from "./instagramCarouselGenerator";
 interface Project {
   link: string;
   title: string;
@@ -23,7 +24,9 @@ interface Project {
   image: string | StaticImageData;
   githubSource: string;
 }
+
 export const projectData: { [key: string]: Project } = {
+  instagramCarouselGenerator: instagramCarouselGenContent,
   vectreal: vectrealContent,
   usdzConverter: usdzConversionContent,
   cookieConsent: cookieConsentContent,

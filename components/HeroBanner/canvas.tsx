@@ -39,15 +39,15 @@ const Canvas = () => {
             top: "1rem",
           }}
         >
-          <h3
+          <h4
             style={{
               textOrientation: "upright",
               writingMode: "vertical-lr",
               margin: "0 2rem",
             }}
           >
-            Scroll down V
-          </h3>
+            Scroll down
+          </h4>
         </div>
         <Suspense
           fallback={

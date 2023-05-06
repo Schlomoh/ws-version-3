@@ -26,7 +26,6 @@ function ProjectListing(props: Props) {
         title={project.title}
         subTitle={project.subTitle}
         imgSrc={project.image}
-        uploaded="1w"
         priority={i === 0}
         style={{
           marginBottom: i + 1 === Object.keys(projectData).length ? 0 : "1rem",
