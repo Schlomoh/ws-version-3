@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Canvas as ThreeCanvas } from "@react-three/fiber";
 import {
   Environment,
+  Lightformer,
   Preload,
   Scroll,
   ScrollControls,
@@ -13,8 +14,7 @@ import Shadow from "./shadow";
 import GroundPlane from "./groundPlane";
 import Model from "./model";
 import { Suspense } from "react";
-import { CenterColumn, CenterRow, PaddingContainer } from "../Styled";
-
+import { PaddingContainer } from "../Styled";
 const CanvasContainer = styled.div`
   position: absolute;
   left: 0;
@@ -57,7 +57,33 @@ const Canvas = () => {
           }
         >
           <ThreeCanvas shadows>
-            <Environment files="3d/studio.hdr" />
+            <ambientLight intensity={1} />
+            <Environment>
+              <Lightformer
+                intensity={2}
+                form="ring"
+                scale={[2, 2, 2]}
+                position={[3, 2, 2.5]}
+              />
+              <Lightformer
+                intensity={2}
+                form="ring"
+                scale={[2, 2, 2]}
+                position={[-3, 2, 2.5]}
+              />
+              <Lightformer
+                intensity={2}
+                form="rect"
+                scale={[2, 5, 5]}
+                position={[-3, 0, -2]}
+              />
+              <Lightformer
+                intensity={2}
+                form="rect"
+                scale={[2, 2, 5]}
+                position={[3, 0, -2]}
+              />
+            </Environment>
             <ScrollControls
               pages={1} // Each page takes 100% of the height of the canvas
               distance={0.1} // A factor that increases scroll bar travel (default: 1)
