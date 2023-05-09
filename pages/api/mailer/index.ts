@@ -35,7 +35,7 @@ const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
   // mail for informing me
   const myMailObj: MailArgs = {
     from: '"moritzbecker.de | contact form"<mail@moritzbecker.de>',
-    to: "info@moritzbecker.de",
+    to: "post@moritzbecker.de",
     subject: `New message from ${name}`,
     text: message,
   };
@@ -51,6 +51,7 @@ const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
   };
   const info = await sendMail(mailObj);
   const resObj = { myInfo: myInfo, info: info };
+  
   console.log(resObj);
 
   res.status(200).json(JSON.stringify(resObj));
