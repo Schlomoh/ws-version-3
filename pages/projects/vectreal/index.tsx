@@ -3,7 +3,11 @@ import titleImage from "./vectreal.jpg";
 import screenshot4 from "./screenshot4.jpg";
 import screenshot2 from "./screenshot2.jpg";
 
-import { ArticleImage, BaseProjectPage } from "../../../components";
+import {
+  ArticleImage,
+  BaseProjectPage,
+  TextWrapper,
+} from "../../../components";
 
 export const vectrealContent = {
   title: "Vectreal.",
@@ -16,7 +20,7 @@ export const vectrealContent = {
 const Vectreal = () => {
   return (
     <BaseProjectPage>
-      <>
+      <TextWrapper>
         <h2>VECTREAL Unveiled:</h2>
         <h3>A Game-Changer in 3D E-commerce, Built with Love</h3>
         <p>
@@ -87,7 +91,7 @@ const Vectreal = () => {
           Thanks for your support, and keep an eye out for more exciting
           updates!
         </p>
-      </>
+      </TextWrapper>
     </BaseProjectPage>
   );
 };

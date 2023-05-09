@@ -7,20 +7,19 @@ const Success = () => <h2>Message sent :)</h2>;
 const Failure = () => <h2>That didnt work :/</h2>;
 
 const ContactForm = () => {
-  const [sent, setSent] = useState(false);
-  const [gotResponse, setGotResponse] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setIsSuccess] = useState<null | boolean>(null);
 
   const Feedback = () => {
-    if (sent && !gotResponse) {
+    if (loading) {
       return <Loader color="white" />;
-    } else if (gotResponse) {
-      if (success) {
-        return <Success />;
-      } else {
-        return <Failure />;
-      }
-    } else return <input type="submit" value="Send" />;
+    } else if (success === null) {
+      return <input type="submit" value="Send" />;
+    } else if (success) {
+      return <Success />;
+    } else {
+      return <Failure />;
+    }
   };
 
   const [name, setName] = useState("");
@@ -40,12 +39,11 @@ const ContactForm = () => {
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    console.log("name:", name, "mail:", mail, "message:", message);
+
     if (name && mail && message)
       sendMail(name, mail, message, {
-        sent: setSent,
-        gotResponse: setGotResponse,
-        success: setSuccess,
+        setLoading,
+        setIsSuccess,
       });
   };
 

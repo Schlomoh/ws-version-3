@@ -6,9 +6,11 @@ import {
   GridContainer,
   GridElement,
   HeroBanner,
+  LinkSurface,
   Surface,
   TextWrapper,
 } from "../components";
+import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 export const Home = () => {
   return (
@@ -52,8 +54,28 @@ export const Home = () => {
                 </TextWrapper>
               </Surface>
             </GridElement>
-            <GridElement>
-              <Surface style={{ alignSelf: "end", width: "100%" }}></Surface>
+            <GridElement direction="column" gap="1rem">
+              <LinkSurface
+                color="yellow"
+                href="https://github.com/schlomoh"
+                linkText="Github"
+                infoText="View my projects on"
+                icon={FiGithub}
+              />
+              <LinkSurface
+                color="yellow"
+                href="https://twitter.com/schl0m0h"
+                linkText="Twitter"
+                infoText="Follow me on"
+                icon={FiTwitter}
+              />
+              <LinkSurface
+                color="yellow"
+                href="https://www.linkedin.com/in/moritz-becker-5751851a1/"
+                linkText="LinkedIn"
+                infoText="Connect with me on"
+                icon={FiLinkedin}
+              />
             </GridElement>
           </GridContainer>
         </Banner>

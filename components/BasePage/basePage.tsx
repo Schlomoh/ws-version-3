@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 import { CenterPageContainer, PageRow, TextWrapper } from "../";
 import { Footer } from "../Footer";
 
 interface IBasePageProps {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 const BasePage = (props: IBasePageProps) => {

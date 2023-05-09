@@ -25,6 +25,7 @@ interface Project {
   githubSource: string;
 }
 
+// keys have to be the same name as project page file name
 export const projectData: { [key: string]: Project } = {
   instagramCarouselGenerator: instagramCarouselGenContent,
   vectreal: vectrealContent,

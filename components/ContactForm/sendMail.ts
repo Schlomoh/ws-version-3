@@ -1,11 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 
-type BoolSetState = Dispatch<SetStateAction<boolean>>;
-
 interface sendReqSetters {
-  sent: BoolSetState;
-  gotResponse: BoolSetState;
-  success: BoolSetState;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+  setIsSuccess: Dispatch<SetStateAction<boolean | null>>;
 }
 
 const sendMail = async (
@@ -20,22 +17,23 @@ const sendMail = async (
     message: message,
   };
 
-  setState.sent(true);
+  const { setLoading, setIsSuccess } = setState;
 
-  const response = await fetch("/api/mailer", {
-    method: "POST",
-    headers: { "Content-type": "application/json" },
-    body: JSON.stringify(reqObj),
-  });
+  setLoading(true);
 
-  response ? setState.gotResponse(true) : null;
-
-  let jsonRes = await response.json();
-  const okay = Object.keys(jsonRes).reduce((accu: any, item: string) => {
-    if (jsonRes[item].response.split(" ").includes("Ok:")) accu = true;
-    return accu;
-  }, false);
-  if (okay) setState.success(true);
+  try {
+    await fetch("/api/mailer", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(reqObj),
+    });
+    setIsSuccess(true);
+  } catch (e) {
+    console.error(e);
+    setIsSuccess(false);
+  } finally {
+    setLoading(false);
+  }
 };
 
 export default sendMail;

@@ -80,7 +80,7 @@ const Canvas = () => {
               <Lightformer
                 intensity={2}
                 form="rect"
-                scale={[2, 2, 5]}
+                scale={[2, 5, 5]}
                 position={[3, 0, -2]}
               />
             </Environment>

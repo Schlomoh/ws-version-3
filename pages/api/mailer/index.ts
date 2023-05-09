@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer";
 import type { NextApiRequest, NextApiResponse } from "next";
+import nodemailer from "nodemailer";
 
 import { emailHtml } from "./emailHtml";
 
@@ -11,18 +11,22 @@ interface MailArgs {
   html?: string;
 }
 
+const EMAIL_USER = process.env.EMAIL_USER,
+  EMAIL_PASSWORD = process.env.EMAIL_PASSWORD,
+  EMAIL_HOST = process.env.EMAIL_HOST,
+  EMAIL_PORT = process.env.EMAIL_PORT;
+
 const sendMail = async (mailObj: MailArgs) => {
   const transporter = nodemailer.createTransport({
-    host: "mail.lima-city.de",
-    port: 465,
+    host: EMAIL_HOST,
+    port: EMAIL_PORT,
     auth: {
-      user: "mail@moritzbecker.de",
-      pass: "t8AXsN4xsZZNTVEy",
+      user: EMAIL_USER,
+      pass: EMAIL_PASSWORD,
     },
-  });
+  } as any); // somehow throws error for the host key/value pair
 
   const info = await transporter.sendMail(mailObj);
-  console.log(info);
   return info;
 };
 
@@ -35,6 +39,7 @@ const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
     subject: `New message from ${name}`,
     text: message,
   };
+
   const myInfo = await sendMail(myMailObj);
 
   // mail for the contactee
@@ -46,6 +51,7 @@ const handleContact = async (req: NextApiRequest, res: NextApiResponse) => {
   };
   const info = await sendMail(mailObj);
   const resObj = { myInfo: myInfo, info: info };
+  console.log(resObj);
 
   res.status(200).json(JSON.stringify(resObj));
 };

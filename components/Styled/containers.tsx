@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties, ReactNode } from "react";
 import styled from "styled-components";
 
 interface CenterPageContainerProps {
@@ -25,7 +25,10 @@ interface GridElementProps {
   justify?: CSSProperties["justifyContent"];
   padding?: CSSProperties["padding"];
   width?: CSSProperties["width"];
-  mainElement?: boolean;
+  direction?: CSSProperties["flexDirection"];
+  gap?: CSSProperties["gap"];
+  centered?: boolean;
+  children?: ReactNode;
 }
 
 export const FlexCenterContainer = styled.div`
@@ -103,8 +106,8 @@ const BaseGridElement = styled.div<GridElementProps>`
   }
 
   @media screen and (min-width: 900px) {
-    ${(props) => props.mainElement && "width: 60vw;"};
-    ${(props) => props.mainElement && "min-width: 300px;"};
+    ${(props) => props.centered && "width: 60vw;"};
+    ${(props) => props.centered && "min-width: 300px;"};
   }
 
   .wrapper {
@@ -112,14 +115,12 @@ const BaseGridElement = styled.div<GridElementProps>`
     margin: 0 0.5rem;
     padding: ${(props) => props.padding || "initial"};
     display: inherit;
+    flex-direction: ${({ direction }) => direction || "initial"};
+    gap: ${({ gap }) => gap || "initial"};
   }
 `;
 
-export const GridElement = (
-  props: GridElementProps & {
-    children: JSX.Element | JSX.Element[];
-  }
-) => {
+export const GridElement = (props: GridElementProps) => {
   return (
     <BaseGridElement {...props}>
       <div className="wrapper">{props.children}</div>
