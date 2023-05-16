@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { FiGithub } from "react-icons/fi";
 
-import { theme } from "../";
 import { projectData } from "../../pages/projects";
 import { LinkSurface } from "../LinkSurface";
 

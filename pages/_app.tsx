@@ -1,5 +1,6 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
 
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Moritz Becker | Web development</title>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
+      <Analytics />
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <GlobalStyle theme={theme} />
